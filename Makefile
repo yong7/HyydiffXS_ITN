@@ -2,8 +2,8 @@
 
 # Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration
 #------------------------------------------------------------------------------
-# By default makes ANA-HIGG-2023-04-INT1.pdf using target run_pdflatex.
-# Replace ANA-HIGG-2023-04-INT1 with your main filename or add another target set.
+# By default makes ANA-HIGP-2024-02-INT1.pdf using target run_pdflatex.
+# Replace ANA-HIGP-2024-02-INT1 with your main filename or add another target set.
 # Replace BIBTEX = biber with BIBTEX = bibtex if you use bibtex instead of biber.
 # Adjust FIGSDIR for your figures directory tree.
 # Adjust the %.pdf dependencies according to your directory structure.
@@ -28,7 +28,7 @@ BIBTEX   = biber
 
 #-------------------------------------------------------------------------------
 # The main document filename
-BASENAME = ANA-HIGG-2023-04-INT1
+BASENAME = ANA-HIGP-2024-02-INT1
 
 #-------------------------------------------------------------------------------
 # Adjust this according to your top-level figures directory
@@ -40,7 +40,7 @@ FIGSDIR  = figs
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
 EPSTOPDFFILES = $(call rwildcard, $(FIGSDIR), *eps-converted-to.pdf)
 
-# Default target - make ANA-HIGG-2023-04-INT1.pdf with latexmk.
+# Default target - make ANA-HIGP-2024-02-INT1.pdf with latexmk.
 default: run_latexmk
 # Use pdflatex/biber instead to compile.
 # default: run_pdflatex
@@ -132,11 +132,11 @@ newauxmat:
 
 help:
 	@echo "To create a new paper/CONF Note/PUB Note draft give the command:"
-	@echo "make newpaper [BASENAME=ANA-HIGG-2023-04-INT1]"
+	@echo "make newpaper [BASENAME=ANA-HIGP-2024-02-INT1]"
 	@echo "To create a new ATLAS note draft give the command:"
-	@echo "make newnote [BASENAME=ANA-HIGG-2023-04-INT1]"
+	@echo "make newnote [BASENAME=ANA-HIGP-2024-02-INT1]"
 	@echo "To create a long document (book) like a TDR:"
-	@echo "make newbook [BASENAME=ANA-HIGG-2023-04-INT1]"
+	@echo "make newbook [BASENAME=ANA-HIGP-2024-02-INT1]"
 	@echo ""
 	@echo "To compile the paper give the command"
 	@echo "make"
@@ -147,19 +147,19 @@ help:
 	@echo "You can also adjust the 'default' target."
 	@echo ""
 	@echo "If atlaslatex is installed centrally, e.g. in ~/texmf:"
-	@echo "make newpapertexmf|newnotetexmf|newbooktemf [BASENAME=ANA-HIGG-2023-04-INT1]"
+	@echo "make newpapertexmf|newnotetexmf|newbooktemf [BASENAME=ANA-HIGP-2024-02-INT1]"
 	@echo ""
 	@echo "If you need a standalone draft cover give the commands:"
-	@echo "make draftcover [BASENAME=ANA-HIGG-2023-04-INT1]"
-	@echo "pdflatex ANA-HIGG-2023-04-INT1-draft-cover"
+	@echo "make draftcover [BASENAME=ANA-HIGP-2024-02-INT1]"
+	@echo "pdflatex ANA-HIGP-2024-02-INT1-draft-cover"
 	@echo ""
 	@echo "If you need a standalone preprint cover give the commands:"
-	@echo "make preprintcover [BASENAME=ANA-HIGG-2023-04-INT1]"
-	@echo "pdflatex ANA-HIGG-2023-04-INT1-preprint-cover"
+	@echo "make preprintcover [BASENAME=ANA-HIGP-2024-02-INT1]"
+	@echo "pdflatex ANA-HIGP-2024-02-INT1-preprint-cover"
 	@echo ""
 	@echo "If you need a document for HepData material give the commands:"
-	@echo "make newdata [BASENAME=ANA-HIGG-2023-04-INT1]"
-	@echo "pdflatex ANA-HIGG-2023-04-INT1-hepdata-main"
+	@echo "make newdata [BASENAME=ANA-HIGP-2024-02-INT1]"
+	@echo "pdflatex ANA-HIGP-2024-02-INT1-hepdata-main"
 	@echo ""
 	@echo "make clean    to clean auxiliary files (not output PDF)"
 	@echo "make cleanpdf to clean output PDF files"

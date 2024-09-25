@@ -1,4 +1,4 @@
-Project for ANA-HIGG-2023-04-INT1
+Project for ANA-HIGP-2024-02-INT1
 ====================
 
 This project has been automatically generated following the default setup for all document projects under the atlas-physics-office GitLab group including the Continuous Integration (CI) tools which will check the health of the document after each commit has been push to the project.
@@ -12,9 +12,9 @@ Please do not change the `yml` file unless you get an error message from the CI 
 If you have further questions or any concern you can send an e-mail to the e-group `atlas-phys-office-glance-gitlab`.
 
 ## Permissions
-All users in the ANA-HIGG-2023-04 have developer access to the repositories stored in it. This means that every the editors of this project have access to work without any limit in this project but cannot access the project configuration.
+All users in the ANA-HIGP-2024-02 have developer access to the repositories stored in it. This means that every the editors of this project have access to work without any limit in this project but cannot access the project configuration.
 
-The users under the group ANA-HIGG-2023-04 are managed via the editors e-group. If at any point anyone wants to have access to this project please include that user in the e-group and the automatic synchronization will take care of it. Keep in mind that this synchronization can take time.
+The users under the group ANA-HIGP-2024-02 are managed via the editors e-group. If at any point anyone wants to have access to this project please include that user in the e-group and the automatic synchronization will take care of it. Keep in mind that this synchronization can take time.
 
 ## Continuous integration
 
