@@ -6,9 +6,10 @@
 %
 % Note that this file can be overwritten when atlaslatex is updated.
 %
-% Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+% Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\ProvidesPackage{latex/atlaspackage}[2023/04/05 v14.2.1 ATLAS LaTeX packages]
+\providecommand*{\ATPackageUseVersion}{15}
+\ProvidesPackage{latex/atlaspackage}[2025/05/02 v15.11.1 ATLAS LaTeX packages]
 \NeedsTeXFormat{LaTeX2e}
 
 %-------------------------------------------------------------------------------
@@ -35,7 +36,7 @@
 \DeclareBoolOption[true]{bookmark}
 \DeclareBoolOption[true]{cleveref}
 \DeclareBoolOption[true]{capsref}
-\DeclareBoolOption[true]{abbrevref}
+\DeclareBoolOption[false]{abbrevref}
 % Packages included with full.
 \DeclareBoolOption[false]{mhchem}
 \DeclareBoolOption[false]{physics}
@@ -408,7 +409,6 @@
     \typeout{atlaspackage: passing maxbibnames option to biblatex}
     \PassOptionsToPackage{maxbibnames=\APKG@maxbibnames}{\ADOC@atlasbiblatex}
   }
-  % \ifthenelse{\APKG@texlive < 2016}{%
   \ifthenelse{\boolean{APKG@firstinits}}{%
     \RequirePackage[backend=\APKG@backend,
       style=numeric-comp, sorting=none, firstinits=true]{biblatex}

@@ -6,9 +6,9 @@
 %
 % Note that this file can be overwritten when atlaslatex is updated.
 %
-% Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+% Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\ProvidesPackage{latex/atlasphysics}[2023/04/05 v14.2.1 ATLAS physics macros]
+\ProvidesPackage{latex/atlasphysics}[2025/05/02 v15.11.1 ATLAS physics macros]
 \NeedsTeXFormat{LaTeX2e}
 
 %-------------------------------------------------------------------------------
@@ -40,6 +40,7 @@
 \DeclareBoolOption[true]{xref}
 \DeclareStringOption[0]{texlive}
 \DeclareBoolOption[false]{eVkern}
+\DeclareBoolOption[true]{numpmcorr}
 \DeclareBoolOption[true]{texmf}
 \ProcessKeyvalOptions*
 
@@ -73,6 +74,12 @@
   \PackageInfo{atlasphysics}{APHY@eVkern is true}
 }{%
   \PackageInfo{atlasphysics}{APHY@eVkern is false}
+}
+
+\ifthenelse{\boolean{APHY@numpmcorr}}{%
+  \PackageInfo{atlasphysics}{APHY@numpmcorr is true}
+}{%
+  \PackageInfo{atlasphysics}{APHY@numpmcorr is false}
 }
 
 % BSM particles including SUSY - also allow option bsm!

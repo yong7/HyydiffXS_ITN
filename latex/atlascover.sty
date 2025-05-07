@@ -7,10 +7,10 @@
 %
 % Note that this file can be overwritten when atlaslatex is updated.
 %
-% Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+% Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\providecommand*\ATPackageVersion{14.2.1}
-\ProvidesPackage{latex/atlascover}[2023/04/05 v14.2.1 ATLAS cover pages]
+\providecommand*\ATPackageVersion{15.11.1}
+\ProvidesPackage{latex/atlascover}[2025/05/02 v15.11.1 ATLAS cover pages]
 \NeedsTeXFormat{LaTeX2e}
 
 %\def\@getcl@ss#1.cls#2\relax{\def\@currentclass{#1}}
@@ -147,12 +147,13 @@
   % ArXiv
   \providecommand*{\AtlasArXivId}{}
   \providecommand*{\AtlasArXivURL}{}
-  \providecommand*{\arXivId}[1]{\renewcommand*{\AtlasArXivId}{#1}\renewcommand*{\AtlasArXivURL}{http://arXiv.org/abs/#1}}
+  \providecommand*{\arXivId}[1]{\renewcommand*{\AtlasArXivId}{#1}\renewcommand*{\AtlasArXivURL}{https://arXiv.org/abs/#1}}
   \providecommand*{\AtlasArXivCat}{[hep-ex]}
 
-  % HEP Data
-  \providecommand*{\AtlasHepDataRecord}{}
-  \providecommand*{\HepDataRecord}[1]{\renewcommand*{\AtlasHepDataRecord}{http://hepdata.cedar.ac.uk/view/ins#1}}
+  % HEPData - keep old macro \HepDataRecord for bacwards compatibility.
+  \providecommand*{\AtlasHEPDataRecord}{}
+  \providecommand*{\HepDataRecord}[1]{\renewcommand*{\AtlasHEPDataRecord}{https://www.hepdata.net/record/ins#1}}
+  \providecommand*{\HEPDataRecord}[1]{\renewcommand*{\AtlasHEPDataRecord}{https://www.hepdata.net/record/ins#1}}
 
   % Abstract text
   \providecommand{\AtlasAbstractText}{}
@@ -165,10 +166,10 @@
   \providecommand*{\ACOV@AnalysisTeam}{Analysis team}
   \providecommand{\AtlasCoverAnalysisTeam}[1]{\renewcommand*{\ACOV@AnalysisTeam}{#1}}
 
-  \providecommand*{\ACOV@EgroupEditors}{Editor egroup}
-  \providecommand{\AtlasCoverEgroupEditors}[1]{\renewcommand*{\ACOV@EgroupEditors}{#1}}
+  \providecommand*{\ACOV@EgroupAnalysisTeam}{Analysis team egroup}
+  \providecommand{\AtlasCoverEgroupAnalysisTeam}[1]{\renewcommand*{\ACOV@EgroupAnalysisTeam}{#1}}
 
-  \providecommand*{\ACOV@EgroupEdBoard}{EdBoard egroup}
+  \providecommand*{\ACOV@EgroupEdBoard}{EdBoard and conveners egroup}
   \providecommand{\AtlasCoverEgroupEdBoard}[1]{\renewcommand*{\ACOV@EgroupEdBoard}{#1}}
 
   % Multiple corresponding editors
@@ -375,7 +376,7 @@
       [{\sffamily\mdseries\fontshape{it}\fontsize{\ACOV@sizel}{\ACOV@spacel}\selectfont
       email:}
       \sffamily\mdseries\fontsize{\ACOV@sizel}{\ACOV@spacel}\selectfont
-      \ACOV@EgroupEditors]\par
+      \ACOV@EgroupAnalysisTeam]\par
     }
     \vspace*{1ex}
     {\sffamily\mdseries\fontsize{\ACOV@sizel}{\ACOV@spacel}\selectfont

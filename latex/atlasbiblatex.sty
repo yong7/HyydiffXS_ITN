@@ -7,13 +7,13 @@
 %
 % Note that this file can be overwritten when atlaslatex is updated.
 %
-% Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+% Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\ProvidesPackage{latex/atlasbiblatex}[2023/04/05 v14.2.1 ATLAS biblatex style]
+\ProvidesPackage{latex/atlasbiblatex}[2025/05/02 v15.11.1 ATLAS biblatex style]
 \NeedsTeXFormat{LaTeX2e}
 
 %-------------------------------------------------------------------------------
-% More advanced if syntax
+% More advanced if syntax.
 \RequirePackage{ifthen}
 % Process option. Use kvoptions package.
 \RequirePackage{kvoptions}
@@ -23,6 +23,7 @@
 }
 \DeclareStringOption[ragged]{block}
 \DeclareStringOption[5]{maxbibnames}
+\DeclareStringOption[1]{minbibnames}
 \DeclareBoolOption[true]{articletitle}
 \DeclareBoolOption[false]{titlequote}
 \DeclareBoolOption[false]{showdoi}
@@ -44,14 +45,15 @@
 }
 
 %-------------------------------------------------------------------------------
-% Only set things if biblatex is actually loaded
+% Only set things if biblatex is actually loaded.
 \@ifpackageloaded{biblatex}{%
   % Set block mode
   \typeout{atlasbiblatex: block set to \ABIB@block}
   \ExecuteBibliographyOptions{block=\ABIB@block}
 
-  % Set maxbibnames
-  \typeout{atlasbiblatex: maxbibnames set to \ABIB@maxbibnames}
+  % Set minbibnames and maxbibnames.
+  \typeout{atlasbiblatex: minbibnames set to \ABIB@minbibnames, and maxbibnames set to \ABIB@maxbibnames}
+  \ExecuteBibliographyOptions{minbibnames=\ABIB@minbibnames}
   \ExecuteBibliographyOptions{maxbibnames=\ABIB@maxbibnames}
 
   % backref=true adds page numbers of citations to bibliography
@@ -80,7 +82,6 @@
   }
 
   % date=year option works for TeX Live 2014 or so onwards
-  % \ifthenelse{\ABIB@texlive < 2014}{}{%
   \@ifpackagelater{biblatex}{2015/04/01}{%
     \typeout{atlasbiblatex: setting option date=year.}
     \ExecuteBibliographyOptions{date=year}
@@ -102,12 +103,14 @@
       \DeclareFieldFormat[report]{title}{\mkbibquote{#1}\isdot}
       \DeclareFieldFormat[thesis]{title}{\mkbibquote{#1}\isdot}
       \DeclareFieldFormat[misc]{title}{\mkbibquote{#1}\isdot}
+      \DeclareFieldFormat[software]{title}{\mkbibquote{#1}\isdot}
     }{%
       \DeclareFieldFormat[article]{title}{\textit{#1}\isdot}
       \DeclareFieldFormat[booklet]{title}{\textit{#1}\isdot}
       \DeclareFieldFormat[report]{title}{\textit{#1}\isdot}
       \DeclareFieldFormat[thesis]{title}{\textit{#1}\isdot}
       \DeclareFieldFormat[misc]{title}{\textit{#1}\isdot}
+      \DeclareFieldFormat[software]{title}{\textit{#1}\isdot}
     }
   }{%
     \AtEveryBibitem{
