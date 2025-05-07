@@ -1,6 +1,6 @@
 Project for ANA-HIGP-2024-02-INT1
 
-[Download link for latest pdf from master](https://gitlab.cern.ch/atlas-physics-office/HIGP/ANA-HIGP-2024-02/ANA-HIGP-2024-02-INT1/-/jobs/artifacts/master/raw/ANA-HIGP-2024-02-INT1.pdf?job=texlive-2023:pdf)
+[Download link for latest pdf from master](https://gitlab.cern.ch/atlas-physics-office/HIGP/ANA-HIGP-2024-02/ANA-HIGP-2024-02-INT1/-/jobs/artifacts/dev-asopio/raw/ANA-HIGP-2024-02-INT1.pdf?job=texlive-2023:pdf)
 
 ====================
 
