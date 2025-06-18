@@ -7,17 +7,18 @@
 % Note that this file can be overwritten when atlaslatex is updated.
 % If TeX Live 2014 is used and xpatch is needed, have to load mhchem first.
 %
-% Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+% Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\newcommand*{\ATPackageVersion}{14.2.1}
-\ProvidesClass{latex/atlasdoc}[2023/04/05 v14.2.1 ATLAS document class]
+\newcommand*{\ATPackageVersion}{15.11.1}
+\newcommand*{\ATPackageUseVersion}{15}
+\ProvidesClass{latex/atlasdoc}[2025/05/02 v15.11.1 ATLAS document class]
 % Needs 2013 TeX Live or later
 \NeedsTeXFormat{LaTeX2e}[2013/01/01]
 
 %-------------------------------------------------------------------------------
-% More advanced if syntax
+% More advanced if syntax.
 \RequirePackage{ifthen}
-% More advanced command definition
+% More advanced command definition.
 \RequirePackage{xparse}
 % Process options. Use kvoptions package.
 \RequirePackage{kvoptions}
@@ -40,7 +41,12 @@
 \DeclareBoolOption[false]{HEPDATA}
 \DeclareBoolOption[false]{LANGEDIT}
 \DeclareBoolOption[true]{LANGSHOW}
+% The following three options are passed to atlasdatapolicy.
+\DeclareBoolOption[true]{hepdatatext}
+\DeclareBoolOption[true]{hepdataexist}
+\DeclareBoolOption[true]{athenatext}
 \DeclareStringOption[0]{texlive}
+\DeclareStringOption[15]{version}
 \DeclareStringOption[a4]{paper}
 \DeclareStringOption[normal]{titlesize}
 \DeclareStringOption[\subsectiontocdepth]{tocdepth}
@@ -58,6 +64,8 @@
 \DeclareBoolOption[true]{atlaslogo}
 \DeclareBoolOption[true]{cernlogo}
 \DeclareBoolOption[true]{datetop}
+\DeclareBoolOption[false]{keywords}
+\DeclareBoolOption[false]{copyright}
 \DeclareBoolOption[false]{showframe}
 \DeclareBoolOption[false]{shownote}
 \DeclareBoolOption[false]{cmslogo}
@@ -103,12 +111,27 @@
     This option is no longer used and will be ignored%
   }%
 }
+\ifthenelse{\equal{\ADOC@version}{\ATPackageUseVersion}}{%
+  \ClassInfo{atlasdoc}{ATLAS LaTeX main version is default.}
+}{
+  \ClassWarningNoLine{atlasdoc}{%
+    ATLAS LaTeX main version changed from \ATPackageUseVersion\ to \ADOC@version\MessageBreak
+    You should do this only if absolutely necessary.}
+  \renewcommand*{\ATPackageUseVersion}{\ADOC@version}
+}
 
 % Type of document
 \newcommand*{\ADOC@docheadingdefault}{}
-% Add ability to change draft document heading
+\newcommand{\ADOC@copyrightdefault}{}
+% Add ability to change draft document heading.
 \newcommand*{\ADOC@docheading}{}
 \newcommand*{\AtlasHeading}[1]{\renewcommand*{\ADOC@docheading}{#1}}
+% Add ability to include keywords.
+\newcommand*{\ADOC@keywordstext}{}
+\newcommand*{\AtlasKeywords}[1]{\renewcommand*{\ADOC@keywordstext}{#1}}
+% Add ability to change the copyright.
+\newcommand{\ADOC@copyrighttext}{}
+\newcommand{\AtlasCopyright}[1]{\renewcommand{\ADOC@copyrighttext}{#1}}
 
 % Turn off backref in atlasbiblatex for CERN preprint
 % \newcommand*{\ADOC@atlasbiblatex}{atlasbiblatex}
@@ -116,7 +139,7 @@
 
 % CERN preprint
 \ifthenelse{\boolean{ADOC@cernpreprint}}{%
-  \typeout{atlasdoc: ATLAS CERN preprint}
+  \ClassInfo{atlasdoc}{ATLAS CERN preprint}
   \renewcommand*{\ADOC@docheadingdefault}{ATLAS Paper}
   \ADOC@PAPERtrue
   \ADOC@NOTEfalse
@@ -124,12 +147,12 @@
   \ADOC@PUBnotefalse
   \ADOC@BOOKfalse
   \ADOC@REPORTfalse
-  \typeout{atlasdoc: turning off backref for a CERN preprint}
+  \ClassInfo{atlasdoc}{Turning off backref for a CERN preprint}
   \PassOptionsToPackage{backref=false}{atlasbiblatex}
 }{%
   % ATLAS paper
   \ifthenelse{\boolean{ADOC@PAPER}}{%
-    \typeout{atlasdoc: ATLAS paper}
+    \ClassInfo{atlasdoc}{ATLAS paper}
     \renewcommand*{\ADOC@docheadingdefault}{ATLAS Paper}
     \ADOC@PAPERtrue
     \ADOC@NOTEfalse
@@ -140,7 +163,7 @@
   }{%
     % ATLAS CONF note
     \ifthenelse{\boolean{ADOC@CONF}}{%
-      \typeout{atlasdoc: ATLAS CONF note}
+      \ClassInfo{atlasdoc}{ATLAS CONF note}
       \renewcommand*{\ADOC@docheadingdefault}{ATLAS CONF Note}
       \ADOC@PAPERfalse
       \ADOC@NOTEfalse
@@ -151,7 +174,7 @@
     }{%
       % ATLAS PUB note
       \ifthenelse{\boolean{ADOC@PUB}}{%
-        \typeout{atlasdoc: ATLAS PUB note}
+        \ClassInfo{atlasdoc}{ATLAS PUB note}
         \renewcommand*{\ADOC@docheadingdefault}{ATLAS PUB Note}
         \ADOC@PAPERfalse
         \ADOC@NOTEfalse
@@ -162,7 +185,7 @@
       }{%
         % ATLAS TDR etc.
         \ifthenelse{\boolean{ADOC@BOOK}}{%
-          \typeout{atlasdoc: ATLAS BOOK}
+          \ClassInfo{atlasdoc}{ATLAS BOOK}
           \ADOC@PAPERfalse
           \ADOC@NOTEfalse
           \ADOC@CONFnotefalse
@@ -170,7 +193,7 @@
           \ADOC@BOOKtrue
           \ADOC@REPORTfalse
         }{%
-          \typeout{atlasdoc: ATLAS Note}
+          \ClassInfo{atlasdoc}{ATLAS Note}
           \renewcommand*{\ADOC@docheadingdefault}{ATLAS Note}
         }
       }
@@ -181,14 +204,14 @@
 % Decide on the main class.
 % Default class for ATLAS notes is scrreprt.
 \ifthenelse{\boolean{ADOC@BOOK}}{%
-  \typeout{atlasdoc: use KOMA-Script scrbook class}
+  \ClassInfo{atlasdoc}{Use KOMA-Script scrbook class.}
   \newcommand*{\ADOC@mainclass}{scrbook}
 }{%
   \ifthenelse{\boolean{ADOC@REPORT}}{%
-    \typeout{atlasdoc: use KOMA-Script scrreprt class}
+  \ClassInfo{atlasdoc}{Use KOMA-Script scrreprt class.}
     \newcommand*{\ADOC@mainclass}{scrreprt}
   }{%
-    \typeout{atlasdoc: use KOMA-Script scrartcl class}
+  \ClassInfo{atlasdoc}{Use KOMA-Script scrartcl class.}
     \newcommand*{\ADOC@mainclass}{scrartcl}
   }
 }
@@ -229,12 +252,30 @@
 %   \PassOptionsToPackage{shift=false,output=false}{\ADOC@atlastodo}
 % }
 
+% For ATLAS papers load atlasdatapolicy style file and pass options to it.
+% Code assumes that default value of the 3 options are true.
+\ifthenelse{\boolean{ADOC@PAPER}}{%
+  \ClassInfo{atlasdoc}{ATLAS paper: loading atlasdatapolicy}
+  \ifthenelse{\boolean{ADOC@hepdatatext}}{}{%
+    \PassOptionsToPackage{hepdatatext=false}{atlasdatapolicy}
+  }
+  \ifthenelse{\boolean{ADOC@hepdataexist}}{}{%
+    \PassOptionsToPackage{hepdataexist=false}{atlasdatapolicy}
+  }
+  \ifthenelse{\boolean{ADOC@athenatext}}{}{%
+    \PassOptionsToPackage{athenatext=false}{atlasdatapolicy}
+  }
+  \RequirePackage{atlasdatapolicy}
+}{%
+  \ClassInfo{atlasdoc}{atlasdatapolicy not loaded, as this is not a paper}
+}
+
 % For final version of PUB notes turn off the note number by default
 \ifthenelse{\boolean{ADOC@PUBnote}}{%
   \ifthenelse{\boolean{ADOC@atlasdraft} \OR \boolean{ADOC@shownote}}{%
     \ADOC@notenumbertrue
   }{%
-    \typeout{atlasdoc: turning off note number of final version of PUB note}
+    \ClassInfo{atlasdoc}{Turning off note number of final version of PUB note}
     \ADOC@notenumberfalse
   }
 }{%
@@ -302,12 +343,13 @@
 % arXiv
 \newcommand*{\AtlasArXivId}{}
 \newcommand*{\AtlasArXivURL}{}
-\newcommand*{\arXivId}[1]{\renewcommand*{\AtlasArXivId}{#1}\renewcommand*{\AtlasArXivURL}{http://arXiv.org/abs/#1}}
+\newcommand*{\arXivId}[1]{\renewcommand*{\AtlasArXivId}{#1}\renewcommand*{\AtlasArXivURL}{https://arXiv.org/abs/#1}}
 \newcommand*{\AtlasArXivCat}{[hep-ex]}
 
-% HEP Data
-\newcommand*{\AtlasHepDataRecord}{}
-\newcommand*{\HepDataRecord}[1]{\renewcommand*{\AtlasHepDataRecord}{http://hepdata.cedar.ac.uk/view/ins#1}}
+% HEPData - keep old macro \HepDataRecord for bacwards compatibility.
+\newcommand*{\AtlasHEPDataRecord}{}
+\newcommand*{\HepDataRecord}[1]{\renewcommand*{\AtlasHEPDataRecord}{https://www.hepdata.net/record/ins#1}}
+\newcommand*{\HEPDataRecord}[1]{\renewcommand*{\AtlasHEPDataRecord}{https://www.hepdata.net/record/ins#1}}
 
 % Submission details
 \newcommand*{\ADOC@subprepend}{Journal:}
@@ -326,10 +368,13 @@
 \newcommand*{\ACOV@AnalysisTeam}{Analysis team}
 \newcommand{\AtlasCoverAnalysisTeam}[1]{\renewcommand*{\ACOV@AnalysisTeam}{#1}}
 
-\newcommand*{\ACOV@EgroupEditors}{Editor egroup}
-\newcommand{\AtlasCoverEgroupEditors}[1]{\renewcommand*{\ACOV@EgroupEditors}{#1}}
+\newcommand*{\ACOV@EgroupAnalysisTeam}{Analysis team egroup}
+\newcommand{\AtlasCoverEgroupAnalysisTeam}[1]{\renewcommand*{\ACOV@EgroupAnalysisTeam}{#1}}
 
-\newcommand*{\ACOV@EgroupEdBoard}{EdBoard egroup}
+% Analysis team used as of 2024-04-11. Keep old macro for backwards compatibility.
+\newcommand{\AtlasCoverEgroupEditors}[1]{\renewcommand*{\ACOV@EgroupAnalysisTeam}{#1}}
+
+\newcommand*{\ACOV@EgroupEdBoard}{EdBoard and conveners egroup}
 \newcommand{\AtlasCoverEgroupEdBoard}[1]{\renewcommand*{\ACOV@EgroupEdBoard}{#1}}
 
 % Multiple corresponding editors
@@ -375,12 +420,11 @@
   }%
 }
 
-
 %-------------------------------------------------------------------------------
 % Invoke main class
 % Note that \KOMAoptions is not available in versions of KOMA-Script older than 3.0
 \LoadClass[titlepage, 11pt]{\ADOC@mainclass}
-\typeout{atlasdoc: paper size is \ADOC@paper}
+\ClassInfo{atlasdoc}{Paper size is \ADOC@paper.}
 \KOMAoptions{paper=\ADOC@paper}
 
 % Required packages
@@ -433,10 +477,9 @@
   % Keep default table of contents for BOOK and REPORT.
   % Remove dotted lines for other documents.
   \ifthenelse{\boolean{ADOC@REPORT} \OR \boolean{ADOC@BOOK}}{%
-    \typeout{atlasdoc: keep default table of contents style.}
+    \ClassInfo{atlasdoc}{Keep default table of contents style.}
   }{%
-    \typeout{atlasdoc: remove dots in table of contents style.}
-    % \ifthenelse{\ADOC@texlive < 2016}{%
+    \ClassInfo{atlasdoc}{Remove dots in table of contents style.}
     \@ifclasslater{\KOMAClassName}{2016/04/01}{%
       \DeclareTOCStyleEntry[beforeskip=0pt plus .2pt,linefill=\hfill]{tocline}{subsection}
       \DeclareTOCStyleEntry[beforeskip=0pt plus .2pt,linefill=\hfill]{tocline}{subsubsection}
@@ -446,7 +489,6 @@
     }
   }
   % Table of contents down to \ADOC@tocdepth which is 1 by default
-  % \ifthenelse{\ADOC@texlive < 2014}{%
   \@ifclasslater{\KOMAClassName}{2014/04/01}{%
     \setcounter{tocdepth}{\ADOC@tocdepth}
   }{%
@@ -611,7 +653,6 @@
 
 % Draft heading/footer code
 \newcommand{\ADOC@DraftHeading}{%
-  % \ifthenelse{\ADOC@texlive < 2015}{%
   \@ifclasslater{\KOMAClassName}{2015/04/01}{%
     \RequirePackage[headsepline]{scrlayer-scrpage}
   }{%
@@ -628,7 +669,6 @@
 
 % Include fancier header and footer for HepData material document
 \ifthenelse{\boolean{ADOC@HEPDATA}}{%
-  % \ifthenelse{\ADOC@texlive < 2015}{%
   \@ifclasslater{\KOMAClassName}{2015/04/01}{%
     \RequirePackage[headsepline]{scrlayer-scrpage}
   }{%
@@ -841,17 +881,29 @@
   % \parbox[b]{\titlepageparbox}{%
   {%
     \rmfamily\mdseries\fontsize{10}{12}\selectfont
+    \ifthenelse{\boolean{ADOC@keywords}}{%
+      Keywords: \ADOC@keywordstext\newline
+    }{%
+      \relax
+    }
     \ifthenelse{\boolean{ADOC@cmslogo}}{%
-      \copyright\ \the\year \ CERN for the benefit of the ATLAS and CMS Collaborations.\newline
-      Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+      \renewcommand{\ADOC@copyrightdefault}{\copyright\ \the\year \ CERN for the benefit of the ATLAS and CMS Collaborations.\newline
+        Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.}
     }{%
       \ifthenelse{\boolean{ADOC@atlaslogo}}{%
-        \copyright\ \the\year \ CERN for the benefit of the ATLAS Collaboration.\newline
-        Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+        \renewcommand{\ADOC@copyrightdefault}{\copyright\ \the\year \ CERN for the benefit of the ATLAS Collaboration.\newline
+          Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.}
       }{
-        \copyright\ \the\year \ CERN\newline
-        Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.
+        \renewcommand{\ADOC@copyrightdefault}{\copyright\ \the\year \ CERN\newline
+        Reproduction of this article or parts of it is allowed as specified in the CC-BY-4.0 license.}
       }
+    }
+    \ifthenelse{\boolean{ADOC@copyright}}{%
+      \typeout{atlasdoc: using special copyright: \ADOC@copyrighttext}
+      \copyright\ \ADOC@copyrighttext
+    }{%
+      \typeout{atlasdoc: using default copyright}
+      \ADOC@copyrightdefault
     }
   }
 }

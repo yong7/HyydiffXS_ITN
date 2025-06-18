@@ -1,7 +1,7 @@
 #! /bin/bash
 # Script to update atlaslatex version from the Git master.
 
-# Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+# Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 
 # Changes:
 # 2018-08-14 Ian Brock (ian.brock@cern.ch): BASENAME should be set correctly if Makefile is overwritten.
@@ -136,7 +136,7 @@ done
 for file in atlasdoc.cls atlaslatexpath.sty atlascover.sty \
     atlaspackage.sty atlasphysics.sty atlasbiblatex.sty \
     atlascontribute.sty atlascomment.sty atlastodo.sty \
-    atlasmisc.sty; do
+    atlasmisc.sty atlasdatapolicy.sty; do
     if [ -e latex/${file} ]; then
         echo "${file} is already in latex directory."
     else
@@ -148,6 +148,16 @@ done
 # Bibliography files
 for lfile in bib/*.bib; do
     afile=tmp-atlaslatex/bib/$(basename $lfile)
+    cf_files "${lfile}" "${afile}"
+done
+
+# Template files
+for lfile in template/atlas-detector.tex; do
+    afile=tmp-atlaslatex/template/$(basename $lfile)
+    cf_files "${lfile}" "${afile}"
+done
+for lfile in template/MC_snippets/*.tex template/MC_snippets/*.sty; do
+    afile=tmp-atlaslatex/template/MC_snippets/$(basename $lfile)
     cf_files "${lfile}" "${afile}"
 done
 
@@ -187,12 +197,12 @@ for lfile in Makefile; do
 done
 
 # Acknowledgements - if the directory exists
-if [ -d acknowledgements ]; then
-    for lfile in acknowledgements/*.tex acknowledgements/*.bib; do
-        afile=tmp-atlaslatex/acknowledgements/$(basename $lfile)
-        cf_files "${lfile}" "${afile}"
-    done
-fi
+# if [ -d acknowledgements ]; then
+#     for lfile in acknowledgements/*.tex acknowledgements/*.bib; do
+#         afile=tmp-atlaslatex/acknowledgements/$(basename $lfile)
+#         cf_files "${lfile}" "${afile}"
+#     done
+# fi
 
 # Remove temporary directory
 rm -rf tmp-atlaslatex

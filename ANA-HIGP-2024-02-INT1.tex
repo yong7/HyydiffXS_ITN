@@ -85,8 +85,6 @@
 
 \maketitle
 
-\tableofcontents
-
 % List of contributors - print here or after the Bibliography.
 % \PrintAtlasContribute{0.30}
 % \clearpage
@@ -94,16 +92,66 @@
 % List of to-do notes.
 % \listoftodos
 
+\section*{Changelog}
+
+\begin{itemize}
+    \item v0.1: First version of the document.
+    \begin{itemize}
+        \item Added list of contributions, publication timeline and to-dos to front matter.
+    \end{itemize}
+\end{itemize}
+
+\section*{List of contributions}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Author} & \textbf{Contribution}  \\
+        \hline
+        First Author & First contribution \\
+        Second Author & Second contribution \\
+        Third Author & Third contribution \\
+        Fourth Author & Fourth contribution \\
+        Fifth Author & Fifth contribution \\
+        \hline
+    \end{tabular}
+    \caption{List of contributions to the analysis.}
+    \label{tab:contributions}
+\end{table}
+
+\section*{Publication timeline}
+
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Date} & \textbf{Event}  \\
+        \hline
+        2025-08 & EB request \\
+        2025-11 & Higgs 2025 \\
+        \hline
+    \end{tabular}
+    \caption{Analysis timeline as of XX of XX 2025.}
+\end{table}
+
+\section*{To-do list}
+
+\begin{itemize}
+    \item Things to do go here.
+\end{itemize}
+
+\tableofcontents
+
 %-------------------------------------------------------------------------------
 \chapter{Introduction}
-\label{sec:intro}
+\label{ch:intro}
 %-------------------------------------------------------------------------------
-
-Place your introduction here.
-
+\include{sections/introduction.tex}
 %-------------------------------------------------------------------------------
 \chapter{Analysis}
-\label{sec:analysis}
+\label{ch:analysis}
 %-------------------------------------------------------------------------------
 
 You can find some text snippets that can be used in papers in \texttt{latex/atlassnippets.sty}.
@@ -111,7 +159,7 @@ To use them, provide the \texttt{snippets} option to \texttt{atlasphysics}.
 
 %-------------------------------------------------------------------------------
 \chapter{Results}
-\label{sec:result}
+\label{ch:result}
 %-------------------------------------------------------------------------------
 
 Place your results here.
@@ -122,7 +170,7 @@ Place your results here.
 
 %-------------------------------------------------------------------------------
 \chapter{Conclusion}
-\label{sec:conclusion}
+\label{ch:conclusion}
 %-------------------------------------------------------------------------------
 
 Place your conclusion here.

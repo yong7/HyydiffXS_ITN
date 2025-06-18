@@ -1,8 +1,8 @@
 # Changelog
 
-*Responsible:* Ian Brock (Ian.Brock@cern.ch)
+*Responsible:* Ian Brock [Ian.Brock@cern.ch](mailto:Ian.Brock@cern.ch)
 
-Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 
 All notable changes to the ATLAS LaTeX package are documented in this file.
 
@@ -11,6 +11,312 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Changes are sorted into the following categories:
 Added, Changed, Deprecated, Removed, Fixed, Security.
+
+---
+
+## [15.11.1] - 2025-05-02
+
+### Added
+
+- April update of publications.
+- Add detector description for Run 2 and 3 combined analyses.
+- New style file `atlasdatapolicy.sty` to handle data availability and Athena.
+
+### Changed
+
+- Update links in `README.md`.
+- `atlasdatapolicy.sty` added to `atlaslatex_update.sh`.
+
+### Deprecated
+
+- Do not use `documentclass` options to steer data policy.
+
+---
+
+## [15.10.0] - 2025-03-28
+
+### Added
+
+- March 2025 update of publications.
+- Fixes to `atlas-SUSY.bib` and `atlas-useful.bib`.
+- Add macros for data availability and Athena in papers.
+- Include update to Monte Carlo snippets.
+
+### Changed
+
+- Update link to HEPData record. Use `https` for arXiv.
+
+### Deprecated
+
+- Use `\HEPDataRecord` rather than `\HepDataRecord` for HEPData record number.
+
+### Removed
+
+- Citation `DAgostini:1995` removed from `ATLAS-useful.bib` as it is a duplicate of `DAgostini:1994fjx`.
+
+---
+
+## [15.9.0] - 2025-01-24
+
+### Added
+
+- January 2025 update of publications.
+- Fix a number of publication years and report numbers.
+- Add 2025 computing acknowledgements.
+
+### Changed
+
+- Clarify some of the trigger rate information in the detector template.
+
+---
+
+## [15.8.0] - 2025-01-14
+
+### Added
+
+- October to December 2024 update of publications.
+
+### Changed
+
+- Update copyright to 2025.
+- Equation macros in `atlasxref.sty` now include parentheses to follow ATLAS Style Guide.
+  The `cleveref` package includes parentheses by default.
+- Update link to Physics Office documentation in `README.md`.
+
+### Fixed
+
+- Fix syntax in `tex_dollars.py` to avoid complaints in recent Python versions.
+
+---
+
+## [15.7.0] - 2024-10-09
+
+### Added
+
+- September update of publications.
+
+### Changed
+
+- Add `\xspace` to topo-cluster definition.
+- Remove speed of light, `c`, in ATLAS coordinate system footnote.
+
+---
+
+## [15.6.1] - 2024-09-12
+
+### Added
+
+- August update of publications.
+- Add PYTHIA 8.3 reference.
+- Update trigger reference in detector template for Run 3.
+
+---
+
+## [15.5.0] - 2024-07-25
+
+### Added
+
+- June update of publications.
+
+### Changed
+
+- Titles of several TDRs fixed to match title page.
+
+---
+
+## [15.4.0] - 2024-06-25
+
+### Added
+
+- May update of publications.
+- `atlaslatex_update.sh` now also updates the detector description and the `MC_snippets`
+  directory in `template` so that they are kept up to date.
+- Add `*-SAVE-ERROR` to `.gitignore`, as these files seems to appear quite often
+for recent versions of `LaTeX`.
+
+### Changed
+
+- `abbrevref=false` set for `cleveref` to follow ATLAS Style Guide.
+
+---
+
+## [15.3.0] - 2024-04-24
+
+### Added
+
+- New reference for computing. Detector description updated with this.
+- Erratum added for Higgs Nature paper.
+
+### Changed
+
+- Updated detector description with new reference.
+
+---
+
+## [15.2.1] - 2024-04-15
+
+### Added
+
+- March update of publications.
+- Add a few more pointers and information on the numbers with errors macros.
+- Add `software` as a known publication type and format title like others.
+
+### Changed
+
+- New egroups. Change from editors to analysis team for cover. Change to EdBoard + conveners.
+- Replace `\AtlasCoverEgroupEditors` with `AtlasCoverEgroupAnalysisTeam`.
+- Reference checker ran over `ATLAS-useful.bib`.
+
+---
+
+## [15.1.0] - 2024-03-05
+
+### Changed
+
+- Capitalisation of quite a few ATLAS and CMS publications corrected.
+
+---
+
+## [15.0.0] - 2024-02-29
+
+Acknowledgements will be handled in the same way as the author list,
+so the `tex` file is no longer included in the template.
+
+### Added
+
+- Add option `version` to `atlasdoc` to allow specification of older version.
+- Add option `keywords` to `atlasdoc` to allow keywords on the title page.
+- Add option `copyright` to `atlasdoc` to change the default copyright on the title page.
+- Add commands `\AtlasKeywords` and `\AtlasCopyright` to set them.
+- Add extra macro for asymmetric errors: `\numpmerrt`.
+- Add extra macros for quantities with asymmetric errors `\qtyerrt`, `\qtypmerr`, `\qtypmerrt` etc.
+- Add option `minbibnames` to `atlasbiblatex` to specify the minimum number of
+  author names in the bibliography.
+
+### Changed
+
+- Some backwards incompatible changes to `\numR`, `\numRF`, `\numRP` and `numpmerr` macros.
+- The meaning of the optional arguments for `\numpmerrx` is changed.
+- Update pT for tracks for primary vertex to 0.5 GeV.
+
+### Deprecated
+
+- Only TeX Live 2017 and later are now tested, although things may still work for earlier versions.
+
+### Removed
+
+- Nominal acknowledgements files removed from ATLAS LaTeX.
+  They will be added to papers, together with the author list, by the Physics Office.
+- No check is made on the acknowledgements file when updating the template.
+- Macros `\numpmRF` and `\numpmRP` removed. Use `\numpmerr` instead.
+
+## [14.10.2] - 2024-01-24
+
+### Added
+
+- December 2023 update of publications.
+
+### Changed
+
+- Update ATLAS detector description in `template`.
+
+### Fixed
+
+- Some years in publications needed to be corrected again.
+
+### Removed
+
+- Run 1 detector description removed.
+
+---
+
+## [14.9.0] - 2023-12-19
+
+### Changed
+
+- Update acknowledgements.
+
+---
+
+## [14.8.0] - 2023-12-14
+
+### Added
+
+- November 2023 update of publications.
+
+### Changed
+
+- Year of journal entries fixed for almost 300 ATLAS and CMS publications.
+- Updated text about authors in metadata files.
+
+### Fixed
+
+- Text about `atlascontribute` in notes metadata file was a bit confusing.
+- Affiliation was sometimes not superscripted using authblk for multiple authors.
+
+---
+
+## [14.7.0] - 2023-10-31
+
+### Added
+
+- September-October 2023 update of publications.
+
+### Fixed
+
+- Fixed the arXiv category for a couple of references.
+
+---
+
+## [14.6.0] - 2023-09-13
+
+### Added
+
+- July-August 2023 update of publications.
+
+### Changed
+
+- Added `\xspace` to units in `atlasunit.sty`.
+
+ ---
+
+## [14.5.1] - 2023-09-07
+
+### Added
+
+- Add 2023 computing acknowledgements.
+
+---
+
+## [14.5.0] - 2023-07-18
+
+### Added
+
+- April-June update of publications.
+
+---
+
+## [14.4.0] - 2023-06-29
+
+### Added
+
+- March update of publications.
+
+---
+
+## [14.3.0] - 2023-06-10
+
+### Added
+
+- Add detector description for Run 3.
+
+### Changed
+
+- A few fixes to `atlas-useful.bib`.
+
+### Fixed
+
+- Add `/` back into PATH in `atlaslatexpath.sty` as things otherwise break in LaTeX 2023-05-15.
 
 ---
 
@@ -1609,7 +1915,7 @@ Hopefully this will be fixed in the next release.
 
 ---
 
-## [Unreleased] - 2023-01-XX
+## [Unreleased] - 2025-04-XX
 
 ### Added
 

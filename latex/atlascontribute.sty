@@ -7,9 +7,9 @@
 %
 % Note that this file can be overwritten when atlaslatex is updated.
 %
-% Copyright (C) 2002-2023 CERN for the benefit of the ATLAS collaboration.
+% Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\ProvidesPackage{latex/atlascontribute}[2023/04/05 v14.2.1 ATLAS analysis contributions]
+\ProvidesPackage{latex/atlascontribute}[2025/05/02 v15.11.1 ATLAS analysis contributions]
 \NeedsTeXFormat{LaTeX2e}
 
 %-------------------------------------------------------------------------------
@@ -56,10 +56,16 @@
 \ifthenelse{\boolean{ACTR@xtab}}{\RequirePackage{xtab}}{}
 
 % If multiple authors/affiliations are needed, use the authblk package
+% Put comma between insititues instead of new line.
+% Make sure superscripts for institutions work. See
+% https://tex.stackexchange.com/questions/667492/authblk-affiliation-not-shown-in-superscript-with-newtx
 \ifthenelse{\boolean{ACTR@authblk}}{%
   \RequirePackage{authblk}
   \renewcommand\Authands{, } % avoid ``. and'' for last author
   \renewcommand\Affilfont{\itshape\small} % affiliation formatting
+  \renewcommand\AB@affilsepx{, \protect\Affilfont}
+  \renewcommand\AB@authnote[1]{{\normalfont\textsuperscript{#1}}}
+  \renewcommand\AB@affilnote[1]{{\normalfont\textsuperscript{#1}}}
 }{}
 
 % Analysis contributors: Name, Contributions
