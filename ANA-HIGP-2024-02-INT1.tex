@@ -8,7 +8,7 @@
 \RequirePackage{latex/atlaslatexpath}
 % You can comment out the above line if the files are in a central location, e.g. $HOME/texmf.
 %-------------------------------------------------------------------------------
-\documentclass[NOTE, REPORT=true, atlasdraft=true, UKenglish]{atlasdoc}
+\documentclass[NOTE, REPORT=false, atlasdraft=true, UKenglish]{atlasdoc}
 % The language of the document must be set: usually UKenglish or USenglish.
 % british and american also work!
 % Commonly used options:
@@ -54,14 +54,18 @@
 % Set shift=false to avoid adjustment of margins.
 % Check for notes still left by commenting out the package in the final version of the note.
 \usepackage[output=true, shift=true]{atlastodo}
+\usepackage{comment} 
 
 % Files with references for use with biblatex.
 % Note that biber gives an error if it finds empty bib files.
-% \addbibresource{ANA-HIGP-2024-02-INT1.bib}
+\addbibresource{ANA-HIGP-2024-02-INT1.bib}
 \addbibresource{bib/ATLAS.bib}
 \addbibresource{bib/CMS.bib}
 \addbibresource{bib/ConfNotes.bib}
+\addbibresource{bib/ATLAS-useful.bib}
 \addbibresource{bib/PubNotes.bib}
+
+
 
 % Paths for figures - do not forget the / at the end of the directory name.
 \graphicspath{{logos/}{figures/}}
@@ -84,6 +88,8 @@
 \begin{document}
 
 \maketitle
+\PrintAtlasContribute{0.35}
+\clearpage
 
 % List of contributors - print here or after the Bibliography.
 % \PrintAtlasContribute{0.30}
@@ -96,25 +102,27 @@
 
 \include{sections/frontmatter.tex}
 
+\input{sections/Version.tex}
+
 \tableofcontents
 
 %-------------------------------------------------------------------------------
-\chapter{Introduction}
-\label{ch:intro}
 %-------------------------------------------------------------------------------
 \include{sections/introduction.tex}
-\include{sections/samples.tex}
+
+\include{sections/Samples.tex}
+
 %-------------------------------------------------------------------------------
-\chapter{Analysis}
-\label{ch:analysis}
+%\chapter{Analysis}
+%\label{ch:analysis}
 %-------------------------------------------------------------------------------
 
 You can find some text snippets that can be used in papers in \texttt{latex/atlassnippets.sty}.
 To use them, provide the \texttt{snippets} option to \texttt{atlasphysics}.
 
 %-------------------------------------------------------------------------------
-\chapter{Results}
-\label{ch:result}
+%\chapter{Results}
+%\label{ch:result}
 %-------------------------------------------------------------------------------
 
 Place your results here.
@@ -124,8 +132,8 @@ Place your results here.
 % \FloatBarrier
 
 %-------------------------------------------------------------------------------
-\chapter{Conclusion}
-\label{ch:conclusion}
+%\chapter{Conclusion}
+%\label{ch:conclusion}
 %-------------------------------------------------------------------------------
 
 Place your conclusion here.
@@ -147,12 +155,13 @@ Place your conclusion here.
 The supporting notes for the analysis should also contain a list of contributors.
 This information should usually be included in \texttt{mydocument-metadata.tex}.
 The list should be printed either here or before the Table of Contents.
-\PrintAtlasContribute{0.30}
+%\PrintAtlasContribute{0.30}
 
 %-------------------------------------------------------------------------------
 \clearpage
 \appendix
 \part*{Appendices}
+\include{appendices/DAODs}
 \addcontentsline{toc}{part}{Appendices}
 %-------------------------------------------------------------------------------
 
