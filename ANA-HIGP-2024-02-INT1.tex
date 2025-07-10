@@ -100,35 +100,32 @@
 
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
+% You can find some text snippets that can be used in papers in \texttt{latex/atlassnippets.sty}.
+% To use them, provide the \texttt{snippets} option to \texttt{atlasphysics}.
+
+
 \include{sections/introduction.tex}
-
 \include{sections/Samples.tex}
+\include{sections/EventSelections.tex}
+\include{sections/SignalBackgroundModelling.tex}
+\include{sections/SignalYields.tex}
+\include{sections/BackgroundEstimation.tex}
 
-%-------------------------------------------------------------------------------
-%\chapter{Analysis}
-%\label{ch:analysis}
-%-------------------------------------------------------------------------------
+\section{Uncertainties}
+\label{sec:uncertainties}
+\include{sections/Systematics.tex}
+\include{sections/TheoryModelling.tex}
 
-You can find some text snippets that can be used in papers in \texttt{latex/atlassnippets.sty}.
-To use them, provide the \texttt{snippets} option to \texttt{atlasphysics}.
+\include{sections/Unfolding.tex}
 
-%-------------------------------------------------------------------------------
-%\chapter{Results}
-%\label{ch:result}
-%-------------------------------------------------------------------------------
+\include{sections/AsimovResults.tex}
+\include{sections/DataResults.tex} %After unblinding
 
-Place your results here.
+\include{sections/Conclusion.tex}
 
 % All figures and tables should appear before the summary and conclusion.
 % The package placeins provides the macro \FloatBarrier to achieve this.
 % \FloatBarrier
-
-%-------------------------------------------------------------------------------
-%\chapter{Conclusion}
-%\label{ch:conclusion}
-%-------------------------------------------------------------------------------
-
-Place your conclusion here.
 
 %-------------------------------------------------------------------------------
 % If you use biblatex and either biber or bibtex to process the bibliography
@@ -154,6 +151,10 @@ The list should be printed either here or before the Table of Contents.
 \appendix
 \part*{Appendices}
 \include{appendices/DAODs}
+
+% These studies go into the appendix for now, if they are mature by the time of publication they can be moved to the main text.
+\include{appendices/ProductCut}
+
 \addcontentsline{toc}{part}{Appendices}
 %-------------------------------------------------------------------------------
 
