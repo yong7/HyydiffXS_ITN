@@ -1,2 +1,92 @@
 \section{Expected Results (Asimov Dataset)}
 \label{sec:asimovresults}
+
+Using the Asimov dataset described in Section \ref{ssec:asimov} expected cross-sections and their uncertainties are
+extracted. This provides:
+\begin{enumerate}
+\item Checks of the signal yield extraction; do the cross-sections match the injected SM predictions?
+\item Means to investigate systematic uncertainties. In particular, as the uncertainties experience no pulls and constraints in Asimov dataset fits, 
+any unexpected trends should be traced to their source.  
+\end{enumerate}
+The results are shown for each of Bin-by-bin Corrections in Section \ref{ssec:asimovresults_bin_by_bin} (available now) and for
+Matrix-Inversion Unfolding in Section \ref{ssec:asimovresults_mi} (to be filled once available).
+
+\subsection{Expected Results Using Bin-by-bin Corrections}
+\label{ssec:asimovresults_bin_by_bin}
+
+Figures \ref{fig:plot_bin_by_bin_AsimovSB_1}--\ref{fig:plot_bin_by_bin_AsimovSB_diff_3} provide checks of 
+point 1) \textit{do the cross-sections match the injected SM predictions?} Specifically, the cross-sections should match the SM prediction times 
+the relevant correction factor, as described in Section \ref{ssec:asimov}. The cross-sections in all figures are shown without 
+the \hgg{} branching ratio.  
+
+Figures \ref{fig:plot_bin_by_bin_AsimovSB_1} and \ref{fig:plot_bin_by_bin_AsimovSB_2} show the results for the inclusive selections, 
+matching the injected values of XXX. The bottom panels of the figures show the ratio of the injected and extracted cross-sections,
+which is in all cases equal to 1, as expected. 
+
+Figures \ref{fig:plot_bin_by_bin_AsimovSB_diff_1}--\ref{fig:plot_bin_by_bin_AsimovSB_diff_3} 
+show the results for the differential distributions, where the bottom panels likewise confirm that the extracted cross-sections 
+match the injected ones. 
+
+The figures also show the expected uncertainty, as a total (statistics+systematics) and statistics-only uncertainties. 
+For the inclusive selections total $\sim$ statistics-only. 
+For the differential distributions, the statistics uncertainty 
+has been designed to XXX (ref to Ana's binning section).
+
+\begin{figure}[htb!]
+  \begin{center}
+ \includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/constant/plot_Diphoton_constant.png} 
+ \includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/VBF/constant/plot_VBF_constant.png}
+  \end{center}
+  \caption{Expected cross-sections from bin-by-bin unfolding, for the inclusive Diphoton (left) and VBF (right) selections. The 
+  SM predictions are shown in a full line, and the expected result as filled circles. The error bars are shown 
+for each of the total (statistics+systematics) and statistics-only uncertainties.}
+  \label{fig:plot_bin_by_bin_AsimovSB_1}
+\end{figure}
+
+\begin{figure}[htb!]
+  \begin{center}
+ \includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/MET/constant/plot_MET_constant.png} 
+ \includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Lepton/constant/plot_Lepton_constant.png}
+  \includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/ttH/constant/plot_ttH_constant.png}
+  \end{center}
+  \caption{Same as Figure~\ref{fig:plot_bin_by_bin_AsimovSB_1} but for MET (left) and Lepton (middle) and ttH (right) selections.}
+  \label{fig:plot_bin_by_bin_AsimovSB_2}
+\end{figure}
+
+
+\begin{figure}[htb!]
+  \begin{center}
+ \includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/pT_yy/plot_Diphoton_pT_yy.png} 
+\includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/yAbs_yy/plot_Diphoton_yAbs_yy.png}
+  \end{center}
+  \caption{Expected cross-sections from bin-by-bin unfolding for the inclusive Diphoton selection and the \ptgg{} and \ygg{} distributions.
+   The 
+  SM predictions are shown in a full line, and the expected result as filled circles. The error bars are shown 
+for each of the total (statistics+systematics) and statistics-only uncertainties.
+  }
+  \label{fig:plot_bin_by_bin_AsimovSB_diff_1}
+\end{figure}
+
+\begin{figure}[htb!]
+  \begin{center}
+ \includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/m_jj_30/plot_Diphoton_m_jj_30.png}
+\includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/Dphi_j_j_30_signed/plot_Diphoton_Dphi_j_j_30_signed.png}
+\includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/pT_j1_30/plot_Diphoton_pT_j1_30.png}
+  \end{center}
+  \caption{Same as Figure~\ref{fig:plot_bin_by_bin_AsimovSB_diff_1} but for the \dphijj{}, \mjj{} and \ptj{} distributions.}
+  \label{fig:plot_bin_by_bin_AsimovSB_diff_2}
+\end{figure}
+
+\begin{figure}[htb!]
+  \begin{center}
+ \includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/N_j_30/plot_Diphoton_N_j_30.png}
+\includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/N_lep_15/plot_Diphoton_N_lep_15.png}
+\includegraphics[width=0.32\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/N_j_btag30/plot_Diphoton_N_j_btag30.png}
+  \end{center}
+  \caption{Same as Figure~\ref{fig:plot_bin_by_bin_AsimovSB_diff_1} but for the  \Njets{}, \Nlept{} and \Nbjets{}
+   distributions.}
+  \label{fig:plot_bin_by_bin_AsimovSB_diff_3}
+\end{figure}
+
+\subsection{Expected Results Using Matrix-Inversion Unfolding}
+\label{ssec:asimovresults_mi}
