@@ -56,7 +56,7 @@ has been designed to XXX (ref to Ana's binning section).
 \begin{figure}[htb!]
   \begin{center}
  \includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/pT_yy/plot_Diphoton_pT_yy.png} 
-\includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/yAbs_yy/plot_Diphoton_yAbs_yy.png}
+\includegraphics[width=0.4\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/m_jj_30/plot_Diphoton_m_jj_30.png}
   \end{center}
   \caption{Expected cross-sections from bin-by-bin unfolding for the inclusive Diphoton selection and the \ptgg{} and \ygg{} distributions.
    The 
@@ -138,6 +138,25 @@ with respect to the total systematics uncertainty. The right axis shows the rela
   \caption{Same as Figure~\ref{fig:fraction_sys_errorgroup_bin_by_bin_bin_by_bin_AsimovSB_diff_1} but for the  \Njets{}, \Nlept{} and \Nbjets{}
    distributions.}
   \label{fig:fraction_sys_errorgroup_bin_by_bin_bin_by_bin_AsimovSB_diff_3}
+\end{figure}
+
+Finally, for the differential distributions, the correlations between the bins of the extracted cross-sections can be checked. 
+The bin-by-bin corrections used in this section neglects the migration between the bins, 
+and therefore the results are only expected to be close to more sophisticated unfolding methods, 
+such as the matrix inversion unfolding described in Section \ref{ssec:asimovresults_mi}, 
+for observables with roughly diagonal correlation 
+matrices, such as \ptgg{} and \ygg{}. For observables with non-diagonal correlation matrices, such as jet-related observables, 
+the extracted correlations are instead not representative of what's expected from the matrix inversion unfolding.
+Due to these caveats, the correlations are only shown for two representative distributions in Figures \ref{fig:correlation_bin_by_bin_AsimovSB_diff_1}: 
+\ygg{} with rouhgly diagonal correlation matrix and Njets with non-diagonal correlation matrix. 
+
+\begin{figure}[htb!]
+  \begin{center}
+ \includegraphics[width=0.45\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/yAbs_yy/correlation_Diphoton_yAbs_yy_full.png}
+ \includegraphics[width=0.45\textwidth]{figures/results_wonky_format/bin_by_bin/AsimovSB/Diphoton/N_j_30/correlation_Diphoton_N_j_30_full.png}
+  \end{center}
+  \caption{Correlations between the bins of the extracted cross-sections for the \ptgg{} (left) and Njets (right) distributions.}
+  \label{fig:correlation_bin_by_bin_AsimovSB_diff_1}
 \end{figure}
 
 \subsection{Expected Results Using Matrix-Inversion Unfolding}
