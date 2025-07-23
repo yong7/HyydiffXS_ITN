@@ -21,7 +21,7 @@
 
 %-------------------------------------------------------------------------------
 % Extra packages:
-\usepackage{atlaspackage}
+\usepackage[subcaption]{atlaspackage}
 % Commonly used options:
 %  backend=bibtex        Use the bibtex backend rather than biber.
 %  subfigure|subfig|subcaption  to use one of these packages for figures in figures.
@@ -56,6 +56,9 @@
 \usepackage[output=true, shift=true]{atlastodo}
 \usepackage{comment} 
 
+%TODO notes, author notes deinitions
+\ATLnote{AS}{Alex}{cyan!20}{cyan}
+
 % Files with references for use with biblatex.
 % Note that biber gives an error if it finds empty bib files.
 \addbibresource{ANA-HIGP-2024-02-INT1.bib}
@@ -64,7 +67,6 @@
 \addbibresource{bib/ConfNotes.bib}
 \addbibresource{bib/ATLAS-useful.bib}
 \addbibresource{bib/PubNotes.bib}
-
 
 
 % Paths for figures - do not forget the / at the end of the directory name.

@@ -1,0 +1,9 @@
+===== h030 ======
+Event 32400000 / 59029882 processed.
+This event: y1_isTight = 0, y2_isTight = 0, isEMloose (LoosePrime3) = 10877953, loose1 = 1, loose2 = 1
+Tally: y1_isTight = 1219227, y2_isTight = 1917325, isEMloose (LoosePrime3) = 32400001, loose1 = 31614832, loose2 = 30910056
+
+===== h032 ======
+Event 32400000 / 51921756 processed.
+This event: y1_isTight = 0, y2_isTight = 0, isEMloose (LoosePrime3) = 10877953, loose1 = 1, loose2 = 1
+Tally: y1_isTight = 1317437, y2_isTight = 2203392, isEMloose (LoosePrime3) = 32400001, loose1 = 31519008, loose2 = 30630352

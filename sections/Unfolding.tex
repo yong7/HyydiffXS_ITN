@@ -1,2 +1,217 @@
 \section{Unfolding}
 \label{sec:unfolding}
+
+The fiducial differential cross-sections are corrected for detector effects using unfolding. The unfolding technique applied to obtain the nominal result is the matrix inversion method [or the bin-by-bin method], as was also used in the Run 2 measurement \cite{HIGG-2019-13} (described in detail in the corresponding INT note \cite{HIGG-2019-13-INT1}). 
+
+Closure and effect of the unfolding procedure on systematic uncertainties are tested using the Asimov dataset. These studies are presented in Section \ref{subsec:unfoldasimov}.
+
+The following description of the unfolding procedure is taken from Ref \cite{HIGG-2019-13-INT1} with some minor edits for clarification.
+
+The unfolding procedure accounts for the following effects:
+\begin{itemize}
+\item \textbf{resolution}: migration between bins at the detector and particle level;
+
+\item \textbf{efficiency}: particle-level photons failing the detector level selection;
+
+\item \textbf{fakes}: detector-level photons that do not have a particle level counterpart, either due to misreconstruction or migrations out of the fiducial volume. Dalitz events are also considered fakes.
+\end{itemize}
+
+The signal cross-sections are extracted directly through the \mgg\ fit to the data.
+The signal yields $\nu_i$ multiplying the signal \mgg\ PDF (in addition to the spurious
+signal term), instead of themselves being the parameters of interest of the fit, are expressed in the likelihood function in terms of the cross-sections times BR, which are  then the parameters of interest of the fit. The parameterization is the following:
+\begin{itemize}
+\item in the bin-by-bin method:
+  \begin{equation}
+    \nu_i = \frac{C_i\sigma_i B_{\gamma\gamma} \cdot \mathcal{L}_\text{int}}{c_i^\textrm{Dalitz,OOF}};
+  \end{equation}
+\item in the response-matrix method:
+  \begin{equation}
+    \nu_i = \sum_{j}\frac{R_{ij} \sigma_j B_{\gamma\gamma} \cdot \mathcal{L}_\text{int}}{c_i^\textrm{Dalitz,OOF}}.
+  \end{equation}
+\end{itemize}
+Here:
+\begin{itemize}
+\item $\mathcal{L}_\text{int}$ is the integrated luminosity,
+\item $\sigma_i B_{\gamma\gamma}$ is the fiducial cross-section in bin $i$ times the Higgs boson branching ratio to diphotons,
+\item $c_i^\textrm{Dalitz,OOF}$ is a correction factor determined from the simulation to subtract out-of-fiducial (OOF) and Dalitz events:
+\begin{equation}
+   c_i^\textrm{Dalitz,OOF} = \frac{n^\textrm{det}_i - n^\textrm{det,OOF}_i - n^\textrm{det,Dalitz}_i}{n^\textrm{det}_i},
+\end{equation}
+    {\em i.e.} the fitted signal yields $\nu_i$ are related to the yields $\nu_i^\textrm{sig}$
+    of events within the fiducial volume by    
+\begin{equation}
+   \nu_i = \frac{\nu_i^\textrm{sig}}{c_i^\textrm{Dalitz,OOF}};
+\end{equation}
+\item 
+$C_i$ is a correction factor determined as the ratio between the number of
+fiducial events expected to pass the detector level criteria ($n_i^\text{det,fid}$)
+and the number expected to pass the corresponding particle level criteria
+($n_i^\text{ptcl}$):
+\begin{equation}
+  C_i = \frac{n_i^\text{det,fid}}{n_i^\text{ptcl}}
+  \label{E. Correction factor}
+\end{equation}
+This takes into account both the efficiency of the selection and any
+extrapolation between the detector and particle level phase space regions
+considered.
+\item
+$R_{ij}$ is the response matrix that relates the number of
+signal events reconstructed in a certain bin $j$ at detector level to the
+number of events belonging to a certain bin $i$ at particle level:
+$n_i^\text{det} = R_{ij}n_j^\text{ptcl}$.
+Again, this includes both the efficiency of the selection and any
+extrapolation between the detector and particle level phase space regions
+considered.
+\end{itemize}
+
+The response matrices are obtained from the migration matrices (or yield
+matrices) that tabulate in two dimensions the number of events in a given
+bin $i$ of the particle level variable under study and in a given bin $j$
+of the corresponding detector level quantity. 
+% More details on the splitting of the response matrix into an efficiency term and a migration term are given in Appendix~\ref{App. response matrices details}, together with the plot of the corrections for fake candidates.
+
+The migration matrices for the variables under study are shown in
+\ASnote[Figures]{Add response matrices}. Dalitz events are excluded at both particle and detector level. The migration matrices, as well as the response matrices and correction factors
+derived from them, are obtained by rescaling the matrices for each production mode
+using the Standard Model cross-section, $\sigma_{s}^\text{SM}$ of each production
+mode and the total initial weights generated, $N_{s}$.
+For instance, the final correction factor applied to the data is
+\begin{equation}
+  C_i = \frac{\sum_s\sigma_s^\text{SM}\frac{n_{i,s}^\text{det,fid}}{N_{s}}}{\sum_s\sigma_s^\text{SM}\frac{n_{i,s}^\text{ptcl}}{N_{s}}}
+\label{E. Correction factor combined}
+\end{equation}
+where $s\in\text{ggF},\text{VBF}, W^-H, W^+H, qq\to ZH, gg\to ZH, ttH, bbH, tWH, tHjb$.
+
+% ---- Text from Run 2 measuremnt INT note ----
+% The measured, detector-level, signal yields are corrected for detector effects
+% through an unfolding procedure that accounts for:
+% \begin{itemize}
+% \item resolution, leading to migration between bins of detector-level and
+%   particle-level quantities;
+% \item efficiencies, leading to a certain number of particle-level candidates
+%   failing the detector-level selection;
+% \item fakes, leading to a certain number of particle-level candidates that
+%   do not belong to the fiducial volume but pass the detector-level selection.
+%   The latter also corrects for Dalitz events.
+% \end{itemize}
+
+% Various unfolding procedures have been studied in past iterations of the
+% analysis, with two methods being retained in the end:
+% the bin-by-bin correction-factor, due to its small total uncertainties
+% and limited bias, and the inversion of the response matrix (without
+% regularisation) chosen as an alternative approach, which is unbiased but
+% leads to larger statistical uncertainties in each bin (though they are
+% correlated among bins and thus the total uncertainty is similar to the
+% that of the bin-by-bin approach).
+
+% The latest ATLAS $H\to 4\ell$ fiducial differential cross section measurement
+% with the full Run2 data uses the matrix inversion approach as the baseline
+% method, and for future combinations in a statistical code with that analysis
+% (after extrapolating to the full volume) or with CMS we choose to present our
+% results with both unfolding methods.
+% To avoid the need of a regularisation procedure in the matrix inversion
+% approach, the response matrix -- which gives the proability for an event,
+% with true ({\em i.e.} particle-level) value of the variable under study
+% in a certain bin $i$, to have a reconstructed (detector-level) value of
+% the variable under study in a certain bin $j$ -- has to be well conditioned.
+% This means that its \textbf{condition number}, defined as the ratio of the
+% maximum and minimum singular values of the matrix, should be close to 1,
+% leading to a low sensitivity to statistical fluctuations of the input.
+
+% For this analysis, for consistency with the latest $H\to 4\ell$ publication, we
+% decided to use the same unfolding approach, {\em i.e.} the one based on the
+% response matrix. The bin-by-bin method was also used for comparison and
+% as a backup option and is also described in the following, but the results
+% that are shown in the following sections were obtained with the response matrix
+% method.
+
+
+% The signal cross sections are extracted directly through the \mgg fit to the data.
+% The signal yields $\nu_i$ multiplying the signal \mgg pdf (in addition to the spurious
+% signal term), instead of being the parameters of interest of the fit, are expressed
+% in the likelihood function in terms of the cross sections times BR, which are then
+% the parameters of interest of the fit. The parametrisation is the following:
+% \begin{itemize}
+% \item in the bin-by-bin method:
+%   \begin{equation}
+%     \nu_i = \frac{C_i\sigma_i B_{\gamma\gamma} \cdot \mathcal{L}_\text{int}}{c_i^\textrm{Dalitz,OOF}}
+%   \end{equation}
+% \item in the response-matrix method:
+%   \begin{equation}
+%     \nu_i = \sum_{j}\frac{R_{ij} \sigma_j B_{\gamma\gamma} \cdot \mathcal{L}_\text{int}}{c_i^\textrm{Dalitz,OOF}}
+%   \end{equation}
+% \end{itemize}
+% Here:
+% \begin{itemize}
+% \item $\mathcal{L}_\text{int}$ is the integrated luminosity
+% \item $\sigma_i B_{\gamma\gamma}$ is the fiducial cross-section in bin $i$ times the Higgs boson
+%   branching ratio to diphotons.
+% \item $c_i^\textrm{Dalitz,OOF}$ is a correction factor determined
+%   from the simulation to subtract out-of-fiducial (OOF) and Dalitz
+%   events:
+% \begin{equation}
+%    c_i^\textrm{Dalitz,OOF} = \frac{n^\textrm{det}_i - n^\textrm{det,OOF}_i - n^\textrm{det,Dalitz}_i}{n^\textrm{det}_i},
+% \end{equation}
+%     {\em i.e.} the fitted signal yields $\nu_i$ are related to the yields $\nu_i^\textrm{sig}$
+%     of events within the fiducial volume by    
+% \begin{equation}
+%    \nu_i = \frac{\nu_i^\textrm{sig}}{c_i^\textrm{Dalitz,OOF}};
+% \end{equation}
+% \item 
+% $C_i$ is a correction factor determined as the ratio between the number of
+% fiducial events expected to pass the detector level criteria ($n_i^\text{det,fid}$)
+% and the number expected to pass the corresponding particle level criteria
+% ($n_i^\text{ptcl}$):
+% \begin{equation}
+%   C_i = \frac{n_i^\text{det,fid}}{n_i^\text{ptcl}}
+%   \label{E. Correction factor}
+% \end{equation}
+% This takes into account both the efficiency of the selection and any
+% extrapolation between the detector and particle level phase space regions
+% considered.
+% \item
+% $R_{ij}$ is the response matrix that relates the number of
+% signal events reconstructed in a certain bin $j$ at detector level to the
+% number of events belonging to a certain bin $i$ at particle level:
+% $n_i^\text{det} = R_{ij}n_j^\text{ptcl}$.
+% Again, this includes both the efficiency of the selection and any
+% extrapolation between the detector and particle level phase space regions
+% considered.
+% \end{itemize}
+
+% The response matrices are obtained from the migration matrices (or yield
+% matrices) that tabulate in two dimensions the number of events in a given
+% bin $i$ of the particle-level variable under study and in a given bin $j$
+% of the corresponding detector-level quantity. More details on the splitting
+% of the response matrix into an efficiency term and a migration term are given
+% in Appendix~\ref{App. response matrices details}, together with the plot of the corrections for fake candidates.
+
+% The migration matrices for the variables under study are shown in
+% Figures~\ref{fig:migration_matrices_inclusive_volumes}--\ref{fig:migration_matrices_VBF}.
+% Dalitz events are excluded both at particle and detector level.
+% The migration matrices and the response matrices and correction factors
+% derived from them are obtained by rescaling the matrices for each production mode
+% using the Standard Model cross section, $\sigma_{s}^\text{SM}$ of each production
+% mode and the total initial weights generated, $N_{s}$.
+% For instance, the final correction factor applied to the data is
+% \begin{equation}
+%   C_i = \frac{\sum_s\sigma_s^\text{SM}\frac{n_{i,s}^\text{det,fid}}{N_{s}}}{\sum_s\sigma_s^\text{SM}\frac{n_{i,s}^\text{ptcl}}{N_{s}}}
+% \label{E. Correction factor combined}
+% \end{equation}
+% where $s\in\text{ggF},\text{VBF}, W^-H, W^+H, qq\to ZH, gg\to ZH, ttH, bbH, tWH, tHjb$.
+
+% The response matrices are shown in Figures~\ref{fig:response_matrices_inclusive_volumes}--\ref{fig:response_matrices_VBF}.
+% It should be noted that for the measurements in the inclusive fiducial regions (e.g. VBF) the
+% response matrices also contain rows and columns for events outside that region (at particle or detector
+% level) but are in the diphoton fiducial volume (or pass the diphoton inclusive selection) -- they will
+% be called ``anti-VBF'', ``anti-ttH'' and so on in the following.
+% In our fits we  measure simultaneously the event yield (or cross section) of events in the VBF
+% and anti-VBF fiducial regions, where the latter provides a large sample of events that can help
+% constraining the photon energy scale and resolution uncertainties in the fit.
+
+% The condition numbers are summarised in Table~\ref{tab:unfolding_response_matrices_condition_numbers}.
+
+
+\subsection{Asimov dataset results}
+\label{subsec:unfoldasimov}
+\ASinote{Add unfolded results for the Run 3 Asimov dataset (Quratulain, Alex)}
