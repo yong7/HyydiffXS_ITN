@@ -1,3 +1,26 @@
-% Shorthand definitions
-\newcommand{\mgg}{$m_{\gamma\gamma}$}
+% H->yy specific 
+\def\hgg{\ensuremath{H\rightarrow{\gamma\gamma}}\xspace}
+\def\mgg{\ensuremath{m_{\gamma\gamma}}\xspace}
+%differential variables from Run2 INT 
+\def\ptgg{\ensuremath{p_{\text{T}}^{\gamma\gamma}}\xspace}
+\def\ygg{\ensuremath{|y_{\gamma\gamma}|}\xspace}
+\def\mjj{\ensuremath{m_{jj}}\xspace}
+\def\dphijj{\ensuremath{\Delta\phi_{jj}}\xspace}
+\newcommand{\ptj}[1][1]{\ensuremath{p_{\text{T}}^{j_{#1}}}\xspace}
+\makeatletter
+\DeclareRobustCommand\Njets{\@ifnextchar[{\@@Njets}{\@Njets}}
+\def\@@Njets[#1]{\ensuremath{N_{\text{jets}}^{\geq {#1}\GeV}}\xspace}
+\def\@Njets{\ensuremath{N_{\text{jets}}}\xspace}
+\makeatother
+\makeatletter
+\DeclareRobustCommand\Nbjets{\@ifnextchar[{\@@Nbjets}{\@Nbjets}}
+\def\@@Nbjets[#1]{\ensuremath{N_{\text{b-jets}}^{\geq {#1}\GeV}}\xspace}
+\def\@Nbjets{\ensuremath{N_{\text{b-jets}}}\xspace}
+\makeatother
+\def\Nlept{\ensuremath{N_{\text{lept}}}\xspace}
+% fit description 
+\newcommand{\nsig}{\ensuremath{N^{\text{sig}}}\xspace}
+\newcommand{\nbkg}{\ensuremath{N^{\text{bkg}}}\xspace}
+\newcommand{\nsigbkg}{\ensuremath{N^{\text{sig+bkg}}}\xspace}
+% background decomposition
 \newcommand{\twoxtwod}{2$\times$2D}
