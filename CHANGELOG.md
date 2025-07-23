@@ -14,11 +14,35 @@ Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ---
 
-## [15.11.1] - 2025-05-02
+## [15.12.0] - 2025-06-26
+
+### Added
+
+- June update of publications.
+- Add `xltab` option for `atlascontribute` package, as `xtab` seems to not work properly with TeX Live 2025.
+
+### Changed
+
+- Use `xltabular` package for `atlasphysics` documentation.
+
+### Deprecated
+
+- Only TeX Live 2018 and later are now tested, although things may still work for earlier versions.
+- `orcidlink.sty` moved to `obsolete` directory, as it is not used.
+- Use of traditional BibTeX further deprecated and style files removed.
+
+### Removed
+
+- Old files in `obsolete` directory removed.
+
+---
+
+## [15.11.2] - 2025-05-13
 
 ### Added
 
 - April update of publications.
+- Fix the years of a  number of publications.
 - Add detector description for Run 2 and 3 combined analyses.
 - New style file `atlasdatapolicy.sty` to handle data availability and Athena.
 
