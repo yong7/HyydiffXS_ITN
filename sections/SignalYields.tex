@@ -1,8 +1,8 @@
 \section{Signal Yield Extraction}
 \label{sec:signalyieldextraction}
-
-The fits to extract the signal yields follow the methodology of Ref.~\cite{HIGG-2019-13}. For each distribution under study, 
-the signal yields are extracted from a fit of a S+B PDF to the \mgg{} distribution. An example of such fit for the inclusive diphoton fiducial 
+ 
+The methodology to extract the signal yields follow the methodology of Ref.~\cite{HIGG-2019-13}. 
+For each distribution under study, the signal yields are extracted from a fit of a S+B PDF to the \mgg{} distribution. An example of such fit for the inclusive diphoton fiducial 
 cross-section  is shown in Figure~\ref{fig:myy_fits_bin_by_bin_AsimovSB_Diphoton_constant}. The yields are extracted with {\ttfamily RooFit},
 using {\ttfamily xmlAnaWorkspaceBuilder} and {\ttfamily quickFit} wrappers to build and fit the workspaces.
 
@@ -44,6 +44,7 @@ For the background, the functional form is determined by the spurions signal tes
 %as well as for the Higgs boson mass $m_H$ uncertainty. For the resolution uncertainties we use a Gaussian pdf together with an asymmetric response function: RooStats::HistFactory::FlexibileInterpVar, with upper variation as (central value) + (upper uncertainty) and
 %lower variation as 1/(1+(lower uncertainty)/(central value)). Interpolation code 4 is used to make sure the transtion at NP=0 is smooth.
 
+
 \subsection{Signal Yields in the Asimov Dataset}
 \label{ssec:asimov}
 
@@ -69,6 +70,7 @@ or slight pulls or constraints on the nuisance parameters, with negligible impac
 
 \subsubsection{Residuals of the Fit to the Asimov Dataset}
 \label{ssec:residuals}  
+
 The residuals of the fit to the Asimov data are shown in Figures~\ref{fig:myy_fits_bin_by_bin_AsimovSB_constant_residuals_1}, 
 Figures~\ref{fig:myy_fits_bin_by_bin_AsimovSB_constant_residuals_2} for the MET, VBF, Lepton and ttH selections. In all cases 
 the expectation that the residuals are small is confirmed across the \mgg{} range. 
