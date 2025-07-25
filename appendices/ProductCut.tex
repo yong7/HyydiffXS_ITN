@@ -1,2 +1,60 @@
 \section{Product Cut Studies}
 \label{app:productcut}
+Higgs boson production (through gluon-gluon fusion) has been calculated at $N^3LO$~\cite{Anastasiou:2015vya,Anastasiou:2016cez}, both inclusively 
+and as differentially~\cite{Dulat:2018bfe,Chen:2021isd,Billis:2021ecs}. The results show a good convergence of the perturbative QCD series, with a 
+corresponding decrease of the theoretical uncertainty. However, if comparisons are 
+made to fiducial measurements in the diphoton final state, with asymmetric cuts on the transverse momenta of the photons, the predictions show a deterioration 
+in the convergence of the predictions and significantly larger scale uncertainties~\cite{Salam:2021tbm}.In addition, the calculation becomes sensitive to very low Higgs 
+boson transverse momenta. This can be traced to a significant restriction of the Born phase space for the two photon final state due to the typical form of the
+cuts applied to the photon transverse energies, typically quoted as $E^{\gamma 1}_{T} \ge 0.35\, m_{Higgs}, E^{\gamma 2}_{T} \ge 0.25\, m_{Higgs}$. Such a cut was 
+initially adopted before the mass of the Higgs boson was known, and thus was meant to be more general (and to insure that the two photons would satisfy the
+trigger cuts).
+
+The use of a cut such as defined above leads to larger corrections, and larger uncertainties, for the bulk of the fiducial region (for Born level kinematics),
+and a diverging perturbative series. It has been shown that stable perturbative predictions can be restored if the form of the photon transverse energy
+cuts is replaced by a product cut: $\sqrt{E^{\gamma 1}_{T} E^{\gamma 2}_{T}}\, \ge f_1\, m_{Higgs}$ and $E^{\gamma 2}_{T}\, \ge \,f_2\, m_{Higgs}$, 
+where $f_1$ and
+$f_{2}$ are two parameters that need to be determined for the experimental analysis. The goal was to obtain optimal values for $f_1$ and $f_2$ by 
+
+\begin{itemize}
+    \item Scan the values of $f_1$ and $f_2$ in the range from 0 to 1. 
+    \item Compute the signal efficiency and purity for each of the scanned points. 
+    \item Select the product cut value that maximizes the purity and efficiency. 
+\end{itemize}
+
+The efficiency and purity for the product cut are defined as:
+\vspace{2mm}
+
+Efficiency(product cut) $=\, \frac{\int (ggH\,signal\,after\,applying\,set\,cuts\,+\,product\,cut)}{\int (ggH\,signal\,after\,applying\,set\,cuts)} $
+\vspace{2mm}
+
+Purity(product cut) $=\, \frac{\int (ggH\,signal\,after\,applying\,set\,cuts\,+\,product\,cut)}{\int (bkg\,after\,applying\,set\,cuts\,+\,product\,cut)} $
+
+\vspace{2mm}
+
+where the set cuts are defined as:
+
+\begin{itemize}
+    \item isPassedPreselection
+    \item pass\_trigger
+    \item isPassedTriggerMatch
+    \item isPassedIsolation
+    \item isPassedMassCut
+\end{itemize}
+
+The background sample used was mc21a.aMCPy8Eg\_aa\_FxFx\_myy\_90\_175. 
+
+
+If an optimal point(s) can be found, and if there is no negative impact of using a product cut in the ATLAS analysis, then we will switch to the product cut. 
+If such an optimal point(s) can not be obtained (at least equivalent for purity and efficiency), or some other serious difficulty arises,  then the analysis 
+would stay with the conventional cuts, and we would live with the decreased theoretical accuracy. 
+ 
+\begin{figure}
+\centering
+\includegraphics[width=0.75\linewidth]{optimal_product_cut.pdf}
+\caption{This will be replaced by a better quality figure. \label{fig:optimal-product}}
+\end{figure}
+
+The relative efficiency and purity for the product cut scan is shown in Fig.~\ref{fig:optimal-product}, comparing the product cut for various values of 
+$f_1$ and $f_2$, compared to the traditional relative $E_T$ cut. The optimal $f_1$ and $f_2$ values have been chosen as (0.32,0.25), which result in an 
+efficiency and purity very close to those provided by the traditional cut. 
