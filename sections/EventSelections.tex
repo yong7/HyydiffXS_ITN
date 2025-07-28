@@ -1,12 +1,175 @@
 \section{Object Definitions and Event Selections}
+
+In this section, we provide a summary of the different object definitions and event selections. %More details are given in the common performance note~\cite{Nomidis:2718255} and in the STXS/coupling note~\cite{Berger:2764716}.
+
 \subsection{Object Defintions}
 \label{sec:objectdefinitions}
+
+\subsubsection{Photon Reconstruction and pre-selections}
+\label{sssec:photon_preselection}
+Photons are reconstructed using dynamic, variable-size energy clusters in the EM calorimeter~\cite{ATL-PHYS-PUB-2017-022}. Converted photons are reconstructed from clusters associated to inner detector track(s) matched with a conversion vertex.  Photon candidates with associated super-clusters affected by dead front-end boards in the first or second sampling or by the presence high-voltage trips affecting the three samplings or that includes a masked cell in the core are considered as bad-quality photons and not considered in the analysis. Additionally, if any of the eight central strips is masked the photon candidate is not considered.
+Loose photons are defined from the list of photon candidates if they satisfy the Loose identification criteria, based on shower shapes variables defined with cells of the middle and back portions of the LAr accordion calorimeter. We pre-select loose photons requiring $\pT>\SI{25}{\GeV}$ and $|\eta_{S2}|<2.37$\footnote{$\eta_{S2}$ is the $\eta$ position of the calorimetric cluster in the second sampling of the EM calorimeter.}, vetoing the transition region between $1.37 < |\eta_{S2}| < 1.52$. The \pT used for the kinematic cuts and the invariant mass computation takes into account the correction of the $\eta$ from the diphoton primary vertex position.
+
+Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\textcolor{red}{XXX add references}. These corrections are tagged with the model~\textcolor{red}{XXX add calibration scheme}. Unless otherwise specified, the results reported in this document are obtain with this model. 
+The~\textcolor{red}{XXX add syst scheme} systematics scheme which contains 70 variations for the scale and 9 for the resolution is used in this analysis.
+
+In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{ssec:event_selection}}.
+
+During the event selection, events are required to have at least two loose photons, and the two loose photons with the highest \pT define the Higgs candidate.
+
+\paragraph{Diphoton vertex}
+\textcolor{red}{XXX modify to include the recent NN modifs}
+A Neural Network (NN) is used in order to identify the correct diphoton vertex among the primary vertices reconstructed in ATLAS. The vertex with the highest score for this NN is chosen to be the primary vertex in this analysis. The NN combines information from the longitudinal segmentation of the calorimeter (“pointing”) for these two photons, the $\Delta\phi$ between the tracks of the vertices under consideration and the diphoton system, the scalar sums of tracks \pT and \pTsq. Two NN are trained, one for unconverted photons pairs and one for pairs with at least one converted photon. The neural network performs better than the usual hardest vertex requirement in identifying the truth vertex within \SI{0.3}{\milli\meter}, in particular for processes with a small number of tracks in the final state, like \ggH. 
+%A comparison study of the vertex selection efficiencies for various production modes was performed in the context of the \Hyy STXS/couplings analysis~\cite{Berger:2764716}: it has been shown that the efficiency of the \ggH production modes increases from 54\% to 65\% when the NN vertex is used in place of the usual hardest one as shown in \Fig{\ref{fig:myy_vertex_resolution}}.
+
+Once the diphoton vertex has been chosen, all the objects kinematic is recomputed and all the cuts reported in below sections are related to this diphoton vertex. The more correct choice of the primary vertex improves the \myy diphoton mass resolution by 8\% inclusively, as can be observed in \Fig{\ref{fig:myy_vertex_resolution}}. The improvement is driven by the ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
+%\begin{figure}[tbp]
+%	\centering
+%    \includegraphics[width=0.49\linewidth]{selection/PV_mode}    
+%	\includegraphics[width=0.49\linewidth]{selection/vtx_resolution}
+%	\caption{(Left) NN vertex identification efficiencies compared to hardest vertex ones for the different Higgs production modes. The criteria of identification is $|z_{truth} - z_{vtx}| < \SI{0.3}{\milli\meter}$. (Right) Diphoton invariant mass distributions for the events that pass the full analysis selection described in \Sect{\ref{ssec:event_selection}} when the selected primary vertex is the nominal ATLAS vertex (``Hardest") compared to the diphoton Neural Network one.}
+%	\label{fig:myy_vertex_resolution}
+%\end{figure}
+
+
+\subsubsection{Electron, muon, jet and \MET selections}
+\textcolor{red}{XXX Update references}
+The reconstruction and selection of these objects is common to other SM \Hyy analyses and it is described in great details in the common performance note \cite{Nomidis:2718255} and in the STXS/coupling note \cite{Berger:2764716}. These objects are not used for the nominal categorization selection. However additional information on these objects have been used when studying alternative categorization reported in  \App{\ref{app:categ_studies}}.
+
+\subsubsection{Overlap removal between objects}
+In order to avoid any possible double counting between objects an overlap removal is applied following HGam strategy, starting from the selected photons. This strategy follows the recommendations on analysis harmonization detailed in~\cite{Adams:1700874}. In this approach, the two leading photons are always kept. Electrons and muons in a cone of $\Delta R=0.4$ around any of the photons are discarded. Jets which are closer than $\Delta R=0.2$ ($\Delta R=0.4$) of an electron (photon) are not considered. Also electrons at a distance $\Delta R<0.4$ from the remaining jets are removed . Additionally, muons with a distance smaller than $\Delta R=0.4$ to a jet are rejected. 
+
+\subsubsection{Summary of Combined Performance recommendations used by the analysis}
+In this section a summary of the recommendations from Combined Performance groups used in the analysis is provided. These exactly match the recommendation used in the recent STXS/coupling analysis \cite{Berger:2764716} a part for the photons which have the updated final EGamma scale calibrations. \\
+
+\textcolor{red}{XXX update Luis}
+
+\textbf{Photons}
+\begin{itemize}
+	\item ESModel: \path{es2022_R21_Precision}
+	\item Shower shape fudge factors: \path{ElectronPhotonShowerShapeFudgeTool/}\\ \path{v2/PhotonFudgeFactors.root}
+	\item ID: Tight (for signal region);  \path{ElectronPhotonSelectorTools/offline/20180825/}\\ \path{PhotonIsEMTightSelectorCutDefs.conf}
+	\item ID scale factors: \path{PhotonEfficiencyCorrection/2015_2018/rel21.2/Summer2020_Rec_v1/map3.txt}
+	\item Isolation working point: \path{FixedCutLoose}
+	\item Ambiguity Tool: \path{AuthorPhoton} and \path{AuthorAmbiguous} retained
+	\item Photon cleaning: \path{DFCommonPhotonsCleaning}
+	\item Photon quality: removed \path{BADCLUSPHOTON} and \path{deadHVTool}    
+\end{itemize}
+
+\textbf{Electrons, Muons, Jets, B-Jet}: same recommendations as the one reported in the STXS/coupling analysis, therefore please refer to~\cite{Berger:2764716} (only need for the categorization studies reported in \App{\ref{app:categ_studies}}).
+
+\subsubsection{Corrections to MC samples}
+\label{sssec:corrections_MC}
+
+In order to improve the data/MC agreement some corrections are applied to the MC samples:
+
+\begin{itemize}
+
+\item Shifts are applied to the photon shower shape variables and to the photon calorimeter isolation~\cite{PERF-2017-02,EGAM-2018-01}.
+  Such shifts are determined by the EGamma group as the average data-MC difference in photon-enriched control samples.
+\item Shifts are applied to the isolation energy of photons (called ``data-driven shifts'') in order to correct a consistent discrepancy between data and MC on the peak position of the isolation energy distribution. This is applied before computing the scale factors.
+\item Identification  and isolation efficiency scale factors for photons~\cite{PERF-2017-02,EGAM-2018-01}. Energy resolution corrections for all
+  simulated photons are also taken into account~\cite{EGAM-2018-01,PERF-2017-03}, while energy scale correction are applied to data.
+\end{itemize}
+
+
+
+
 % - define the various physics objects reconstructed in the analysis in line withe the latest CP recommendations
-% - define overlap removal
-% - define truth-level objects used in MC
 
 
-\subsection{Event Selections}
+\subsection{Event and Object Selections}
 \label{sec:eventselections}
-% - define the basic event selection 
+% - define the basic event and object selection 
 % - define the fiducial sub-region
+% -- define truth-level objects used in MC
+
+The full event selection consists of a few extra requirements on the
+two leading-\pT\ photons after the preselection applied during the MxAOD
+production is performed.
+The final selection resembles closely, at detector level, the fiducial
+selection applied at particle level, with the exception of the
+photon identification requirements.
+
+We summarise here the full event selection, after the criteria applied
+at preselection level and described also in Section~\ref{S. Data and MC Samples}.
+We just remind the reader that all particles' (photons, leptons, jets) energy or momentum scales are calibrated.
+In the simulation, energy or momentum resolutions are smeared to match the data.
+Scale factors applied to the simulation account for data/MC differences in efficiencies
+of the selection algorithms for the various particle hypotheses.
+
+The event selection is the following:
+\begin{itemize}
+\item The two photon candidates with highest transverse momentum have
+  to be matched to the photon trigger objects of the trigger used for this analysis
+  ({\em i.e.} the unprescaled diphoton trigger is a 2-part trigger, it had a minimum L1 level energy threshold of 20 GeV, and with HLT level asymmetric \pT\ thresholds
+  of 35 and 25~GeV).
+  These two photon candidates are the ones selected to reconstruct the Higgs boson candidate
+\item The two selected photons should pass tight identification requirements.
+  Photons with absolute pseudorapidity above 2.37 or in the transition region between
+  the barrel and endcap sections of the LAr calorimeter ($1.37<|\eta|<1.52$), where
+  the transverse segmentation of the first layer of the accordion calorimeter is
+  coarse and does not allow prompt photon/$\pi^0$ discrimination, are discarded by this selection.
+\item The two selected photons are required to pass the ``FixedCutLoose'' isolation requirements:
+  the total transverse isolation energy in the calorimeter $\ET^\mathrm{iso}$ in a cone of radius 0.2 around
+  the photon direction must be less than 6.5\% of the photon \pT, and the
+  scalar sum of the \pT\ of the tracks from the diphoton primary vertex in a cone of radius 0.2
+  around the photon candidate must be less than 5\% of the photon \pT.
+\item The leading and subleading photons are required to have $\pT/m_{\gamma\gamma}$ larger than
+  0.35 and 0.25, respectively. This long-standing selection is revisted in order to provide a more theory-friendly approach in Appendix~\ref{app:productcut}.
+\item The diphoton invariant mass must be in the range $105 < m_{\gamma\gamma} < 160$~GeV.
+\end{itemize}
+
+The selection is based on Run 3 pre-recommendations.
+In particular, pre-recommendations for photons (including efficiency, isolation and trigger scale factors, as well as calibrations) are considered.
+
+\textcolor{red}{XXX update Luis}
+The number of events selected in the full Run~3 data is~\textcolor{red}{XXX}. The cutflow for events in data is given in Table~~\textcolor{red}{XXX}.
+%The number of data in the signal region scaled by 1 fb$^{-1}$ is shown in Fig~\ref{fig:cutflow}. We didn't observe obvious problem in the yields of data. 
+
+\section{Object selection and fiducial region definition at particle level}
+\label{sec:fiducial}
+In order to minimise the model dependence introduced by the extrapolation
+from the phase space region selected by the kinematic and isolation criteria of
+the selection as well as by the detector acceptance to the phase space region
+in which the cross sections are measured, fiducial measurements are performed
+in a phase space volume which is as close as possible to that selected by the
+detector-level criteria. The following particle-level selection criteria are
+applied.
+
+\subsection{Selections}
+
+Only stable final state particles are considered at particle level.
+These are identified by requiring ${\texttt{status}=1}$ and
+${\texttt{barcode} < 200,000}$, where the latter requirement
+ensures that particles were not created by the GEANT simulation.
+The four-momentum sum of these particles has a mass of \SI{13.6}{\TeV} by construction.
+The type of each particle is represented by its PdgId.
+
+\vspace{0.4cm}
+
+\textbf{Photons} ~\hspace{0.2cm}~ From the TruthPhotons container,
+  they are identified by requiring PdgId = 22.
+  Must not be produced during hadronisation.
+  This means that their parent should not have $|\text{PdgId}| \geq 111$.
+  If the parent has $|\text{PdgId}| = 15$, corresponding to
+  an intermediate $\tau$, or the same PdgId as the photon itself,
+  corresponding to a final state radiative emission, then the
+  PdgId of the grandparent is checked, and so on.
+
+
+\vspace{0.4cm}
+
+\textbf{Kinematic photon preselection} ~\hspace{0.2cm}~ Kinematic selections of $\pT > \SI{25}{\GeV}$ and $|\eta|<1.37$ or $1.52<|\eta|<2.37$ are applied to the selected photons.
+
+\vspace{0.4cm}
+\textbf{Diphoton system} ~\hspace{0.2cm}~ The two photons with the highest \pT are defined as the Higgs candidate system.
+These photons are selected after the kinematic photon cuts have been applied.
+
+\vspace{0.4cm}
+\textbf{Isolated photons} ~\hspace{0.2cm}~ As in previous Higgs to diphoton cross section measurements, a particle level photon isolation is applied in order to reduce the model dependence of the isolation requirements.
+The motivation for using particle level isolation and the method for choosing the cut is discussed further in Appendix~\textcolor{red}{placeholder for Pablo's studies}. 
+The isolation energy, $E^\text{iso}_\text{T}$ of a particle-level photon is calculated as the transverse energy, \ET of the four-vector sum of all charged particles which have $\pt>~\SI{1}{GeV}$ within a cone of $\Delta R = 0.2$ around the photon. The event is discarded if at least one of the two selected photons fails the requirement $E^\text{iso}_\text{T} <  0.05\pt$.\textcolor{red}{Update with final numbers} 
+%\colorbox{yellow}{To be re-checked for Run 3.}
+
+
