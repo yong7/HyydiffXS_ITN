@@ -10,8 +10,9 @@ In this section, we provide a summary of the different object definitions and ev
 Photons are reconstructed using dynamic, variable-size energy clusters in the EM calorimeter~\cite{ATL-PHYS-PUB-2017-022}. Converted photons are reconstructed from clusters associated to inner detector track(s) matched with a conversion vertex.  Photon candidates with associated super-clusters affected by dead front-end boards in the first or second sampling or by the presence high-voltage trips affecting the three samplings or that includes a masked cell in the core are considered as bad-quality photons and not considered in the analysis. Additionally, if any of the eight central strips is masked the photon candidate is not considered.
 Loose photons are defined from the list of photon candidates if they satisfy the Loose identification criteria, based on shower shapes variables defined with cells of the middle and back portions of the LAr accordion calorimeter. We pre-select loose photons requiring $\pT>\SI{25}{\GeV}$ and $|\eta_{S2}|<2.37$\footnote{$\eta_{S2}$ is the $\eta$ position of the calorimetric cluster in the second sampling of the EM calorimeter.}, vetoing the transition region between $1.37 < |\eta_{S2}| < 1.52$. The \pT used for the kinematic cuts and the invariant mass computation takes into account the correction of the $\eta$ from the diphoton primary vertex position.
 
-Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\textcolor{red}{XXX add references}. These corrections are tagged with the model~\textcolor{red}{XXX add calibration scheme}. Unless otherwise specified, the results reported in this document are obtain with this model. 
-The~\textcolor{red}{XXX add syst scheme} systematics scheme which contains 70 variations for the scale and 9 for the resolution is used in this analysis.
+Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\textcolor{red}{XXX add references}. These corrections are tagged with the model~\texttt{es2022\_R22\_PRE}. Unless otherwise specified, the results reported in this document are obtain with this model. 
+The~\texttt{1NP\_v1} systematics scheme is used which contains two energy scale related uncertainties and one resolution uncertainty.
+%which contains 70 variations for the scale and 9 for the resolution is used in this analysis.
 
 In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{ssec:event_selection}}.
 
@@ -34,29 +35,30 @@ Once the diphoton vertex has been chosen, all the objects kinematic is recompute
 
 \subsubsection{Electron, muon, jet and \MET selections}
 \textcolor{red}{XXX Update references}
-The reconstruction and selection of these objects is common to other SM \Hyy analyses and it is described in great details in the common performance note \cite{Nomidis:2718255} and in the STXS/coupling note \cite{Berger:2764716}. These objects are not used for the nominal categorization selection. However additional information on these objects have been used when studying alternative categorization reported in  \App{\ref{app:categ_studies}}.
+The reconstruction and selection of these objects is common to other SM \Hyy analyses and it is described in great details in the common performance note \cite{Nomidis:2718255} and in the STXS/coupling note \cite{Berger:2764716}.\textcolor{red}{XXX old Run 2 references, update} 
+These objects are not used for the nominal categorization selection. 
 
 \subsubsection{Overlap removal between objects}
 In order to avoid any possible double counting between objects an overlap removal is applied following HGam strategy, starting from the selected photons. This strategy follows the recommendations on analysis harmonization detailed in~\cite{Adams:1700874}. In this approach, the two leading photons are always kept. Electrons and muons in a cone of $\Delta R=0.4$ around any of the photons are discarded. Jets which are closer than $\Delta R=0.2$ ($\Delta R=0.4$) of an electron (photon) are not considered. Also electrons at a distance $\Delta R<0.4$ from the remaining jets are removed . Additionally, muons with a distance smaller than $\Delta R=0.4$ to a jet are rejected. 
 
 \subsubsection{Summary of Combined Performance recommendations used by the analysis}
-In this section a summary of the recommendations from Combined Performance groups used in the analysis is provided. These exactly match the recommendation used in the recent STXS/coupling analysis \cite{Berger:2764716} a part for the photons which have the updated final EGamma scale calibrations. \\
+In this section a summary of the recommendations from Combined Performance groups used in the analysis is provided. 
+%These exactly match the recommendation used in the recent STXS/coupling analysis \cite{Berger:2764716} a part for the photons which have the updated final EGamma scale calibrations. \\
 
-\textcolor{red}{XXX update Luis}
 
 \textbf{Photons}
 \begin{itemize}
-	\item ESModel: \path{es2022_R21_Precision}
+	\item ESModel: \path{es2022_R22_PRE}
 	\item Shower shape fudge factors: \path{ElectronPhotonShowerShapeFudgeTool/}\\ \path{v2/PhotonFudgeFactors.root}
 	\item ID: Tight (for signal region);  \path{ElectronPhotonSelectorTools/offline/20180825/}\\ \path{PhotonIsEMTightSelectorCutDefs.conf}
-	\item ID scale factors: \path{PhotonEfficiencyCorrection/2015_2018/rel21.2/Summer2020_Rec_v1/map3.txt}
+	\item ID scale factors: \path{PhotonEfficiencyCorrection/2015_2025/rel22.2/2022_Summer_Prerecom_v1/map0.txt}
 	\item Isolation working point: \path{FixedCutLoose}
 	\item Ambiguity Tool: \path{AuthorPhoton} and \path{AuthorAmbiguous} retained
 	\item Photon cleaning: \path{DFCommonPhotonsCleaning}
 	\item Photon quality: removed \path{BADCLUSPHOTON} and \path{deadHVTool}    
 \end{itemize}
 
-\textbf{Electrons, Muons, Jets, B-Jet}: same recommendations as the one reported in the STXS/coupling analysis, therefore please refer to~\cite{Berger:2764716} (only need for the categorization studies reported in \App{\ref{app:categ_studies}}).
+\textbf{Electrons, Muons, Jets, B-Jet}: same recommendations as the one reported in the Run 3 partial result \textcolor{red}{Update references with up-to-date recommendations}
 
 \subsubsection{Corrections to MC samples}
 \label{sssec:corrections_MC}
@@ -454,7 +456,7 @@ data & 280376 & 256835 & 995431 & 1532642 \\
 \end{table}
 
 
-\section{Object selection and fiducial region definition at particle level}
+\subsection{Object selection and fiducial region definition at particle level}
 \label{sec:fiducial}
 In order to minimise the model dependence introduced by the extrapolation
 from the phase space region selected by the kinematic and isolation criteria of
@@ -464,7 +466,6 @@ in a phase space volume which is as close as possible to that selected by the
 detector-level criteria. The following particle-level selection criteria are
 applied.
 
-\subsection{Selections}
 
 Only stable final state particles are considered at particle level.
 These are identified by requiring ${\texttt{status}=1}$ and
