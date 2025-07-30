@@ -44,11 +44,10 @@ Figures~\ref{Signal Param Inclusive Fiducial} show an example of fits for the in
 Signal modelling plots for the other fiducial volumes and for the differential variables are shown in Appendix \ref{app:signal_fit}.
 \begin{figure}[htb!]
   \begin{center}
-        \includegraphics[width=0.48\textwidth]{figures/signal_modeling/fit_plots_Diphoton_fid_bin1.png}
+    \subfloat[Diphoton Fiducial]{\includegraphics[width=0.5\textwidth]{figures/signal_modeling/fit_plots_Diphoton_fid_bin1.png}}
   \end{center}
-  \caption{Signal parametrisation for the inclusive fiducial volume normalised to 168~\ifb\
-  }
-  \label{Signal Param Inclusive Fiducial}
+  \caption{Signal parametrisation for the inclusive fiducial volume normalised to 168~\ifb}
+  \label{fig:sig_model_Diphoton_fid}
 \end{figure}
 
 \subsection{Background Modelling }
@@ -83,12 +82,12 @@ For the power law function, the first order (Pow) is defined as
 \FloatBarrier
 
 \subsubsection{Spurious signal} 
-\label{SSS. Spurious signal}
+\label{ssec:Spurious signal}
 
 The spurious signal method is used to measure the bias in the signal yield caused by the choice of background parameterisation.
 This is done by fitting a background only MC simulation with a signal + background parameterisation. 
 Due to computational limitations only the $\gamma\gamma$ sample is generated, the contribution of $\gamma j$ and $jj$ component are derived from data using a two-dimensional
-double-sideband method described in \ref{sec:backgroundestimation}.The fraction of contributed by the $\gamma\gamma$,$\gamma j$ and $jj$ background source after inclusive diphoton selection are 67\%,29\% and 4\% respectively. In ~\cite{ATLAS_prevNote},it was studied that using only $\gamma\gamma$ and $\gamma j$ components for modelling the shape, a good description of the background in the data sideband can be achieved and the $jj$ contribution can be neglected.For each bin 
+double-sideband method described in \ref{sec:backgroundestimation}.The fraction of contributed by the $\gamma\gamma$,$\gamma j$ and $jj$ background source after inclusive diphoton selection are 67\%,29\% and 4\% respectively. In ~\cite{ATLAS_prevNote},it was studied that using only $\gamma\gamma$ and $\gamma j$ components for modelling the shape, a good description of the background in the data sideband can be achieved and the $jj$ contribution can be neglected.For each bin,
 A background-only template is build as the sum of $\gamma\gamma$ and $\gamma j$ components according to the relative fractions measured with data.The total template is then normalised to match the data sideband. 
 
 Due to the finite size of the simulation samples used to build the background templates,
@@ -113,4 +112,48 @@ The mass range of 123-127\,\GeV\ is split into  bins with a 0.5\,\GeV\ width and
  
 In case several functions satisfy the above criteria, the one with fewest degree of freedom is chosen. If two such functions are found , the one with the lower spurious signal uncertainty is taken. 
  
-Furthermore, an additional  $\chi^2$ probability ensures that the side-bands from the  MC templates are also described well requiring that the $p$-value is larger than 1\%. 
+Furthermore, an additional  $\chi^2$ probability ensures that the side-bands from the  MC templates are also described well requiring that the $p$-value is larger than 1\%.
+
+The functional form and spurious signal uncertainties for each fiducial volume and each analysis bin are estimated independently.Therefore the resulting spurious signal uncertainties are uncorrelated across bins.
+
+The $\gamma\gamma$-only MC template is currently used for the spurious signal test (\textcolor{red}{to be updated to the full template following background decomposition}). Figure~\ref{fig:ss_Diphoton_fid} presents the spurious signal uncertainties in the inclusive diphoton region for various test background functions.The red dashed line indicates the $\pm$10\% threshold range for the second criterion, which is the case for most of the background functions selected.
+
+\begin{figure}[htb!]
+  \begin{center}
+    \subfloat[Diphoton Fiducial]{\includegraphics[width=0.5\textwidth]{figures/spurious_signal/Diphoton_fid_bin1_all_Mu_legend.pdf}}
+  \end{center}
+  \label{fig:ss_Diphoton_fid}
+  \caption{Signal Parametrization for Diphoton Fiducial bins}
+\end{figure}
+
+The Spurious results for all variable bins in \ptgg  are summarized in Table \ref{tab:sp_signal_pT_yy}.The detailed information for other variables can be found in Appendix \ref{app:spurious_signal} 
+\begin{table}
+\caption{Spurious signal results for all analysis bins for \ptgg}
+\label{tab:sp_signal_pT_yy}
+\begin{tabular}{lrrrrrr}
+\toprule
+Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+\midrule
+$0 \leq \ptgg < 5$\GeV & ExpPoly2 & -5.86 & -2.31 & -6.58 & 60.5 & PASS \\
+$5 \leq \ptgg < 10$\GeV & ExpPoly2 & -9.01 & -1.98 & -14.8 & 57.6 & PASS \\
+$10 \leq \ptgg < 15$\GeV & ExpPoly2 & -26.2 & -6.36 & -42.9 & 36.5 & PASS \\
+$15 \leq \ptgg < 20$\GeV & ExpPoly2 & -13.5 & -3.15 & -20.6 & 56.1 & PASS \\
+$20 \leq \ptgg < 25$\GeV & ExpPoly2 & -27.7 & -7.47 & -42.1 & 23.5 & PASS \\
+$25 \leq \ptgg < 30$\GeV & ExpPoly2 & 11 & 2.74 & 15.6 & 15.2 & PASS \\
+$30 \leq \ptgg < 35$\GeV & ExpPoly2 & 31.8 & 9.94 & 41.9 & 4.46 & PASS \\
+$35 \leq \ptgg < 45$\GeV & Bern3 & 20 & 4.46 & 35.1 & 35.2 & PASS \\
+$45 \leq \ptgg < 60$\GeV & ExpPoly2 & 2.42 & 0.585 & 3.9 & 10 & PASS \\
+$60 \leq \ptgg < 80$\GeV & Bern3 & 5.86 & 1.21 & 8.88 & 4.3 & PASS \\
+$80 \leq \ptgg < 100$\GeV & Bern3 & 18.3 & 4.49 & 19.1 & 1.69 & PASS \\
+$100 \leq \ptgg < 120$\GeV & Pow & 18.9 & 4.49 & 12.3 & 15.5 & PASS \\
+$120 \leq \ptgg < 140$\GeV & Exponential & -15.1 & -3.54 & -6.78 & 58.5 & PASS \\
+$140 \leq \ptgg < 170$\GeV & Exponential & -20.5 & -4.25 & -8.15 & 9.95 & PASS \\
+$170 \leq \ptgg < 200$\GeV & Exponential & -19.2 & -4.18 & -4.94 & 2.61 & PASS \\
+$200 \leq \ptgg < 250$\GeV & Exponential & 14.4 & 2.85 & 3.12 & 56.5 & PASS \\
+$250 \leq \ptgg < 300$\GeV & Exponential & 23.5 & 5.77 & 3 & 11.2 & PASS \\
+$300 \leq \ptgg < 450$\GeV & Exponential & 11.4 & 2.48 & 1.17 & 48.2 & PASS \\
+$450 \leq \ptgg < 650$\GeV & Exponential & 28.2 & 12.2 & 1.09 & 0.189 & FAIL \\
+$650 \leq \ptgg < 13000$\GeV & Pow & -2.04e+08 & 9.18e+04 & -257 & 91.1 & FAIL \\
+\bottomrule
+\end{tabular}
+\end{table}
