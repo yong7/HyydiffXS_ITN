@@ -1,39 +1,34 @@
 \section{Product Cut Studies}
 \label{app:productcut}
-Higgs boson production (through gluon-gluon fusion) has been calculated at $N^3LO$~\cite{Anastasiou:2015vya,Anastasiou:2016cez}, both inclusively 
-and as differentially~\cite{Dulat:2018bfe,Chen:2021isd,Billis:2021ecs}. The results show a good convergence of the perturbative QCD series, with a 
-corresponding decrease of the theoretical uncertainty. However, if comparisons are 
-made to fiducial measurements in the diphoton final state, with asymmetric cuts on the transverse momenta of the photons, the predictions show a deterioration 
-in the convergence of the predictions and significantly larger scale uncertainties~\cite{Salam:2021tbm}.In addition, the calculation becomes sensitive to very low Higgs 
+Higgs boson production (through gluon-gluon fusion) has been calculated at $N^3LO$~\cite{Anastasiou:2015vya,Anastasiou:2016cez}, both inclusively and differentially~\cite{Dulat:2018bfe,Chen:2021isd,Billis:2021ecs}.
+The results show a good convergence of the perturbative QCD series, with a corresponding decrease of the theoretical uncertainty. 
+However, if comparisons are 
+made to fiducial measurements in the diphoton final state, with direct cuts on the transverse momenta of the photons, the predictions show a deterioration 
+in the convergence of the predictions and significantly larger scale uncertainties~\cite{Salam:2021tbm}. In addition, the calculation becomes sensitive to very low Higgs 
 boson transverse momenta. This can be traced to a significant restriction of the Born phase space for the two photon final state due to the typical form of the
-cuts applied to the photon transverse energies, typically quoted as $E^{\gamma 1}_{T} \ge 0.35\, m_{Higgs}, E^{\gamma 2}_{T} \ge 0.25\, m_{Higgs}$. Such a cut was 
+cuts applied to the photon transverse energies, typically quoted in ATLAS as $E^{\gamma 1}_{T} \ge 0.35\, m_{Higgs}, E^{\gamma 2}_{T} \ge 0.25\, m_{Higgs}$. Such a cut was 
 initially adopted before the mass of the Higgs boson was known, and thus was meant to be more general (and to insure that the two photons would satisfy the
 trigger cuts).
-
 The use of a cut such as defined above leads to larger corrections, and larger uncertainties, for the bulk of the fiducial region (for Born level kinematics),
-and a diverging perturbative series. It has been shown that stable perturbative predictions can be restored if the form of the photon transverse energy
-cuts is replaced by a product cut: $\sqrt{E^{\gamma 1}_{T} E^{\gamma 2}_{T}}\, \ge f_1\, m_{Higgs}$ and $E^{\gamma 2}_{T}\, \ge \,f_2\, m_{Higgs}$, 
-where $f_1$ and
-$f_{2}$ are two parameters that need to be determined for the experimental analysis. The goal was to obtain optimal values for $f_1$ and $f_2$ by 
-
+and a diverging perturbative series. It has been shown that stable perturbative predictions can be restored if the photon cuts are replaced by cuts on 'self-balancing' observables that do not induce a linear sensitivity to the Higgs boson transverse momentum. One of the possibilities is the use of product cuts: $\sqrt{E^{\gamma 1}_{T} E^{\gamma 2}_{T}}\, \ge f_1\, m_{Higgs}$ and $E^{\gamma 2}_{T}\, \ge \,f_2\, m_{Higgs}$, where $f_1$ and $f_{2}$ are two parameters that need to be determined for the experimental analysis. 
+For the product cuts to make sense, only values of $f_1 > f_2$ with a non-vanishing difference would work; an equal cut would result in the same sort of issues found previously with the original cuts. 
+The goal is to obtain optimal values for $f_1$ and $f_2$ by 
 \begin{itemize}
-    \item Scan the values of $f_1$ and $f_2$ in the range from 0 to 1. 
-    \item Compute the signal efficiency and purity for each of the scanned points. 
-    \item Select the product cut value that maximizes the purity and efficiency. 
+    \item Scanning the values of $f_1$ and $f_2$ in the range from 0 to 1. 
+    \item Computing the signal efficiency and purity for each of the scanned points. 
+    \item Selecting the  values of $f_1$ and $f_2$ that maximize the purity and efficiency. 
 \end{itemize}
-
-The efficiency and purity for the product cut are defined as:
-\vspace{2mm}
-
-Efficiency(product cut) $=\, \frac{\int (ggH\,signal\,after\,applying\,set\,cuts\,+\,product\,cut)}{\int (ggH\,signal\,after\,applying\,set\,cuts)} $
-\vspace{2mm}
-
-Purity(product cut) $=\, \frac{\int (ggH\,signal\,after\,applying\,set\,cuts\,+\,product\,cut)}{\int (bkg\,after\,applying\,set\,cuts\,+\,product\,cut)} $
-
-\vspace{2mm}
-
-where the set cuts are defined as:
-
+If an optimal point(s) can be found, and if there is no negative impact of using the product cut in the ATLAS analysis, then we will switch to the product cut, making the theorists very happy. This optimal point(s) will be tested by carrying through a complete analysis following the one determined using the traditional relative $p_T$ cuts.  If such an optimal point(s) can not be obtained (at least equivalent for purity and efficiency), or some other serious difficulty arises,  then the analysis would stay with the conventional cuts,
+and we would live with the decreased theoretical accuracy for differential comparisons to NNLO, and the unhappiness of the theorists~\footnote{Problems with the current photon transverse momentum cut should become moot for sufficiently high Higgs boson transverse momentum, for example for comparisons to a future N3LO Higgs+jet prediction. However, if the product cut turns out to be successful, then it would be optimal to use the product cut for all analyses/comparisons.}. 
+ 
+%The relative efficiency and purity for the product cut scan is shown in Fig.~\ref{fig:optimal-product}, comparing the product cut for various values of $f_1$ and $f_2$, compared to the traditional relative $E_T$ cut. The optimal $f_1$ and $f_2$ values have been chosen as (0.32,0.25), which result in an efficiency and purity very close to those provided by the traditional cut. 
+\subsection{Study with mc23(a + d + e)}
+A study was conducted using nominal signal and background samples from mc23(a + d + e), located at \verb|(/eos/atlas/atlascerngroupdisk/phys-higp/PHOTON/MxAOD/h032/mc23a/Nominal)|, encompassing all production modes. A mass window of 123--127 GeV was selected for this analysis.
+\begin{align}
+   \text{Rel. Eff. [product cut]} &= \frac{\int \text{Signal after applying set cuts + product cut}}{\int \text{Signal after applying set cuts}} \\
+   \text{Purity [product cut]} &= \frac{\int \text{Signal after applying set cuts + product cut}}{\int \text{(Signal + Background) after applying set cuts + product cut}}.
+\end{align}
+The set cuts are defined as:
 \begin{itemize}
     \item isPassedPreselection
     \item pass\_trigger
@@ -41,20 +36,37 @@ where the set cuts are defined as:
     \item isPassedIsolation
     \item isPassedMassCut
 \end{itemize}
-
-The background sample used was mc21a.aMCPy8Eg\_aa\_FxFx\_myy\_90\_175. 
-
-
-If an optimal point(s) can be found, and if there is no negative impact of using a product cut in the ATLAS analysis, then we will switch to the product cut. 
-If such an optimal point(s) can not be obtained (at least equivalent for purity and efficiency), or some other serious difficulty arises,  then the analysis 
-would stay with the conventional cuts, and we would live with the decreased theoretical accuracy. 
- 
+A scan was performed over $f_1$ and $f_2$, each ranging over values from 0.2 to 0.4. The total relative efficiency and purity for these scans were calculated and are presented in Figure \ref{fig:efficiency_vs_purity_plot_123_127_GeV}. Points in the top-right quadrant relative to the star marker indicate higher relative efficiency and purity. Although some $f_2$ values other than 0.25 yield higher efficiency and purity, this study maintained a constant $f_2$ value of 0.25, the default setting. Figure \ref{fig:efficiency_vs_purity_relpt2_025_with_default} illustrates the total relative efficiency and purity for a fixed $f_2$ of 0.25 with varying values of $f_1$. A $f_1$ value of 0.32 combined with a $f_2$ value of 0.25 maintains an efficiency and purity comparable to the default cut, as shown in Figure \ref{fig:efficiency_vs_purity_relpt2_025_with_default}.
 \begin{figure}
-\centering
-\includegraphics[width=0.75\linewidth]{prod_cut/efficiency_vs_purity_relpt2_025_with_default.pdf}
-\caption{This will be replaced by a better quality figure. \label{fig:optimal-product}}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/product_cuts/efficiency_vs_purity_plot_123_127_GeV.pdf}
+    \caption{Relative efficiency and purity for various $f_1$ and $f_2$ values.}
+    \label{fig:efficiency_vs_purity_plot_123_127_GeV}
 \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/product_cuts/efficiency_vs_purity_relpt2_025_with_default.pdf}
+    \caption{Relative efficiency and purity for different $f_1$ values with a fixed $f_2$ value of 0.25. An $f_1$ value of 0.32 with an $f_2$ value of 0.25 yields an efficiency and purity nearly identical to the default relative $p_T$ analysis cuts.}
+    \label{fig:efficiency_vs_purity_relpt2_025_with_default}
+\end{figure}
+With $f_1$ set  to 0.32 and $f_2$ to 0.25, the signal and background shapes were evaluated to ensure they remained largely unchanged. These shapes, shown in Figures \ref{fig:sig_myys_comparison_weighted} and \ref{fig:bkg_myys_comparison_weighted}, confirm that the distributions are nearly identical.
+\begin{figure}
 
-The relative efficiency and purity for the product cut scan is shown in Fig.~\ref{fig:optimal-product}, comparing the product cut for various values of 
-$f_1$ and $f_2$, compared to the traditional relative $E_T$ cut. The optimal $f_1$ and $f_2$ values have been chosen as (0.32,0.25), which result in an 
-efficiency and purity very close to those provided by the traditional cut. 
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/product_cuts/sig_myys_comparison_weighted.pdf}
+    \caption{Signal shape comparison between the traditional cuts (blue) and the product cut of 0.32 (red) over a mass range of 105--160 GeV.}
+    \label{fig:sig_myys_comparison_weighted}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/product_cuts/bkg_myys_comparison_weighted.pdf}
+    \caption{Background shape comparison between traditional cuts (blue) and a product cut of 0.32 (red) over a mass range of 90--170 GeV.}
+    \label{fig:bkg_myys_comparison_weighted}
+\end{figure}
+Using the same product cut of 0.32, the relative efficiency and purity were also calculated across different pT$_{\gamma \gamma}$ bins, as shown in Figure \ref{fig:efficiency_purity_comparison_123_127_032}. In most bins, the efficiency and purity of the product cut either match or surpass those of the default relative $p_T$ cuts.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/product_cuts/efficiency_purity_comparison_123_127_032.pdf}
+    \caption{Relative efficiency and purity of the product cut [0.32, 0.25] across different pT$_{\gamma \gamma}$ bins within a mass window of 123--127 GeV.}
+    \label{fig:efficiency_purity_comparison_123_127_032}
+    \end{figure}
