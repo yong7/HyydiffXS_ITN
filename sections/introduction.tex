@@ -1,12 +1,12 @@
 \section{Introduction}
 \label{sec:introduction}
-This note presents the measurement of the total and differential cross-sections of Higgs Boson decays to two photons ($H \to \gamma \gamma$) in $XXX \,\mathrm{fb}^{-1}$ of proton-proton collision data, collected at a center-of-mass energy of $13.6\,\mathrm{TeV}$ with the ATLAS detector at the Large Hadron Collider (LHC). The measurement follows previous analyses by ATLAS at $8 \,\mathrm{TeV}$~\cite{HIGG-2013-10}, $13 \,\mathrm{TeV}$~\cite{HIGG-2022-04} and $13.6 \,\mathrm{TeV}$ in combination with $H \to ZZ$~\cite{HIGG-2022-12}. This analysis follows closely the strategy employed in the early Run 3 ATLAS measurement in $XXX \mathrm{fb}^{-1}$ at $13.6\,\mathrm{TeV}$, as well as the Run 2 analysis in $140 \,\mathrm{fb}^{-1}$ at $13\,\mathrm{TeV}$. Significant changes include employing updated CP recommendations, as well as modifications to set of variables studied (???) and the binning used in the histograms (???).
+This note presents the measurement of the total and differential cross-sections of Higgs Boson decays to two photons ($H \to \gamma \gamma$) in $168 \,\mathrm{fb}^{-1}$ of proton-proton collision data, collected at a center-of-mass energy of $13.6\,\mathrm{TeV}$ with the ATLAS detector at the Large Hadron Collider (LHC). The measurement follows previous analyses by ATLAS at $8 \,\mathrm{TeV}$~\cite{HIGG-2013-10}, $13 \,\mathrm{TeV}$~\cite{HIGG-2022-04} and $13.6 \,\mathrm{TeV}$ in combination with $H \to ZZ$~\cite{HIGG-2022-12}. This analysis follows closely the strategy employed in the early Run 3 ATLAS measurements using $31.4\, \mathrm{fb}^{-1}$ at $13.6\,\mathrm{TeV}$, and Run 2 analysis using $140 \,\mathrm{fb}^{-1}$ at $13\,\mathrm{TeV}$. Significant changes made in this analysis include using updated CP recommendations, as well as modifications to set of variables studied and the binning used in the histograms.
 
 This section introduces the measurement, motivates its significance, and presents an overview of the analysis strategy. 
 
 \subsection{Motivation}
 
-During Run 3 of the LHC, ATLAS collected its largest dataset to-date at a record energy of $13.6\,\mathrm{TeV}$. This dataset provides a unique opportunity for precision measurement of the properties of the Higgs boson, including in the $H \to \gamma \gamma$ decay channel where the Higgs boson signal is exceptionally well-resolved with a narrow resonance mass.
+During Run 3 of the LHC, the ATLAS experiment collected its largest dataset so far and at a new, higher, proton-proton collision energy of $13.6,\mathrm{TeV}$. This dataset provides a unique opportunity for precision measurements of the Higgs boson’s properties, including in the $H \to \gamma \gamma$ decay channel, where the Higgs boson signal is well-resolved due to its narrow resonance mass.
 
 However, there is a large background to the $\gamma\gamma$ final state due to production of two high-energy photons which are not produced from Higgs boson decay.  
 The size and shape of this background is hard to predict, but should not peak around the Higgs mass.  The analysis presented in this note relies on a data-driven technique to model the background.
@@ -14,9 +14,9 @@ The size and shape of this background is hard to predict, but should not peak ar
 The fiducial cross section of a scattering process is a measurement of the cross section in a defined volume of phase space, typically one that can be easily and consistently defined in an experimental and theoretical context, and therefore can be used to make a comparison between observations and theoretical predictions. 
 In this note, we define the \textit{inclusive fiducial volume} a volume of phase space similar to the acceptance of the ATLAS detector.
 
-The inclusive fiducial volume is defined as the region to observe two isolated photons in the pseudorapidity range $|\eta|<1.37$ or $1.52<|\eta|<2.37$ and the photon transverse momentum satisfying $\ptgg > 0.35 (0.25)$; where $\ptgg{}$ is the invariant mass of the two photons. (TODO: CHECK this)
+The inclusive fiducial volume is defined as the region to observe two isolated photons in the pseudorapidity range $|\eta|<1.37$ or $1.52<|\eta|<2.37$ and the photon transverse momentum satisfying $\ptgg > 0.35 (0.25)$; where $\ptgg{}$ is the invariant mass of the two photons. 
 
-Differential cross section measurements allow us to observe how the production of the Higgs boson varies in different regions of phase space, e.g.~as a function of different kinematic variables with additional particles in the final state.   These distributions are sensitive to the properties of the Higgs boson, including its mass and couplings.  
+Differential cross section measurements looks at the how the production of the Higgs boson varies in different regions of phase space, e.g.~as a function of different kinematic variables with additional particles in the final state.   These distributions are sensitive to the properties of the Higgs boson, including its mass and couplings.  
 %The Higgs boson is the most recently discovered fundamental particle, its properties, including couplings, are still not fully characterised.  
 If the Higgs boson couples to BSM particles this might first become apparent in the tails of fiducial cross section measurements.
 
@@ -28,34 +28,10 @@ In this note we look at the fiducial cross section for $pp \to H \to \gamma \gam
 
 \subsection{Differential Variables}
 
-The choice of which variables to use for the differential cross section are motivated by the predicted significance of the distributions and/or from theoretical considerations.   A list of the observables and motivation follows:
-\begin{itemize}
-\item[(i)] Inclusive variables:
-\begin{itemize}
-\item The transverse momentum and rapidity of the diphoton system, $\ptgg$, $\ygg$; these system describe the
-fundamental kinematics of the Higgs boson. The low-$p_{\text{T}}$ region of the Higgs boson 
-is sensitive to the bottom and charm quark Yukawa couplings~\cite{}. The high-$p_{\text{T}}$ region is sensitive to Higgs boson couplings to top quarks and to BSM physics. The Higgs boson rapidity, \ygg is sensitive to light-quark Yukawa couplings and the parton distribution functions of the colliding protons.
-\item The $p_{\text{T}}$ of the two photons, probe the kinematics of the Higgs boson decay.
-\item The number of jets in the event with $p_{\text{T}}^j>30\;\GeV$, \Njets.  This is sensitive to different Higgs production mechanisms and modelling of QCD processes.
-\item The number of tagged $b$-jets in the event, \Nbjets.  For this we use jets with $|eta|<2.5$ and $p_{\text{T}}^j>30\;\GeV$.  This is sensitive to Higgs boson production in association with heavy-flavour particles ,mainly in gluon fusion events, to constrain the  known cross-section of Higgs with heavy-flavour hadrons.
-\item The number of leptons ($e, \mu$) in the event, \Nlept.  This is sensitive to different production mechanisms including $ttH$ production.
-\end{itemize}
-\item[(ii)] Inclusive variables:
-\begin{itemize}
-\item The momentum of the highest-$p_{\text{T}}$ jet in the event \ptj[1].
-\item Angle between two highest-$p_{\text{T}}$ jets in the event, \dphijj.
-\end{itemize}
-\item[(iii)] 2-jet inclusive variables
-\begin{itemize}
-\item Invariant mass and azimuthal angle separation of the of the two highest-$p_{\text{T}}$ jets in the event, \mjj, \dphijj; these are both sensitive to the VBF production mechanism.  
-\end{itemize}
-\end{itemize}
+The differential cross section is measured using several different variables: 
+the choice of which variables to use for the differential cross section are motivated by the predicted significance of the distributions, from considerations of the different production mechanisms and with an aim to characterise the production as fully as possible given the data set.
 
-
-
-
-
-
+The variables are described in detail in section~\ref{sec:differentialobservables}.  They include kinematic properties of the photon-pair, the numbers of jets and charged leptons produced in association, and kinematic properties of any jet pairs.  The binning of the variables is chosen to optimise significance, to minimisation corrections apply at unfolding and to facilitate combination with other analyses. 
 
 
 %%% TODO: A detailed motivation of the measurement should go here
@@ -65,18 +41,26 @@ is sensitive to the bottom and charm quark Yukawa couplings~\cite{}. The high-$p
 % - Describe fiducial sub-regions
 % - Give a description of the kinematic variables for which we have studied the differential XSections
 
-\subsection{Strategy}
+\subsection{Analysis Strategy}
 The strategy used in this analysis is similar to previous analyses~\cite{HIGG-2013-10, HIGG-2022-04, HIGG-2022-12} and is summarised briefly here:
 \begin{itemize}
-\item Data and simulated samples used are described in Section~\ref{sec:samples};
-\item Events are selected for further analysis, the select criteria follows closely the definition of the fiducial region; the definition of the physics objects and event selection criteria is described in Section~\ref{Object Definitions and Event Selections};
-\item Differential cross sections are defined  by  diving the inclusive cross section volume into several exclusive bins.  The choice of variables and binning is presented in Section~\ref{sec:differentialobservables};
-\item Section~\ref{sec:signalbackgroundmodelling} discusses the modelling of the background and signal as a function of the di-photon invariant mass $\mgg{}$
-nalytical fits are made to understand the background in each fiducial cross section bin and in the inclusive fiducial cross section.
-\item The cross section for the signal is extracted by fitting the observed $\mgg{}$ distribution to the signal and background as described in section~\ref{sec:signalyieldextraction}.
-\item The residual background, including potential spurious signal is estimated.   As presented in section~\ref{sec:backgroundestimation}, a two-dimensional sidebands are employing using $\mgg{}$ and YYY.
-\item  Uncertainties due to systematic effects and theoretical modelling are explored and quantified in section~\ref{sec:uncertainties}.
-\item The fiducial cross sections in terms of observed variables is highly dependent on the experimental setup (detector effects); in order to make present results independent of the experiment, the cross sections are \textit{unfolded} to remove detector effects.  The unfolding procedure is presented in Section~\ref{sec:unfolding}.
+\item The data and simulated samples used are presented in Section~\ref{sec:samples};
+
+\item Events are selected for further analysis, the selection criteria follows closely the definition of the fiducial region; 
+the definition of the physics objects and event selection criteria is described in Sections~\ref{sec:EventSelections} and~\ref{sec:fiducial}.
+
+\item Differential cross sections are defined  by dividing the inclusive cross section volume into several exclusive bins.  The choice of variables and binning is presented in Section~\ref{sec:observablesbinning};
+
+\item Section~\ref{sec:signalbackgroundmodelling} discusses the modelling of the background and signal as a function of the di-photon invariant mass $\mgg{}$;
+analytical fits are made to understand the background in each fiducial cross section bin and in the inclusive fiducial cross section.
+
+\item The cross section for the signal is extracted by fitting the observed $\mgg{}$ distribution to the signal and background as described in Section~\ref{sec:signalyieldextraction}.
+
+\item  The residual background, including potential spurious signal is estimated.  The main sources of background are non-resonant production of diphotons and events where hadronic jets are misreconstructed as photons.  To estimate the background  the  \twoxtwod\ method is used; double two-dimentional sidebands are defined using using $\mgg{}$ and changing the selection criteria used to select photons.  This is presented in Section~\ref{sec:backgroundestimation}.
+
+\item  Uncertainties due to systematic effects and theoretical modelling are explored and quantified in Section~\ref{sec:uncertainties}.
+
+\item The fiducial cross sections in terms of observed variables is highly dependent on the experimental setup (detector effects); in order to present results independent of the experiment, the cross sections are \textit{unfolded} to remove detector effects.  The unfolding procedure is presented in Section~\ref{sec:unfolding}.
 \item Section~\ref{sec:asimovresults} presents the expected results; the observed results and conclusions are presented in Sections~\ref{sec:dataresults} and~\ref{sec:conclusion}.
 
 \end{itemize}

@@ -1,6 +1,219 @@
 \section{Observables and Binning Optimisation}
+\label{sec:observablesbinning}
+
 \subsection{Differential Observables}
 \label{sec:differentialobservables}
+Several observables have been chosen in order to characterize the Higgs production in its diphoton decay channel.
+\begin{itemize}
+\item $\ptgg$: This observable represents the transverse momentum of the Higgs boson. This observable is sensitive to QCD radiation and, thus, allows to test higher-order QCD predictions and resummation techniques. The latter are particularly relevant in the low regime of this observable, this region of the phase-space is also interesting for its sensitivity to the c- and b-quark Yukawa couplings. The high-$\ptgg$ region is sensitive to quark-mass effects in the calculations, as well as to the effects of possible extensions of the Standard Model.\\
+\item $\ygg$: The absolute value of the Higgs boson is another key precision observable in Higgs measurements being sensitive to the PDFs, especially to the gluon density inside the protons. It is also sensitive to the light-quark Yukawa couplings. \\
+\item $\Njets{}$: The cross-sections as a function of the inclusive and exclusive jet multiplicities, $\Njets$ (for jets with  $\ptj > 30$~\GeV) are sensitive to the different Higgs boson production mechanisms and to QCD modelling of the gluon–gluon fusion production mode. \\
+\item $\ptj$: The transverse momentum of the leading jet probes the perturbative QCD modelling and are sensitive to the relative contributions of the different Higgs production mechanisms. \\
+\item $\dphijj$: The azimuthal difference between the two leading jets is sensitive to the VBF production mechanism. The sign of $\dphijj$  is determined by ordering the jets in decreasing rapidity, making this observable sensitive to the CP properties of the Higgs boson’s couplings to gluons and weak vector bosons.\\
+\item $\mjj$: The invariant mass of the leading two jets is also sensitive to the VBF production mode. The relative contribution of this production mode increases towards higher values of $\mjj$. \\
+\item $\Nbjets$: The cross-section as a number of b-jets is sensitive to Higgs boson production in association with heavy-flavour particles. Events without a jet or with a lepton do not enter the classification.
+\item $\Nlept$: The distribution of the number of leptons is sensitive to the Higgstrahlung process in which the Higgs is produced in association with a weak boson. Only leptons with a transverse momentum higher than 15 GeV are considered. \\
+  
+\end{itemize}  
+  
+  
 
+  
+  
 \subsection{Binning Optimisation}
 \label{sec:binningoptimisation}
+The starting point for the binning optimization is the binning used for the legacy Run-2 anlysis~\cite{HIGG-2019-13}, except in the case of $\Nbjets$ in which an additional splitting for $\Nbjets=1$ is introduced. The guiding principles for selecting the bin boundaries are:
+
+\begin{itemize}
+\item an expected significance of close to or greater than 2$\sigma$;
+\item a migration purity close to or higher than 50\%;
+\item unification of selection criteria with simplified-template cross-sections, where appropriate;
+\item unification with the HZZ analysis, and eventually CMS;   
+\end{itemize}
+
+The number of sideband events in the data and expected number of events are also checked to discard anomalous bins. For each distribution, the signal yields are simultaneously extracted in each bin using the process described in Section~\ref{sec:signalbackgroundmodelling}. The background templates are obtained using the diphoton simulation normalized to the data sidebands, that is, excluding the region between 121 and 129 GeV. This allows to consider  the rates of additional sources of fake photons not present in the Monte Carlo sample. For simplicity, only the mc23a campaign of the MC samples have been used, while for the data sidebands the 2022, 2023 and 2024 have been considered. Since the total fit error is dominated by the background, this error is compared to the SM expected signal to determine an expected significance for each bin.
+
+The number of expected signal events, background events, events in the side bands and the significance (computed as recommended in Ref.~\cite{ATL-PHYS-PUB-2020-025}) for 168 $fb^{-1}$can be found in Tables~[\ref{tab:binning_ptgg}--\ref{tab:binning_nlep}]. While the purity ($\frac{N_{reco}\cap N_{truth}}{N_{truth}}$) and efficiency ($\frac{N_{reco}\cap N_{truth}}{N_{reco}}$) matrices can be found in Figures~[\ref{fig:purity_binning},\ref{fig:efficiency_binning}].
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin [GeV] & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    0.00 - 5.00 & 358.48 & 14886.45 & 63025.33 & 2.93 \\
+    5.00 - 10.00 & 729.56 & 29066.71 & 122897.42 & 4.26 \\
+    10.00 - 15.00 & 744.96 & 31990.06 & 134251.12 & 4.15 \\
+    15.00 - 20.00 & 662.92 & 30031.81 & 125201.73 & 3.81 \\
+    20.00 - 25.00 & 691.20 & 25878.75 & 107989.01 & 4.28 \\
+    25.00 - 30.00 & 590.15 & 21792.34 & 91202.78 & 3.98 \\
+    30.00 - 35.00 & 569.80 & 18202.93 & 76261.65 & 4.20 \\
+    35.00 - 45.00 & 717.42 & 27684.03 & 117364.79 & 4.29 \\
+    45.00 - 60.00 & 822.70 & 27022.72 & 115787.20 & 4.98 \\
+    60.00 - 80.00 & 682.30 & 20823.19 & 90505.86 & 4.70 \\
+    80.00 - 100.00 & 474.44 & 10521.55 & 45937.56 & 4.59 \\
+    100.00 - 120.00 & 278.87 & 4723.36 & 22729.50 & 4.02 \\
+    120.00 - 140.00 & 188.00 & 2476.78 & 12047.53 & 3.73 \\
+    140.00 - 170.00 & 204.02 & 1896.22 & 9506.65 & 4.60 \\
+    170.00 - 200.00 & 119.11 & 861.72 & 4461.02 & 3.97 \\
+    200.00 - 250.00 & 112.74 & 600.70 & 3159.52 & 4.47 \\
+    250.00 - 300.00 & 48.36 & 226.26 & 1209.85 & 3.11 \\
+    300.00 - 450.00 & 48.75 & 163.72 & 874.31 & 3.64 \\
+    450.00 - 650.00 & 7.63 & 25.71 & 152.71 & 1.44 \\
+    650.00 - 13000.00 & 1.37 & 3.60 & 22.01 & 0.68 \\
+    \hline
+  \end{tabular}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\ptgg$}
+  \label{tab:binning_ptgg}
+\end{table}
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin  & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    0.00 - 0.15 & 925.42 & 21097.45 & 108946.72 & 6.33 \\
+    0.15 - 0.30 & 822.49 & 20711.21 & 107182.22 & 5.68 \\
+    0.30 - 0.45 & 800.07 & 20639.37 & 103716.12 & 5.53 \\
+    0.45 - 0.60 & 818.04 & 20295.75 & 97520.60 & 5.70 \\
+    0.60 - 0.75 & 737.93 & 20575.72 & 94200.26 & 5.11 \\
+    0.75 - 0.90 & 729.09 & 21524.89 & 92105.09 & 4.94 \\
+    0.90 - 1.20 & 1117.91 & 45307.50 & 178903.72 & 5.23 \\
+    1.20 - 1.60 & 1191.49 & 55939.06 & 204262.83 & 5.02 \\
+    1.60 - 2.00 & 698.19 & 33462.86 & 118565.65 & 3.80 \\
+    2.00 - 2.50 & 168.84 & 9102.67 & 39184.34 & 1.76 \\
+    \hline
+  \end{tabular}
+  \label{tab:binning_ygg}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\ygg$}
+\end{table}
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin [GeV] & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    $\Njets == 0$ & 4330.01 & 157598.56 & 664555.08 & 10.86 \\
+    30.00 - 60.00 & 1904.79 & 68172.42 & 292323.70 & 7.26 \\
+    60.00 - 90.00 & 885.98 & 22741.19 & 101606.98 & 5.84 \\
+    90.00 - 120.00 & 377.07 & 8680.02 & 41591.01 & 4.02 \\
+    120.00 - 350.00 & 510.57 & 7981.29 & 42710.16 & 5.66 \\
+    350.00 - 13000.00 & 22.87 & 286.05 & 2025.41 & 1.33 \\
+    \hline
+  \end{tabular}
+  \label{tab:binning_ptj}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\ptj$}
+\end{table}
+
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin  & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    $\Njets == 0$ & 4330.01 & 157598.56 & 664555.08 & 10.86 \\
+    $\Njets == 1$ & 2234.53 & 68536.04 & 302775.67 & 8.49 \\
+    $\Njets == 2$ & 1046.59 & 25787.81 & 119508.90 & 6.47 \\
+    $\Njets >= 3$ & 434.97 & 11945.15 & 57970.56 & 3.96 \\
+    \hline
+  \end{tabular}
+  \label{tab:binning_njets}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\Njets$}
+\end{table}
+
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin  & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+     $\Njets < 2$ & 26923.14 & 194669.36 & 967330.75 & 59.69 \\
+     $-\pi$ - $\pi/2$ & 360.07 & 13661.60 & 62254.32 & 3.07 \\ 
+    $-\pi/2$ - 0.0 & 362.75 & 5535.86 & 26478.27 & 4.82 \\
+    0.0 - $\pi/2$ & 361.40 & 5484.95 & 26395.83 & 4.83 \\
+    $\pi/2$ - $\pi$ & 394.52 & 13667.99 & 62353.17 & 3.36 \\
+    \hline
+  \end{tabular}
+  \label{tab:binning_dphi}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\dphijj$}
+\end{table}
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin [GeV] & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    $\Njets < 2$ & 26920.90 & 194664.60 & 967330.75 & 59.69 \\
+    0.00 - 120.00 & 449.98 & 12459.91 & 57569.94 & 4.01 \\
+    120.00 - 450.00 & 673.05 & 19944.70 & 94535.09 & 4.74 \\
+    450.00 - 3000.00 & 347.78 & 5433.72 & 25230.12 & 4.67 \\ 
+    3000.00 - 13000.00 & 5.34 & 32.69 & 146.26 & 0.91 \\
+    \hline
+  \end{tabular}
+  \label{tab:binning_mjj}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\mjj$}
+\end{table}
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin  & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    $\Njets = 0$ or $\Nlept >0$ 5147.11 & 180992.69 & 759611.21 & 12.04 \\
+    $\Nbjets = 0$ & 2662.63 & 78044.92 & 360780.45 & 9.48 \\
+    $\Nbjets = 1$ & 197.14 & 4865.03 & 23040.21 & 2.81 \\
+    $\Nbjets >= 2$ & 35.02 & 298.01 & 1367.60 & 1.99 \\
+    \hline
+  \end{tabular}
+  \label{tab:binning_nbjet}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\Nbjets$}
+\end{table}
+
+\begin{table}
+  \begin{tabular}{l|c|c|c|c}
+    Bin  & Expected Events & Background Events & Sideband Events & Significance \\
+    \hline
+    $N_{lep} = 0$ &  62488.72 & 236330.03 & 1143266.66 & 123.42 \\
+    $N_{lep} >= 1$ & 52.83 & 329.95 & 1281.41 & 2.84 \\
+    \hline
+  \end{tabular}
+  \caption{Number of expected signal events, background events, events in the side bands and the significance for $\Nlept$}
+  \label{tab:binning_nlep}
+\end{table}
+
+
+\begin{figure}[h]
+  \begin{center}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_pTyy.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_yAbs_yy.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_pT_j1_30.pdf}\\
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_N_j_30.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_m_jj_30.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_Dphi_j_j_30_signed.pdf}\\
+  \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_catXS_nbjet.pdf}
+  \includegraphics[width=0.32\textwidth]{figures/binning/h2_mig_N_lep_15.pdf}
+  \end{center}
+  \caption{Selection purity matrix for the eight observables studied.}
+  \label{fig:purity_binning}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_pTyy.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_yAbs_yy.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_pT_j1_30.pdf}\\
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_N_j_30.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_m_jj_30.pdf}
+ \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_Dphi_j_j_30_signed.pdf}\\
+  \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_catXS_nbjet.pdf}
+  \includegraphics[width=0.32\textwidth]{figures/binning/h2_eff_N_lep_15.pdf}
+  \end{center}
+  \caption{Selection efficiency matrix for the eight observables studied.}
+  \label{fig:efficiency_binning}
+\end{figure}
+
+
+While most of the bins satisfy the guiding principles defined above, some anomalous cases are found. In $\ptgg$, the last two bins have a low expected significance. This is more clear in the last bin. However, as this region is relevant to constrain possible BSM effects, both are retained to provide cross sections limit of Higgs production in the high transverse momentum region. The last bin of $\mjj$ also has an expected significance that does not reach 1$\sigma$, it has been then decided to move the lower boundary of this bin to $1.5$~\TeV. The $\Nbjets$ variable suffers of large bin migrations, especially in its central bin of $\Nbjets==1$. For this reason, only three bins will be explored. A summary of the binning choice is shown below:
+
+
+$\ptgg$\texttt{[GeV]:\{0 5 10 15 20 25 30 35 45 60 80 100 120 140 170 200 250 300 450 650 13000\}}\\
+$\ygg$\texttt{:\{0 0.15 0.3 0.45 0.6 0.75 0.9 1.2 1.6 2.0 2.5\}}\\
+$\ptj$\texttt{[GeV]:\{}$\Njets==0$\texttt{ 30 60 90 120 350 13000\} }\\
+$\Njets$\texttt{:\{}$\Njets==0$ $\Njets==1$ $\Njets==2$ $\Njets>=3$\texttt{\}} \\
+$\mjj$\texttt{[GeV]:\{}$\Njets<2$\texttt{ -100 0 120 450 1500 13000\} }\\
+$\dphijj$\texttt{[GeV]:\{$\Njets<2$ $-\pi$ $-\pi/2$ 0 $\pi/2$ $\pi$\} }\\
+$\Nbjets$\texttt{:\{$\Njets = 0 || \Nlept > 0$ $\Nbjets==0$ $\Nbjets>=1$\} } \\
+$\Nlept$\texttt{:\{$\Nlept==0$ $\Nlept>=1$\} } \\
+
