@@ -15,7 +15,7 @@ Photons are calibrated using the latest Run-3 calibration corrections for the en
 The~\texttt{1NP\_v1} systematics scheme is used which contains two energy scale related uncertainties and one resolution uncertainty.
 %which contains 70 variations for the scale and 9 for the resolution is used in this analysis.
 
-In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{ssec:event_selection}}.
+In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{sec:eventselections}}.
 
 During the event selection, events are required to have at least two loose photons, and the two loose photons with the highest \pT define the Higgs candidate.
 
@@ -24,7 +24,12 @@ During the event selection, events are required to have at least two loose photo
 A Neural Network (NN) is used in order to identify the correct diphoton vertex among the primary vertices reconstructed in ATLAS. The vertex with the highest score for this NN is chosen to be the primary vertex in this analysis. The NN combines information from the longitudinal segmentation of the calorimeter (“pointing”) for these two photons, the $\Delta\phi$ between the tracks of the vertices under consideration and the diphoton system, the scalar sums of tracks \pT and \pTsq. Two NN are trained, one for unconverted photons pairs and one for pairs with at least one converted photon. The neural network performs better than the usual hardest vertex requirement in identifying the truth vertex within \SI{0.3}{\milli\meter}, in particular for processes with a small number of tracks in the final state, like \ggH. 
 %A comparison study of the vertex selection efficiencies for various production modes was performed in the context of the \Hyy STXS/couplings analysis~\cite{Berger:2764716}: it has been shown that the efficiency of the \ggH production modes increases from 54\% to 65\% when the NN vertex is used in place of the usual hardest one as shown in \Fig{\ref{fig:myy_vertex_resolution}}.
 
-Once the diphoton vertex has been chosen, all the objects kinematic is recomputed and all the cuts reported in below sections are related to this diphoton vertex. The more correct choice of the primary vertex improves the \myy diphoton mass resolution by 8\% inclusively, as can be observed in \Fig{\ref{fig:myy_vertex_resolution}}. The improvement is driven by the ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
+Once the diphoton vertex has been chosen, all the objects kinematic is
+recomputed and all the cuts reported in below sections are related to this
+diphoton vertex. The more correct choice of the primary vertex improves the \myy
+diphoton mass resolution by 8\% inclusively.
+% , as can be observed in \Fig{\ref{fig:myy_vertex_resolution}}.
+The improvement is driven by the ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
 %\begin{figure}[tbp]
 %	\centering
 %    \includegraphics[width=0.49\linewidth]{selection/PV_mode}    
@@ -95,7 +100,7 @@ selection applied at particle level, with the exception of the
 photon identification requirements.
 
 We summarise here the full event selection, after the criteria applied
-at preselection level and described also in Section~\ref{S. Data and MC Samples}.
+at preselection level and described also in Section~\ref{sec:samples}.
 We just remind the reader that all particles' (photons, leptons, jets) energy or momentum scales are calibrated.
 In the simulation, energy or momentum resolutions are smeared to match the data.
 Scale factors applied to the simulation account for data/MC differences in efficiencies
