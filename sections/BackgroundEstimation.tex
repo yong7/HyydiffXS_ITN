@@ -13,23 +13,22 @@ The main sources of background are the non-resonant production of prompt and iso
 
 In the \twoxtwod\ method, the identification and isolation requirements for the photons are loosened. Only events passing the \texttt{LoosePrime3} working point are considered in the nominal result. This criterion is defined by relaxing three strip variables ($\omega_{s3}$, $F_\mathrm{side}$ and $\Delta E$) with respect to the Tight criterion. Details of the photon identification variables are given in \cite{PERF-2017-02}.
 
+Systematic uncertainties are evaluated by comparing the loosened identification pre-selection at the \texttt{LoosePrime3} working point to the alternative definitions \texttt{LoosePrime2}, \texttt{LoosePrime4} and \texttt{LoosePrime5}. Both \texttt{LoosePrime4} and \texttt{LoosePrime5} require an additional cut on the variable $E_\mathrm{ratio}$ and, in addition, \texttt{LoosePrime5} imposes a cut on $w_\mathrm{s\,tot}$. The \texttt{LoosePrime2} working point relaxes than the nominal criteria by not requiring a cut on $\Delta E$. \texttt{LoosePrime4} and \texttt{LoosePrime5} typically yield a higher $\gamma \gamma$ purity than \texttt{LoosePrime3}, while \texttt{LoosePrime2} yields a lower purity. The systematic uncertainty on the background yields is taken as the sum of squares of positive (negative) deviations from the nominal result obtained with the three alternative working points.
+
+% Why three different working points?
+% ALEX: What shall we do with these systematic uncertainties? Is this prescription still good? Discuss with Liza and Luis.
+
 The events are separated into 16 orthogonal regions, defined by whether one or both photons pass or fail the nominal identification and isolation requirements. The \(\gamma\gamma\), \(\gamma j\) and \(jj\) yields after the nominal selection are obtained by solving a system of equations, given the observed yields in the 16 regions, as well as the photon identification and isolation efficiencies as estimated from MC simulation. 
 
-The fractions contributed by the \(\gamma\gamma\), \(\gamma j\) and \(jj\) background sources after the inclusive diphoton selection are \SI{66.9}{\percent}, \SI{28.8}{\percent} and \SI{4.4}{\percent}, respectively, as shown in Table \ref{tab:2x2dsidebands202224}. 
-
-%%% Only showing stat uncertainties for now
-% Systematic uncertainty on the background fractions is estimated by varying the loosened identification pre-selection from \texttt{LoosePrime3} to \texttt{LoosePrime4} and \texttt{LoosePrime5}. Both aalternative WPs require an additional cut on the variable $E_\mathrm{ratio}$ and, in addition, \texttt{LoosePrime5} imposes a cut on $w_\mathrm{s\,tot}$. 
-\ASnote{Include figure/tables with systematics evaluated}
-
-% The systematic uncertainties in the measured background fractions are due to the definition of the control regions arising from the different inverted photon identification criteria, as shown in [TODO: Systematics]. 
-% But these systematic uncertainties are not propagated further to the analysis. 
-% ALEX: What shall we do with systematic uncertainties? Discuss with Liza and Luis.
+The fractions contributed by the \(\gamma\gamma\), \(\gamma j\) and \(jj\) background sources after the inclusive diphoton selection are \SI{66.9}{\percent}, \SI{28.8}{\percent} and \SI{4.4}{\percent}, respectively, as shown in Table \ref{tab:2x2dinclusive202224}. 
 
 
-\subsubsection{Plots and Tables}
-\label{subsec:2x2dtables}
 
-Tables showing the inclusive background fractions for the 2022, 2023, and 2024 data are shown in \ref{tab:2x2dsidebands2022}, \ref{tab:2x2dsidebands2023}, and \ref{tab:2x2dsidebands2024}.
+% \subsubsection{Plots and Tables}
+\subsubsection{Background Yields and Fractions}
+\label{subsec:2x2dyieldsfractions}
+
+Inclusive background yields and fractions are shown for the full 2022--2024 dataset in Table \ref{tab:2x2dinclusive202224} with the statistical and systematic uncertainties, as well as the yields and fractions for the alternative \texttt{LoosePrime} working points form which the latter have been derived. Corresponding values for the individual 2022, 2023, and 2024 data periods are shown in Tables \ref{tab:2x2dinclusive2022}--\ref{tab:2x2dinclusive2024}.
 
 \newpage
 \FloatBarrier
@@ -37,8 +36,8 @@ Tables showing the inclusive background fractions for the 2022, 2023, and 2024 d
 \begin{table}[!h]
     \centering
     \caption{Background decomposition using the \twoxtwod\ sidebands method for 2022-2024 data and \texttt{mc23a-e}.}
-    \includegraphics[width=\textwidth,page=2,trim={4.6cm 24.9cm 4.6cm 3.5cm},clip]{figures/2x2d_sidebands/sb_out_2022-24/table_HGam2x2DBkgDecomp_Xsection_SpringPaper.pdf}
-    \label{tab:2x2dsidebands202224}
+    \includegraphics[width=\textwidth,page=3,trim={4.2cm 24.1cm 4.2cm 3.5cm},clip]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/table_HGam2x2DBkgDecomp_Xsection.pdf}
+    \label{tab:2x2dinclusive202224}
 \end{table}
 
 
@@ -46,7 +45,7 @@ Tables showing the inclusive background fractions for the 2022, 2023, and 2024 d
     \centering
     \caption{Background decomposition using the \twoxtwod\ sidebands method for 2022 data and \texttt{mc23a}.}
     \includegraphics[width=\textwidth,page=2,trim={4.85cm 24.9cm 4.85cm 3.5cm},clip]{figures/2x2d_sidebands/sb_h032_2022_debug/table_HGam2x2DBkgDecomp_Xsection_SpringPaper.pdf}
-    \label{tab:2x2dsidebands2022}
+    \label{tab:2x2dinclusive2022}
 \end{table}
 
 
@@ -54,7 +53,7 @@ Tables showing the inclusive background fractions for the 2022, 2023, and 2024 d
     \centering
     \caption{Background decomposition using the \twoxtwod\ sidebands method for 2023 data and \texttt{mc23d}.}
     \includegraphics[width=\textwidth,page=2,trim={4.85cm 24.9cm 4.85cm 3.5cm},clip]{figures/2x2d_sidebands/sb_h032_2023_debug/table_HGam2x2DBkgDecomp_Xsection_SpringPaper.pdf}
-    \label{tab:2x2dsidebands2023}
+    \label{tab:2x2dinclusive2023}
 \end{table}
 
 
@@ -62,13 +61,20 @@ Tables showing the inclusive background fractions for the 2022, 2023, and 2024 d
     \centering
     \caption{Background decomposition using the \twoxtwod\ sidebands method for 2024 data and \texttt{mc23e}.}
     \includegraphics[width=\textwidth,page=2,trim={4.6cm 24.9cm 4.6cm 3.5cm},clip]{figures/2x2d_sidebands/sb_h032_2024_debug/table_HGam2x2DBkgDecomp_Xsection_SpringPaper.pdf}
-    \label{tab:2x2dsidebands2024}
+    \label{tab:2x2dinclusive2024}
 \end{table}
 
+% Plots
+
+\newpage
+\FloatBarrier
+
+\subsubsection{Differential Plots: Background Yields}
+\label{subsec:2x2dyieldsplots}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_Inclusive_inclusive.pdf}
     \label{fig:2x2dinclusive202224}
     \caption{Inclusive background yields for 2022--2024 data (\texttt{mc23a--e}).}
 \end{figure}
@@ -76,146 +82,196 @@ Tables showing the inclusive background fractions for the 2022, 2023, and 2024 d
 % \begin{figure}[!h]
 %     \centering
 %     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
+%         \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
 %         \label{fig:2x2dinclusive2022}
 %     \end{subfigure}
 %     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
+%         \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
 %         \label{fig:2x2dinclusive2023}
 %     \end{subfigure}
 %     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
+%         \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
 %         \label{fig:2x2dinclusive2024}
 %     \end{subfigure}
 %     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_bkgDecomp_Inclusive_inclusive.pdf}
+%         \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_Inclusive_inclusive.pdf}
 %         \label{fig:2x2dinclusive2024}
 %     \end{subfigure}
 %     \caption{Inclusive background yields for 2022 (a), 2023 (b) and 2024 (c) data (\texttt{mc23a}, \texttt{mc23d} and \texttt{mc23e}).}
 % \end{figure}
 
-
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_purity_inclusive.pdf}
-    \label{fig:2x2dpurinclusive202224}
-    \caption{Inclusive background purity for 2022--2024 data (\texttt{mc23a--e}).}
-\end{figure}
-
-% \begin{figure}[!h]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_purity_inclusive.pdf}
-%         \label{fig:2x2dpurinclusive2022}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_purity_inclusive.pdf}
-%         \label{fig:2x2dpurinclusive2023}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_purity_inclusive.pdf}
-%         \label{fig:2x2dpurinclusive2024}
-%     \end{subfigure}
-%     \caption{Inclusive background purity for 2022 (a), 2023 (b) and 2024 (c) data (\texttt{mc23a}, \texttt{mc23d} and \texttt{mc23e}).}
-% \end{figure}
-
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_bkgDecomp_Inclusive_m_yy.pdf}
-    \label{fig:2x2dmyy202224}
-    \caption{Background yields as a function of $m_{\gamma \gamma}$ for 2022--2024 data (\texttt{mc23a--e}).}
-\end{figure}
-
-% \begin{figure}[!h]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_bkgDecomp_Inclusive_m_yy.pdf}
-%         \label{fig:2x2dmyy2022}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_bkgDecomp_Inclusive_m_yy.pdf}
-%         \label{fig:2x2dmyy2023}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_bkgDecomp_Inclusive_m_yy.pdf}
-%         \label{fig:2x2dmyy2024}
-%     \end{subfigure}
-%     \caption{Background yields as a function of $m_{\gamma \gamma}$ for 2022 (a), 2023 (b) and 2024 (c) data (\texttt{mc23a}, \texttt{mc23d} and \texttt{mc23e}).}
-% \end{figure}
-
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_purity_m_yy.pdf}
-    \label{fig:2x2dpurmyy202224}
-    \caption{Background purity as a function of $m_{\gamma \gamma}$ for 2022--2024 data (\texttt{mc23a--e}).}
-\end{figure}
-
-% \begin{figure}[!h]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_purity_m_yy.pdf}
-%         \label{fig:2x2dpurmyy2022}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_purity_m_yy.pdf}
-%         \label{fig:2x2dpurmyy2023}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_purity_m_yy.pdf}
-%         \label{fig:2x2dpurmyy2024}
-%     \end{subfigure}
-%     \caption{Background purity vs. $m_{\gamma \gamma}$ for 2022 (a), 2023 (b) and 2024 (c) data (\texttt{mc23a}, \texttt{mc23d} and \texttt{mc23e}).}
-% \end{figure}
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_bkgDecomp_Inclusive_mu.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_Inclusive_mu.pdf}
     \label{fig:2x2dmu202224}
     \caption{Background yields as a function of $\mu$ for 2022--2024 data (\texttt{mc23a--e}).}
 \end{figure}
 
 
-% \begin{figure}[!h]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_bkgDecomp_Inclusive_mu.pdf}
-%         \label{fig:2x2dmu2022}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_bkgDecomp_Inclusive_mu.pdf}
-%         \label{fig:2x2dmu2023}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_bkgDecomp_Inclusive_mu.pdf}
-%         \label{fig:2x2dmu2024}
-%     \end{subfigure}
-%     \caption{Background yields as a function of $\mu$ for 2022 (a), 2023 (b) and 2024 (c) data (\texttt{mc23a}, \texttt{mc23d} and \texttt{mc23e}).}
-% \end{figure}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_Inclusive_m_yy.pdf}
+    \label{fig:2x2dmyy202224}
+    \caption{Background yields as a function of $m_{\gamma \gamma}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_out_2022-24/plots/plot_purity_mu.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_pT_yy.pdf}
+    \label{fig:2x2dptyy202224}
+    \caption{Background yields as a function of $p_{\mathrm{T}}^{\gamma \gamma}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_yAbs_yy.pdf}
+    \label{fig:2x2dmyabsyy202224}
+    \caption{Background yields as a function of $|y_{\gamma \gamma}|$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_pT_j1_30.pdf}
+    \label{fig:2x2dptj1202224}
+    \caption{Background yields as a function of $p_{\mathrm{T}}^{j_1}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_N_j_30.pdf}
+    \label{fig:2x2dnjets202224}
+    \caption{Background yields as a function of $N_{\mathrm{jets}}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_m_jj_30.pdf}
+    \label{fig:2x2dmjj202224}
+    \caption{Background yields as a function of $m_{jj}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_Dphi_j_j_30_signed.pdf}
+    \label{fig:2x2ddphijj202224}
+    \caption{Background yields as a function of $\Delta \phi_{jj}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_N_j_btag30.pdf}
+    \label{fig:2x2dnbjets202224}
+    \caption{Background yields as a function of $N_{\mathrm{b-jets}}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_bkgDecomp_inclusive_N_lep_15.pdf}
+    \label{fig:2x2dnlept202224}
+    \caption{Background yields as a function of $N_{\mathrm{leptons}}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+
+\newpage
+\FloatBarrier
+
+\subsubsection{Differential Plots: Background Fractions}
+\label{subsec:2x2dfractionsplots}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_inclusive.pdf}
+    \label{fig:2x2dpurinclusive202224}
+    \caption{Inclusive background purity for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_m_yy.pdf}
+    \label{fig:2x2dpurmyy202224}
+    \caption{Background purity as a function of $m_{\gamma \gamma}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_mu.pdf}
     \label{fig:2x2dpurmu202224}
     \caption{Background purity as a function of $\mu$ for 2022--2024 data (\texttt{mc23a--e}).}
 \end{figure}
 
 
-% \begin{figure}[!h]
-%     \centering
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2022_debug/plots/plot_purity_mu.pdf}
-%         \label{fig:2x2dpurmu2022}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2023_debug/plots/plot_purity_mu.pdf}
-%         \label{fig:2x2dpurmu2023}
-%     \end{subfigure}
-%     \begin{subfigure}{0.45\textwidth}
-%         \includegraphics[width=\textwidth]{figures/2x2d_sidebands/sb_h032_2024_debug/plots/plot_purity_mu.pdf}
-%         \label{fig:2x2dpurmu2024}
-%     \end{subfigure}
-%     \caption{Background purity vs. $\mu$ for 2022 (a), 2023 (b) and 2024 (c) data (\texttt{mc23a}, \texttt{mc23d} and \texttt{mc23e}).}
-% \end{figure}
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_pT_yy.pdf}
+    \label{fig:2x2dpurptyy202224}
+    \caption{Background purity as a function of $p_{\mathrm{T}}^{\gamma \gamma}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_yAbs_yy.pdf}
+    \label{fig:2x2dpuryabsyy202224}
+    \caption{Background purity as a function of $|y_{\gamma \gamma}|$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_pT_j1_30.pdf}
+    \label{fig:2x2dpurptj1202224}
+    \caption{Background purity as a function of $p_{\mathrm{T}}^{j_1}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_N_j_30.pdf}
+    \label{fig:2x2dpurnjets202224}
+    \caption{Background purity as a function of $N_{\mathrm{jets}}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_m_jj_30.pdf}
+    \label{fig:2x2dpurmjj202224}
+    \caption{Background purity as a function of $m_{jj}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_Dphi_j_j_30_signed.pdf}
+    \label{fig:2x2dpurdphijj202224}
+    \caption{Background purity as a function of $\Delta \phi_{jj}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_N_j_btag30.pdf}
+    \label{fig:2x2dpurnbjets202224}
+    \caption{Background purity as a function of $N_{\mathrm{b-jets}}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/2x2d_sidebands/plots_sb_diffxsvars_20250930/plot_purity_N_lep_15.pdf}
+    \label{fig:2x2dpurnlept202224}
+    \caption{Background purity as a function of $N_{\mathrm{leptons}}$ for 2022--2024 data (\texttt{mc23a--e}).}
+\end{figure}
 
