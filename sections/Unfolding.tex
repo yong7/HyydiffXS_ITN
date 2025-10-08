@@ -3,7 +3,7 @@
 
 The fiducial differential cross-sections are corrected for detector effects using unfolding. The unfolding technique applied to obtain the nominal result is the matrix inversion method [or the bin-by-bin method], as was also used in the Run 2 measurement \cite{HIGG-2019-13} (described in detail in the corresponding INT note \cite{HIGG-2019-13-INT1}). 
 
-Closure and effect of the unfolding procedure on systematic uncertainties are tested using the Asimov dataset. These studies are presented in Section \ref{subsec:unfoldasimov}.
+Closure and effect of the unfolding procedure on systematic uncertainties are tested using the Asimov dataset. These studies are presented in Section \ref{sec:asimovresults}.
 
 The following description of the unfolding procedure is taken from Ref \cite{HIGG-2019-13-INT1} with some minor edits for clarification.
 
@@ -13,7 +13,7 @@ The unfolding procedure accounts for the following effects:
 
 \item \textbf{efficiency}: particle-level photons failing the detector level selection;
 
-\item \textbf{fakes}: detector-level photons that do not have a particle level counterpart, either due to misreconstruction or migrations out of the fiducial volume. Dalitz events are also considered fakes.
+\item \textbf{fakes}: detector-level photons that do not have a particle level counterpart, either due to misreconstruction or migrations out of the fiducial volume. Diphoton Higgs decays where one of the photons is off-shell (so-called Dalitz decays) are also considered a source of fakes.
 \end{itemize}
 
 The signal cross-sections are extracted directly through the \mgg\ fit to the data.
@@ -70,7 +70,7 @@ bin $i$ of the particle level variable under study and in a given bin $j$
 of the corresponding detector level quantity. 
 % More details on the splitting of the response matrix into an efficiency term and a migration term are given in Appendix~\ref{App. response matrices details}, together with the plot of the corrections for fake candidates.
 
-The migration matrices for the variables under study are shown in Section \ref{sec:observablesbinning}. Dalitz events are excluded at both particle and detector level. The migration matrices, as well as the response matrices and correction factors
+The migration matrices for the variables under study are shown in Section \ref{sec:observablesbinning}. The migration matrices, as well as the response matrices and correction factors
 derived from them, are obtained by rescaling the matrices for each production mode
 using the Standard Model cross-section, $\sigma_{s}^\text{SM}$ of each production
 mode and the total initial weights generated, $N_{s}$.
@@ -80,6 +80,7 @@ For instance, the final correction factor applied to the data is
 \label{E. Correction factor combined}
 \end{equation}
 where $s\in\text{ggF},\text{VBF}, W^-H, W^+H, qq\to ZH, gg\to ZH, ttH, bbH, tWH, tHjb$.
+% Dalitz events are excluded at both particle and detector level.
 
 % ---- Text from Run 2 measuremnt INT note ----
 % The measured, detector-level, signal yields are corrected for detector effects
