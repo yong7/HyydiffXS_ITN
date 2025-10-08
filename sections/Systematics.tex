@@ -1,2 +1,58 @@
+The main systematic uncertainties affecting the differential cross-section measurements can be divided into two sources, theoretical and experimental ones.
+The theoretical uncertainties include QCD scale uncertainties, parton density functions, the strong couplings constant
+and branching ratios.
+Most of them can cause migrations between the different analysis bins and are therefore computed as uncertainties on the efficiencies and the acceptances as a function of each of the observables.
+
+\textcolor{blue}{This needs to be revisited when we update the results to h033} Experimental uncertainties act both on the signal yield and shape. 
+The main yield uncertainties arise from the spurious signal, the measured integrated luminosity, trigger efficiency and Higgs mass, pileup reweighting, the choice of the primary vertex and photon identification and isolation. 
+Uncertainties on event migration include jet uncertainties, lepton efficiency and ID, $E_T^{miss}$, flavor tagging and pileup reweighting. 
+Finally, uncertainties on the signal shape are introduced by the photon energy resolution and scale uncertainties.
+
 \subsection{Experimental Uncertainties}
 \label{sec:experimentaluncertainties}
+
+\subsubsection{Signal shape uncertainties}
+\label{sssec:signal_shape_syst}
+
+The photon energy scale (PES) and the photon energy resolution (PER) variations act both on the signal shape and on the yields. 
+Their effect is included in the fit to data as response functions on $\mu_\text{CB}$ and $\sigma_\text{CB}$, respectively. 
+The other parameters of the Double Sided Crystal Ball function used to model the signal are not affected. 
+These systematic variations are extracted for each analysis category and are treated as fully correlated among categories. 
+All categories in this analysis are expected to be more sensitive to the PER than to the PES, since the change in the signal width affects the S/B ratio.\\
+The uncertainties are computed from MC signal samples with all production processes merged according to the predicted SM fractions, using the following techniques:
+\begin{itemize}
+	\item for the \textbf{scale}, the ratio-of-mean technique is used: the means of \myy are computed for nominal and $\pm 1 \sigma$ varied distributions. Then, the systematic uncertainty applied to $\mu_\text{CB}$ is evaluated as
+	\begin{equation}
+	\delta \mu_\text{CB}^{\pm 1 \sigma} = \frac{\left\langle m_{\gamma\gamma}^{\pm 1 \sigma}\right\rangle}{\left\langle m_{\gamma\gamma}^\text{nom}\right\rangle}-1.
+	\end{equation}
+	Scale uncertainties are implemented in the fit to data with a Gaussian constraint using the $+1\sigma$ variation, because of the high symmetry observed. All the constraints are multiplied together and then applied to $\mu_\text{CB}$ as a response function. The shift produced in the signal peak is usually below 0.3\%, dependent on the category, which the high uncertainty usually represented by the L2 Gain systematic. Plots for each category are reported in \textcolor{blue}{Plots to be included using h033};
+	\item for the \textbf{resolution}, the ratio of inter-quartile distribution is use: the inter-quartile is computed as $S = CDF^{-1}(75\%) - CDF^{-1}(25\%)$, where CDF is the cumulative distribution function of the \myy nominal and varied distributions. Then, the uncertainty is evaluated as
+	\begin{equation}
+	\delta \sigma_\text{CB}^{\pm 1 \sigma} = \frac{S^{\pm 1 \sigma}}{S^\text{nom}}-1.
+	\end{equation}
+	Resolution uncertainties are implemented in the fit with an asymmetric constraint, to take into account differences in the $+1\sigma$ and $-1\sigma$ variations. All the resolution constraints are multiplied together and then applied to $\sigma_\text{CB}$ as a response function. The variations on the PER usually affect the signal resolutions by between 1\% and 8\%. \textcolor{blue}{Plots to be included using h033}.
+\end{itemize}
+%The list of the systematic uncertainties could be found in the \appendixname~\ref{app:ExpSysShape}\\
+
+%\paragraph{Correlation model} Two models are provided by the calibration group: the first with 2 nuisance parameters (one for the scale and one for the resolution uncertainties), the latter with 80 systematics sources, 71 of which dedicated to scale uncertainties. As in the previous analysis, we will be able to constrain the 1NP model, so we have to go for the full one: in particular, we use a full decorrelated model for the resolution (9 NPs) and a merged one for the scale (40 NPs, since we are not so sensitive to scale variations): the NPs related to the material in front of the calorimeter (MATCALO and MATCRYO), to the presampler (PS) and to S12, which are divided in many $\eta$ bins, are sum together in two contributions each, one bin for the barrel and one for the endcap region.
+\subsubsection{Signal yield uncertainties}
+\label{sssec:signal_yield_syst}
+
+
+Yield uncertainties act on the yield of a given reconstructed category, letting events migrate among them or changing the efficiency of the diphoton selection. 
+Various experimental systematic sources are taken into account related to the photon selection: photon uncertainties on \textit{isolation} and \textit{identification} efficiency, uncertainties on the efficiency of the diphoton \textit{trigger} and from \textit{pileup} modelling in simulation. 
+Regarding additional objects present in all the categories, the main experimental systematics are jet reconstruction uncertainties, especially jet flavour composition, flavour response, modelling, topology and jet energy resolution.
+Regarding event computed quantities, the dominant ones are coming from the pileup reweighing (PRW) and the luminosity measurement. Both of them are fully correlated among all bins and fiducial regions. 
+The values for each category \emph{c} are computed as the relative difference between $\pm1\sigma$ varied yields and the nominal one using signal MC samples: 
+\begin{equation}
+\delta n_{c}^{\pm 1 \sigma} = \frac{n_{c}^{\pm 1 \sigma}}{n_{c}^\text{nom}} - 1
+\label{eq:yield_syst}
+\end{equation}
+Each source of systematic uncertainty is treated as fully correlated among the categories. The systematic sources are implemented in the fit with asymmetric constraint since up and down variations could have different values. 
+\textcolor{blue}{Plots to be included using h033}.
+
+
+
+
+
+
