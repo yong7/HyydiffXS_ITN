@@ -9,7 +9,7 @@
 % Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
 \providecommand*{\ATPackageUseVersion}{15}
-\ProvidesPackage{latex/atlaspackage}[2025/06/26 v15.12.0 ATLAS LaTeX packages]
+\ProvidesPackage{latex/atlaspackage}[2025/10/01 v15.15.0 ATLAS LaTeX packages]
 \NeedsTeXFormat{LaTeX2e}
 
 %-------------------------------------------------------------------------------
@@ -50,13 +50,14 @@
 \DeclareBoolOption[true]{diffcoeffISO}
 \DeclareBoolOption[true]{lineno}
 \DeclareBoolOption[false]{txfonts}
-\DeclareStringOption[0]{texlive}
 \DeclareBoolOption[false]{firstinits}
 \DeclareStringOption[biber]{backend}
+\DeclareStringOption[none]{refsection}
 % \DeclareStringOption[ragged]{block}
 % \DeclareStringOption[3]{maxbibnames}
 \DeclareStringOption[]{block}
 \DeclareStringOption[]{maxbibnames}
+\DeclareStringOption[0]{texlive}
 \ProcessKeyvalOptions*
 
 % \typeout{atlaspackage: APKG@texlive is [\APKG@texlive]}
@@ -410,10 +411,10 @@
     \PassOptionsToPackage{maxbibnames=\APKG@maxbibnames}{\ADOC@atlasbiblatex}
   }
   \ifthenelse{\boolean{APKG@firstinits}}{%
-    \RequirePackage[backend=\APKG@backend,
+    \RequirePackage[backend=\APKG@backend, refsection=\APKG@refsection,
       style=numeric-comp, sorting=none, firstinits=true]{biblatex}
   }{%
-    \RequirePackage[backend=\APKG@backend,
+    \RequirePackage[backend=\APKG@backend, refsection=\APKG@refsection,
     style=numeric-comp, sorting=none, giveninits=true]{biblatex}
   }
 }{}

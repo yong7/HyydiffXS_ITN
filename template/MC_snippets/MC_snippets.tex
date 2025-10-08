@@ -59,7 +59,7 @@
 % Title, abstract and document
 % \input{MC_snippets-metadata}
 % Title
-\AtlasTitle{References and set-up descriptions for the MC16 campaign}
+\AtlasTitle{References and set-up descriptions for the Monte Carlo campaigns}
 
 % Author - this does not work with revtex (add it after \begin{document})
 \author{The ATLAS Collaboration}
@@ -69,10 +69,12 @@
 
 % Abstract - % directly after { is important for correct indentation
 \AtlasAbstract{%
-    This document is intended as a template for referencing ATLAS Monte Carlo
+    This document used to provide a template for referencing ATLAS Monte Carlo
     set-ups for Standard Model processes produced in the MC16
-    campaign. It includes descriptions of the generator configurations and
-    the appropriate references.
+    campaign.
+
+    \emph{This document is obsolete and has been replaced by MC16\_snippets for the MC16 campaign,
+        and MC23\_snippets for the MC23 campaign.}
 }
 
 % Author and title for the PDF file
@@ -85,66 +87,53 @@
 
 \maketitle
 
-\tableofcontents
+% \tableofcontents
 
 %-------------------------------------------------------------------------------
 % Intro
 \chapter{Introduction}
 
-This document is a collection of short descriptions of the baseline Standard Model processes
-produced as part of the ATLAS MC16 production campaign. Often a short and a long description
-is provided, depending on whether a sample is used as a background or a signal sample in an
-analysis, respectively.
-
-It is assumed that paper editors will make a final pass through the wording, e.g.\ to avoid
-acronyms being introduced multiple times.
-The descriptions contain the appropriate citations which are included by default in
-the \texttt{atlaslatex} package as well.
-These citations often reflect decades of theory work and would have typically been agreed upon
-with the generator developers, who rely on them to secure funding for future generator development.
-PMG therefore strongly encourages \emph{keeping all recommended citations} for any given snippet.
-
-Please note that the generator versions can generally change from sample to sample.
-A change in the third digit typically indicates some sort of technical bug fix that
-does not affect the physics modelling otherwise.
-In order to save CPU time, samples are often regenerated only when they are affected
-by a (sufficiently severe) bug and so even within a set of final states
-of any given process, the generator version may differ.
-
-You may have to add the \texttt{process} or \texttt{hepprocess} option to the \texttt{atlasphysics} package for some generators.
-In addition, some useful macros for processes are defined in the style file \texttt{MC\_snippets-defs.sty}.
+This document used to contain a collection of short descriptions of the baseline Standard Model processes
+produced as part of the ATLAS MC16 production campaign.
+The different Monte Carlo campaigns have been moved to separate directories:
+\begin{description}
+    \item[MC16] \texttt{template/MC16\_snippets},
+      \href{https://gitlab.cern.ch/atlas-physics-office/atlaslatex/-/jobs/artifacts/master/file/template/MC16_snippets/MC16_snippets.pdf?job=build_MC16snippet}{PDF}
+    \item[MC23] \texttt{template/MC23\_snippets},
+      \href{https://gitlab.cern.ch/atlas-physics-office/atlaslatex/-/jobs/artifacts/master/file/template/MC23_snippets/MC23_snippets.pdf?job=build_MC23snippet}{PDF}
+\end{description}
 
 %-------------------------------------------------------------------------------
 % Common generator details
 %\include{MC}
 %-------------------------------------------------------------------------------
 % Minbias
-\include{Pileup}
+% \include{Pileup}
 %-------------------------------------------------------------------------------
 % V+jets
-\include{BJ}
+% \include{BJ}
 %-------------------------------------------------------------------------------
 % Multiboson
-\include{MB}
+% \include{MB}
 %-------------------------------------------------------------------------------
 % Higgs processes
-\include{Higgs}
+% \include{Higgs}
 %-------------------------------------------------------------------------------
 % Top
-\include{TQ}
+% \include{TQ}
 %-------------------------------------------------------------------------------
 % RareTop
-\include{RT}
+% \include{RT}
 %-------------------------------------------------------------------------------
 % Jets
-\include{MJ}
+% \include{MJ}
 %-------------------------------------------------------------------------------
 % Photon processes
-\include{GJ}
+% \include{GJ}
 
 %-------------------------------------------------------------------------------
 % Print the bibliography
-\printbibliography
+% \printbibliography
 %-------------------------------------------------------------------------------
 
 \end{document}

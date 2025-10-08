@@ -8,6 +8,7 @@
 # 2019-04-16 Ian Brock (ian.brock@cern.ch): Only overwrite "BASENAME = ..." and not occurences without a space (in help).
 # 2020-11-21 Ian Brock (ian.brock@cern.ch): Check for use of \ATLASLATEXPATH and say atlaslatex_2020.sh should be run.
 # 2022-02-07 Ian Brock (ian.brock@cern.ch): Check that standard style files are all there.
+# 2025-09-01 Ian Brock (ian.brock@cern.ch): Copy all three MC_snippets direcotries.
 
 # Decide how to clone atlaslatex - ssh is default
 ATLASLATEXGIT=ssh://git@gitlab.cern.ch:7999/atlas-physics-office/atlaslatex.git
@@ -132,7 +133,7 @@ for lfile in latex/*.cls latex/*.sty; do
     cf_files "${lfile}" "${afile}"
 done
 
-# atlaslatexpath.sty should be there
+# Make sure all necessary files are there.
 for file in atlasdoc.cls atlaslatexpath.sty atlascover.sty \
     atlaspackage.sty atlasphysics.sty atlasbiblatex.sty \
     atlascontribute.sty atlascomment.sty atlastodo.sty \
@@ -142,6 +143,18 @@ for file in atlasdoc.cls atlaslatexpath.sty atlascover.sty \
     else
         echo "Copying ${file} to latex directory."
         cp tmp-atlaslatex/latex/${file} latex/
+    fi
+done
+
+# Clean up latex directory
+for lfile in latex/*.cls latex/*.sty; do
+    afile=tmp-atlaslatex/latex/$(basename $lfile)
+    if [ -e ${afile} ]; then
+        echo "${afile} is still in atlaslatex."
+        continue
+    else
+        echo "Remove ${lfile} in latex directory?"
+        rm -i ${lfile}
     fi
 done
 
@@ -156,9 +169,32 @@ for lfile in template/atlas-detector.tex; do
     afile=tmp-atlaslatex/template/$(basename $lfile)
     cf_files "${lfile}" "${afile}"
 done
-for lfile in template/MC_snippets/*.tex template/MC_snippets/*.sty; do
-    afile=tmp-atlaslatex/template/MC_snippets/$(basename $lfile)
-    cf_files "${lfile}" "${afile}"
+
+# Monte Carlo snippets and PubCom standard references.
+for template_dir in MC_snippets MC16_snippets MC23_snippets PubCom_BibTeX; do
+    test -d template/${template_dir} || mkdir template/${template_dir}
+    adir=tmp-atlaslatex/template/${template_dir}
+    ldir=template/${template_dir}
+    for afile in ${adir}/*.tex ${adir}/*.sty ${adir}/README.md ${adir}/Makefile; do
+        lfile=${ldir}/$(basename ${afile})
+        if [ -e ${lfile} ]; then
+            cf_files "${lfile}" "${afile}"
+        else
+            echo "Copying ${afile} to ${lfile}."
+            cp ${afile} ${lfile}
+        fi
+    done
+    # Clean up MC snippets if necessary.
+    for lfile in ${ldir}/*.tex ${ldir}/*.sty; do
+        afile=${adir}/$(basename $lfile)
+        if [ -e ${afile} ]; then
+            # echo "Keeping ${lfile}."
+            continue
+        else
+            echo "Removing ${lfile}."
+            rm -i ${lfile}
+        fi
+    done    
 done
 
 # Logos

@@ -11,20 +11,25 @@ In this section, we provide a summary of the different object definitions and ev
 Photons are reconstructed using dynamic, variable-size energy clusters in the EM calorimeter~\cite{ATL-PHYS-PUB-2017-022}. Converted photons are reconstructed from clusters associated to inner detector track(s) matched with a conversion vertex.  Photon candidates with associated super-clusters affected by dead front-end boards in the first or second sampling or by the presence high-voltage trips affecting the three samplings or that includes a masked cell in the core are considered as bad-quality photons and not considered in the analysis. Additionally, if any of the eight central strips is masked the photon candidate is not considered.
 Loose photons are defined from the list of photon candidates if they satisfy the Loose identification criteria, based on shower shapes variables defined with cells of the middle and back portions of the LAr accordion calorimeter. We pre-select loose photons requiring $\pT>\SI{25}{\GeV}$ and $|\eta_{S2}|<2.37$\footnote{$\eta_{S2}$ is the $\eta$ position of the calorimetric cluster in the second sampling of the EM calorimeter.}, vetoing the transition region between $1.37 < |\eta_{S2}| < 1.52$. The \pT used for the kinematic cuts and the invariant mass computation takes into account the correction of the $\eta$ from the diphoton primary vertex position.
 
-Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\textcolor{red}{XXX add references}. These corrections are tagged with the model~\texttt{es2022\_R22\_PRE}. Unless otherwise specified, the results reported in this document are obtain with this model. 
+Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\cite{EGAM-2021-02}. These corrections are tagged with the model~\texttt{es2024\_Run3\_v0} and correspond to \texttt{TUNE23}. Unless otherwise specified, the results reported in this document are obtained with this model. \footnote{\textcolor{blue}{The latest calibration scheme is used, the one employed in h033 which is likely the tag to be used for Moriond.}} 
 The~\texttt{1NP\_v1} systematics scheme is used which contains two energy scale related uncertainties and one resolution uncertainty.
 %which contains 70 variations for the scale and 9 for the resolution is used in this analysis.
 
-In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{ssec:event_selection}}.
+In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{sec:eventselections}}.
 
 During the event selection, events are required to have at least two loose photons, and the two loose photons with the highest \pT define the Higgs candidate.
 
 \paragraph{Diphoton vertex}
-\textcolor{red}{XXX modify to include the recent NN modifs}
-A Neural Network (NN) is used in order to identify the correct diphoton vertex among the primary vertices reconstructed in ATLAS. The vertex with the highest score for this NN is chosen to be the primary vertex in this analysis. The NN combines information from the longitudinal segmentation of the calorimeter (“pointing”) for these two photons, the $\Delta\phi$ between the tracks of the vertices under consideration and the diphoton system, the scalar sums of tracks \pT and \pTsq. Two NN are trained, one for unconverted photons pairs and one for pairs with at least one converted photon. The neural network performs better than the usual hardest vertex requirement in identifying the truth vertex within \SI{0.3}{\milli\meter}, in particular for processes with a small number of tracks in the final state, like \ggH. 
+
+A Neural Network (NN) is used in order to identify the correct diphoton vertex among the primary vertices reconstructed in ATLAS. The vertex with the highest score for this NN is chosen to be the primary vertex in this analysis. The NN combines information from the longitudinal segmentation of the calorimeter (``pointing'') for these two photons, the $\Delta\phi$ between the tracks of the vertices under consideration and the diphoton system, the scalar sums of tracks \pT and \pTsq. Two NN are trained, one for unconverted photons pairs and one for pairs with at least one converted photon. The neural network performs better than the usual hardest vertex requirement in identifying the truth vertex within \SI{0.3}{\milli\meter}, in particular for processes with a small number of tracks in the final state, like \ggH. 
 %A comparison study of the vertex selection efficiencies for various production modes was performed in the context of the \Hyy STXS/couplings analysis~\cite{Berger:2764716}: it has been shown that the efficiency of the \ggH production modes increases from 54\% to 65\% when the NN vertex is used in place of the usual hardest one as shown in \Fig{\ref{fig:myy_vertex_resolution}}.
 
-Once the diphoton vertex has been chosen, all the objects kinematic is recomputed and all the cuts reported in below sections are related to this diphoton vertex. The more correct choice of the primary vertex improves the \myy diphoton mass resolution by 8\% inclusively, as can be observed in \Fig{\ref{fig:myy_vertex_resolution}}. The improvement is driven by the ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
+Once the diphoton vertex has been chosen, all the objects kinematic is
+recomputed and all the cuts reported in below sections are related to this
+diphoton vertex. The more correct choice of the primary vertex improves the \myy
+diphoton mass resolution by 8\% inclusively.
+% , as can be observed in \Fig{\ref{fig:myy_vertex_resolution}}.
+The improvement is driven by the ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
 %\begin{figure}[tbp]
 %	\centering
 %    \includegraphics[width=0.49\linewidth]{selection/PV_mode}    
@@ -35,9 +40,7 @@ Once the diphoton vertex has been chosen, all the objects kinematic is recompute
 
 
 \subsubsection{Electron, muon, jet and \MET selections}
-\textcolor{red}{XXX Update references}
-The reconstruction and selection of these objects is common to other SM \Hyy analyses and it is described in great details in the common performance note \cite{Nomidis:2718255} and in the STXS/coupling note \cite{Berger:2764716}.\textcolor{red}{XXX old Run 2 references, update} 
-These objects are not used for the nominal categorization selection. 
+The reconstruction and selection of these objects is common to other SM \Hyy analyses and it is described in great details in the STXS/coupling note \cite{Berger:2764716} from Run 2. Updated calibration and identification/tagging maps are specified below, as well as a reminder of the baseline object selection cuts.  
 
 \subsubsection{Overlap removal between objects}
 In order to avoid any possible double counting between objects an overlap removal is applied following HGam strategy, starting from the selected photons. This strategy follows the recommendations on analysis harmonization detailed in~\cite{Adams:1700874}. In this approach, the two leading photons are always kept. Electrons and muons in a cone of $\Delta R=0.4$ around any of the photons are discarded. Jets which are closer than $\Delta R=0.2$ ($\Delta R=0.4$) of an electron (photon) are not considered. Also electrons at a distance $\Delta R<0.4$ from the remaining jets are removed . Additionally, muons with a distance smaller than $\Delta R=0.4$ to a jet are rejected. 
@@ -49,7 +52,7 @@ In this section a summary of the recommendations from Combined Performance group
 
 \textbf{Photons}
 \begin{itemize}
-	\item ESModel: \path{es2022_R22_PRE}
+	\item ESModel: \path{es2024_Run3_v0}
 	\item Shower shape fudge factors: \path{ElectronPhotonShowerShapeFudgeTool/}\\ \path{v2/PhotonFudgeFactors.root}
 	\item ID: Tight (for signal region);  \path{ElectronPhotonSelectorTools/offline/20180825/}\\ \path{PhotonIsEMTightSelectorCutDefs.conf}
 	\item ID scale factors: \path{PhotonEfficiencyCorrection/2015_2025/rel22.2/2022_Summer_Prerecom_v1/map0.txt}
@@ -59,7 +62,45 @@ In this section a summary of the recommendations from Combined Performance group
 	\item Photon quality: removed \path{BADCLUSPHOTON} and \path{deadHVTool}    
 \end{itemize}
 
-\textbf{Electrons, Muons, Jets, B-Jet}: same recommendations as the one reported in the Run 3 partial result \textcolor{red}{Update references with up-to-date recommendations}
+\textbf{Electrons}
+\begin{itemize}
+	\item Selection: $p_{T} > 10 \GeV, |\eta|<2.47, 1.37 < |\eta| < 1.52, |d_{0}/\sigma(d_{0})|<5, |z_{0}sin\theta|<0.5$ mm, MediumLH 
+	\item ESModel: \path{es2024_Run3_v0}
+	\item ID scale factors: \path{ElectronEfficiencyCorrection/2015_2025/rel22.2/2025_Run3_Consolidated_Prerecom_v3/offline/efficiencySF.offline.MediumLLH_d0z0_v18.root}
+	\item Isolation working point: \path{LooseVarRad}
+	\item Electron quality: removed \path{BADCLUSELECTRON} and \path{deadHVTool}    
+\end{itemize}
+
+\textbf{Muons}
+\begin{itemize}
+	\item Selection: $p_{T} > 5 \GeV, |\eta|<2.7, |d_{0}/\sigma(d_{0})|<3, |z_{0}sin\theta|<0.5$ mm, Medium
+  \item Calibration release: \path{Recs2025_03_26_Run2Run3}
+	\item Efficiency release: \path{250418_Preliminary_r24run3}
+	\item Isolation working point: \path{PflowLoose_VarRad}
+\end{itemize}
+\textbf{Jets}
+\begin{itemize}
+	\item Baseline selection: $p_{T} > 20 \GeV, |y|<4.4$, 
+  \item ID: 
+  \begin{itemize}
+    \item JVT, FixedEffPt \path{JetJvtEfficiency/May2024/NNJvtSFFile_Run3_EMPFlow.root}; 
+    \item fJVT: Loose \path{JetJvtEfficiency/May2024/fJvtSFFile_Run2_EMPFlow.root} 
+  \end{itemize}
+  \item Calibration file: \path{AntiKt4EMPFlow_MC23a_PreRecR22_Phase2_CalibConfig_ResPU_EtaJES_GSC_241208_InSitu.config}
+  \item Calibration sequence: \path{JetArea_Residual_EtaJES_GSC}
+  \item Calibration area: \path{00-04-83}
+  \item Uncertainty scheme: \path{rel22/Winter2025_PreRec/R4_CategoryReduction_FullJER.config}
+\end{itemize}
+
+\textbf{B-jets}
+
+\begin{itemize}
+	\item Baseline selection: $p_{T} > 20 \GeV, |\eta|<2.5$, 
+  \item CDI file: \path{13p6TeV/MC23_2025-06-17_GN2v01_v4.root}
+  \item Tagger name: \texttt{GN2v01}
+  \item Tagger WP: \texttt{GN2v01\_FixedCutBEff\_85} 
+ 
+\end{itemize}
 
 \subsubsection{Corrections to MC samples}
 \label{sssec:corrections_MC}
@@ -95,7 +136,7 @@ selection applied at particle level, with the exception of the
 photon identification requirements.
 
 We summarise here the full event selection, after the criteria applied
-at preselection level and described also in Section~\ref{S. Data and MC Samples}.
+at preselection level and described also in Section~\ref{sec:samples}.
 We just remind the reader that all particles' (photons, leptons, jets) energy or momentum scales are calibrated.
 In the simulation, energy or momentum resolutions are smeared to match the data.
 Scale factors applied to the simulation account for data/MC differences in efficiencies
@@ -497,8 +538,8 @@ These photons are selected after the kinematic photon cuts have been applied.
 
 \vspace{0.4cm}
 \textbf{Isolated photons} ~\hspace{0.2cm}~ As in previous Higgs to diphoton cross section measurements, a particle level photon isolation is applied in order to reduce the model dependence of the isolation requirements.
-The motivation for using particle level isolation and the method for choosing the cut is discussed further in Appendix~\textcolor{red}{placeholder for Pablo's studies}. 
-The isolation energy, $E^\text{iso}_\text{T}$ of a particle-level photon is calculated as the transverse energy, \ET of the four-vector sum of all charged particles which have $\pt>~\SI{1}{GeV}$ within a cone of $\Delta R = 0.2$ around the photon. The event is discarded if at least one of the two selected photons fails the requirement $E^\text{iso}_\text{T} <  0.05\pt$.\textcolor{red}{Update with final numbers} 
+The motivation for using particle level isolation and the method for choosing the cut is discussed further in Appendix~\textcolor{blue}{placeholder for Pablo's studies on truth level isolation}. 
+The isolation energy, $E^\text{iso}_\text{T}$ of a particle-level photon is calculated as the transverse energy, \ET of the four-vector sum of all charged particles which have $\pt>~\SI{1}{GeV}$ within a cone of $\Delta R = 0.2$ around the photon. The event is discarded if at least one of the two selected photons fails the requirement $E^\text{iso}_\text{T} <  0.05\pt$.
 %\colorbox{yellow}{To be re-checked for Run 3.}
 
 

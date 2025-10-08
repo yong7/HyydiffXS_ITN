@@ -14,6 +14,41 @@ Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ---
 
+## [15.15.0] - 2025-10-01
+
+### Added
+
+- September update of publications.
+- Add option `refsection` (default none) to `atlaspackage` so that references can be produced at the end of each chapter.
+
+---
+
+## [15.14.0] - 2025-09-02
+
+### Added
+
+- August update of publications.
+- Integrate new template files into `atlaslatex_update.sh`.
+- `MC_snippets` files removed, except for message documenting the move to `MC16_snippets` and `MC23_snippets`.
+- Small updates to `MC16_snippets`.
+
+---
+
+## [15.13.0] - 2025-08-12
+
+### Added
+
+- July update of publications.
+- New document `PubCom_BibTeX` in `template` directory to supersede TWiki page.
+- Add references on the TWiki page `PubComUsefulBibTex` to `atlas-useful.bib`.
+- Start MC23 Monte Carlo snippets document.
+
+### Deprecated
+
+- The `MC_snippets` document is replaced by `MC16_snippets` and `MC23_snippets` (work in progress).
+
+---
+
 ## [15.12.0] - 2025-06-26
 
 ### Added
@@ -33,7 +68,7 @@ Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ### Removed
 
-- Old files in `obsolete` directory removed.
+- Old files (including the `bst` files) in `obsolete` directory removed.
 
 ---
 
@@ -1939,7 +1974,7 @@ Hopefully this will be fixed in the next release.
 
 ---
 
-## [Unreleased] - 2025-04-XX
+## [Unreleased] - 2025-07-XX
 
 ### Added
 

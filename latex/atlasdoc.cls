@@ -9,9 +9,9 @@
 %
 % Copyright (C) 2002-2025 CERN for the benefit of the ATLAS collaboration.
 %-------------------------------------------------------------------------------
-\newcommand*{\ATPackageVersion}{15.12.0}
+\newcommand*{\ATPackageVersion}{15.15.0}
 \newcommand*{\ATPackageUseVersion}{15}
-\ProvidesClass{latex/atlasdoc}[2025/06/26 v15.12.0 ATLAS document class]
+\ProvidesClass{latex/atlasdoc}[2025/10/01 v15.15.0 ATLAS document class]
 % Needs 2013 TeX Live or later
 \NeedsTeXFormat{LaTeX2e}[2013/01/01]
 
@@ -346,7 +346,7 @@
 \newcommand*{\arXivId}[1]{\renewcommand*{\AtlasArXivId}{#1}\renewcommand*{\AtlasArXivURL}{https://arXiv.org/abs/#1}}
 \newcommand*{\AtlasArXivCat}{[hep-ex]}
 
-% HEPData - keep old macro \HepDataRecord for bacwards compatibility.
+% HEPData - keep old macro \HepDataRecord for backwards compatibility.
 \newcommand*{\AtlasHEPDataRecord}{}
 \newcommand*{\HepDataRecord}[1]{\renewcommand*{\AtlasHEPDataRecord}{https://www.hepdata.net/record/ins#1}}
 \newcommand*{\HEPDataRecord}[1]{\renewcommand*{\AtlasHEPDataRecord}{https://www.hepdata.net/record/ins#1}}
