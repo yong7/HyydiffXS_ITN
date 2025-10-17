@@ -1,0 +1,4 @@
+catXS_VBF_bin2 ExpPoly2 -> ExpPoly3
+pT_yy_bin3 ExpPoly2 -> ExpPoly3
+pT_yy_bin13 Exponential -> ExpPoly2
+yAbs_yy_bin7 ExpPoly2 -> ExpPoly3
