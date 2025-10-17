@@ -1,6 +1,7 @@
 \section{Spurious Signal Fits}
 \label{app:spurious_signal}
-In this section, the results of the spurious signal fits are shown for each fiducial region and bin of the fiducial differential cross sections. The results are presented as $\frac{S}{S_{\textrm{ref}}}$, which represents the size of the spurious signal uncertainty. The result is shown for all tested functions.
+In this section, the results of the spurious signal plots are shown for each fiducial region and bin of the differential observales. The results are presented as $\frac{S}{S_{\textrm{ref}}}$, which represents the size of the spurious signal uncertainty. The result is shown for all tested functions.The red dashed line indicates the $\pm$10\% threshold range for the second criterion, which is the case for most of the background functions selected.
+
 
 \begin{figure}[htbp!]
   \begin{center}
@@ -10,13 +11,14 @@ In this section, the results of the spurious signal fits are shown for each fidu
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for Diphoton Fiducial}
 \label{tab:sp_signal_Diphoton_fid}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-Diphoton Fiducial & ExpPoly2 & -8.87 & -0.535 & -41.8 & 22.7 & PASS \\
+Diphoton Fiducial & ExpPoly2 & -0.925 & -74.9 & -13.9 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -32,14 +34,15 @@ Diphoton Fiducial & ExpPoly2 & -8.87 & -0.535 & -41.8 & 22.7 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for VBF-enhanced}
 \label{tab:sp_signal_catXS_VBF}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-Anti VBF-enhanced & ExpPoly2 & -10.8 & -0.638 & -50.8 & 24.6 & PASS \\
-VBF-enhanced & Exponential & -23.8 & -4.29 & -7.77 & 14.4 & PASS \\
+Anti VBF-enhanced & ExpPoly2 & -0.948 & -73.4 & -13.6 &  \\
+VBF-enhanced & ExpPoly3 & -0.731 & -1.12 & -2.99 & F-test(1.4,2.57) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -55,14 +58,15 @@ VBF-enhanced & Exponential & -23.8 & -4.29 & -7.77 & 14.4 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for High \ETmiss}
 \label{tab:sp_signal_catXS_MET}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-Anti High \ETmiss & ExpPoly2 & -8.36 & -0.51 & -39.4 & 19.6 & PASS \\
-High \ETmiss & Exponential & 17.4 & 5.33 & 3.9 & 31.1 & PASS \\
+Anti High \ETmiss & ExpPoly2 & -0.598 & -46 & -8.51 &  \\
+High \ETmiss & Exponential & -4.8 & -3.5 & -13.4 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -78,14 +82,15 @@ High \ETmiss & Exponential & 17.4 & 5.33 & 3.9 & 31.1 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for $N_{lep} \geq 1$}
 \label{tab:sp_signal_catXS_lepton}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-$N_{lep}$ = 0 & ExpPoly2 & -8.82 & -0.537 & -41.6 & 22.9 & PASS \\
-$N_{lep} \geq 1$ & ExpPoly2 & -9.39 & -0.833 & -0.44 & 66.6 & PASS \\
+$N_{lep}$ = 0 & ExpPoly2 & -1.08 & -86.5 & -16 &  \\
+$N_{lep} \geq 1$ & Pow & -4.95 & -2.86 & -14 & MC sample missing \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -101,18 +106,18 @@ $N_{lep} \geq 1$ & ExpPoly2 & -9.39 & -0.833 & -0.44 & 66.6 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for ttH-enhanced}
 \label{tab:sp_signal_catXS_ttH}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-Anti VBF-enhanced & ExpPoly2 & -8.73 & -0.531 & -41.1 & 21.3 & PASS \\
-VBF-enhanced & Pow & 16.9 & 4.92 & 3.68 & 8.18 & PASS \\
+Anti VBF-enhanced & ExpPoly2 & -0.996 & -62.6 & -11.6 &  \\
+VBF-enhanced & Exponential & -7.21 & -5.38 & -21.7 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 
 \clearpage
 
@@ -150,32 +155,73 @@ VBF-enhanced & Pow & 16.9 & 4.92 & 3.68 & 8.18 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \ptgg}
 \label{tab:sp_signal_pT_yy}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-$0 \leq \ptgg < 5$\GeV & ExpPoly2 & -5.86 & -2.31 & -6.58 & 60.5 & PASS \\
-$5 \leq \ptgg < 10$\GeV & ExpPoly2 & -9.01 & -1.98 & -14.8 & 57.6 & PASS \\
-$10 \leq \ptgg < 15$\GeV & ExpPoly2 & -26.2 & -6.36 & -42.9 & 36.5 & PASS \\
-$15 \leq \ptgg < 20$\GeV & ExpPoly2 & -13.5 & -3.15 & -20.6 & 56.1 & PASS \\
-$20 \leq \ptgg < 25$\GeV & ExpPoly2 & -27.7 & -7.47 & -42.1 & 23.5 & PASS \\
-$25 \leq \ptgg < 30$\GeV & ExpPoly2 & 11 & 2.74 & 15.6 & 15.2 & PASS \\
-$30 \leq \ptgg < 35$\GeV & ExpPoly2 & 31.8 & 9.94 & 41.9 & 4.46 & PASS \\
-$35 \leq \ptgg < 45$\GeV & Bern3 & 20 & 4.46 & 35.1 & 35.2 & PASS \\
-$45 \leq \ptgg < 60$\GeV & ExpPoly2 & 2.42 & 0.585 & 3.9 & 10 & PASS \\
-$60 \leq \ptgg < 80$\GeV & Bern3 & 5.86 & 1.21 & 8.88 & 4.3 & PASS \\
-$80 \leq \ptgg < 100$\GeV & Bern3 & 18.3 & 4.49 & 19.1 & 1.69 & PASS \\
-$100 \leq \ptgg < 120$\GeV & Pow & 18.9 & 4.49 & 12.3 & 15.5 & PASS \\
-$120 \leq \ptgg < 140$\GeV & Exponential & -15.1 & -3.54 & -6.78 & 58.5 & PASS \\
-$140 \leq \ptgg < 170$\GeV & Exponential & -20.5 & -4.25 & -8.15 & 9.95 & PASS \\
-$170 \leq \ptgg < 200$\GeV & Exponential & -19.2 & -4.18 & -4.94 & 2.61 & PASS \\
-$200 \leq \ptgg < 250$\GeV & Exponential & 14.4 & 2.85 & 3.12 & 56.5 & PASS \\
-$250 \leq \ptgg < 300$\GeV & Exponential & 23.5 & 5.77 & 3 & 11.2 & PASS \\
-$300 \leq \ptgg < 450$\GeV & Exponential & 11.4 & 2.48 & 1.17 & 48.2 & PASS \\
-$450 \leq \ptgg < 650$\GeV & Exponential & 28.2 & 12.2 & 1.09 & 0.189 & FAIL \\
-$650 \leq \ptgg < 13000$\GeV & Pow & -2.04e+08 & 9.18e+04 & -257 & 91.1 & FAIL \\
+$0 \leq \ptgg < 5$\GeV & ExpPoly2 & -1.83 & -4.94 & -3.64 &  \\
+$5 \leq \ptgg < 10$\GeV & ExpPoly2 & -2.32 & -17.2 & -8.97 &  \\
+$10 \leq \ptgg < 15$\GeV & ExpPoly3 & -6.25 & -44.4 & -20 & F-test(-6.02,-44.9) \\
+$15 \leq \ptgg < 20$\GeV & ExpPoly2 & -5.61 & -35 & -18.9 &  \\
+$20 \leq \ptgg < 25$\GeV & ExpPoly2 & -9.15 & -49.7 & -27.7 &  \\
+$25 \leq \ptgg < 30$\GeV & ExpPoly2 & 2.26 & 12.9 & 7.64 &  \\
+$30 \leq \ptgg < 35$\GeV & ExpPoly3 & 5.6 & 27.2 & 14.6 &  \\
+$35 \leq \ptgg < 45$\GeV & ExpPoly2 & 4.54 & 35.4 & 18.9 &  \\
+$45 \leq \ptgg < 60$\GeV & ExpPoly2 & -2.42 & -20 & -11.5 &  \\
+$60 \leq \ptgg < 80$\GeV & ExpPoly3 & -1.44 & 0 & 0 & $p(\chi^2)$ change \\
+$80 \leq \ptgg < 100$\GeV & Bern3 & 6.62 & 28.4 & 25.3 &  \\
+$100 \leq \ptgg < 120$\GeV & Pow & 3.72 & 10.2 & 14.8 &  \\
+$120 \leq \ptgg < 140$\GeV & ExpPoly2 & 1.75 & 2.85 & 5.53 & F-test(-1.13,-1.98) \\
+$140 \leq \ptgg < 170$\GeV & Exponential & -3.33 & -6.38 & -15.9 &  \\
+$170 \leq \ptgg < 200$\GeV & Exponential & -0.207 & -0.222 & -0.829 &  \\
+$200 \leq \ptgg < 250$\GeV & Exponential & 1.26 & 1.23 & 5.43 &  \\
+$250 \leq \ptgg < 300$\GeV & Exponential & 1.12 & 0.547 & 4.11 &  \\
+$300 \leq \ptgg < 450$\GeV & Exponential & -0.817 & -0.341 & -3.23 &  \\
+$450 \leq \ptgg < 650$\GeV & Exponential & 14.2 & 1.27 & 30.2 & low stat \\
+$650 \leq \ptgg < 13000$\GeV & Exponential & -7.45 & -0.333 & -22.4 & low stat \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \subfloat[$0 \leq \ygg < 0.15$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin1_all_Mu_legend.pdf}}
+    \subfloat[$0.15 \leq \ygg < 0.3$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin2_all_Mu_legend.pdf}}
+    \subfloat[$0.3 \leq \ygg < 0.45$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin3_all_Mu_legend.pdf}}\\
+    \subfloat[$0.45 \leq \ygg < 0.6$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin4_all_Mu_legend.pdf}}
+    \subfloat[$0.6 \leq \ygg < 0.75$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin5_all_Mu_legend.pdf}}
+    \subfloat[$0.75 \leq \ygg < 0.9$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin6_all_Mu_legend.pdf}}\\
+    \subfloat[$0.9 \leq \ygg < 1.2$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin7_all_Mu_legend.pdf}}
+    \subfloat[$1.2 \leq \ygg < 1.6$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin8_all_Mu_legend.pdf}}
+    \subfloat[$1.6 \leq \ygg < 2.0$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin9_all_Mu_legend.pdf}}\\
+    \subfloat[$2.0 \leq \ygg < 2.5$]{\includegraphics[width=0.3\textwidth]{figures/spurious_signal/yAbs_yy_bin10_all_Mu_legend.pdf}}
+  \end{center}
+  \caption{Spurious signal fit for \ygg bins}
+\end{figure}
+
+\begin{table}[htbp!]
+\centering
+\caption{Spurious signal results for all analysis bins for \ygg}
+\label{tab:sp_signal_yAbs_yy}
+\begin{tabular}{lrrrrc}
+\toprule
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
+\midrule
+$0 \leq \ygg < 0.15$ & ExpPoly2 & -0.682 & -5.39 & -3.55 &  \\
+$0.15 \leq \ygg < 0.3$ & ExpPoly2 & 1.72 & 14.5 & 9.06 &  \\
+$0.3 \leq \ygg < 0.45$ & ExpPoly2 & -2.57 & -20.8 & -13.8 &  \\
+$0.45 \leq \ygg < 0.6$ & ExpPoly2 & 0.947 & 6.35 & 4.02 &  \\
+$0.6 \leq \ygg < 0.75$ & Bern3 & -7.94 & -59 & -34.8 & $p(\chi^2)$ change \\
+$0.75 \leq \ygg < 0.9$ & ExpPoly2 & 3.31 & 22.5 & 13.6 &  \\
+$0.9 \leq \ygg < 1.2$ & ExpPoly3 & -5.75 & -72.4 & -29.1 & F-test(-5.35,-54.5) \\
+$1.2 \leq \ygg < 1.6$ & ExpPoly2 & -0.837 & -8.06 & -3.05 &  \\
+$1.6 \leq \ygg < 2.0$ & ExpPoly2 & -1.42 & -8.06 & -3.91 &  \\
+$2.0 \leq \ygg < 2.5$ & ExpPoly2 & -3.37 & -7.4 & -7.54 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -193,16 +239,17 @@ $650 \leq \ptgg < 13000$\GeV & Pow & -2.04e+08 & 9.18e+04 & -257 & 91.1 & FAIL \
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \Njets[30]}
 \label{tab:sp_signal_N_j_30}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-$\Njets=0$ & ExpPoly2 & -26.1 & -2.71 & -96.8 & 71.8 & PASS \\
-$\Njets=1$ & ExpPoly2 & 23.8 & 3.02 & 61.1 & 3.59 & PASS \\
-$\Njets=2$ & ExpPoly2 & 22.7 & 3.95 & 35.4 & 35.1 & PASS \\
-$\Njets \geq 3$ & ExpPoly2 & 14.9 & 3.18 & 16 & 22 & PASS \\
+$\Njets=0$ & ExpPoly2 & -2.2 & -77.2 & -18.3 &  \\
+$\Njets=1$ & ExpPoly2 & 2.03 & 45.4 & 15.6 &  \\
+$\Njets=2$ & ExpPoly2 & 3.34 & 33.8 & 18.9 &  \\
+$\Njets \geq 3$ & ExpPoly2 & 1.9 & 9.57 & 7.88 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -219,22 +266,21 @@ $\Njets \geq 3$ & ExpPoly2 & 14.9 & 3.18 & 16 & 22 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \Nbjets}
 \label{tab:sp_signal_catXS_nbjet}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-$\Njets=0 \mid N_{lep}=0$ & ExpPoly2 & -18.3 & -1.35 & -72.3 & 65.6 & PASS \\
-$\Nbjets=0$ & ExpPoly3 & 8.05 & 0.898 & 23.7 & 6.27 & PASS \\
-$\Nbjets \geq 1$ & ExpPoly2 & -2.85 & 1.03 & -1.94 & 88.4 & PASS \\
+$\Njets=0 \mid N_{lep}=0$ & ExpPoly2 & -1.51 & -79.1 & -17.5 &  \\
+$\Nbjets=0$ & Bern3 & -1.3 & -32.7 & -9.95 & $p(\chi^2)$ change \\
+$\Nbjets \geq 1$ & ExpPoly2 & 0.0653 & 0.0897 & 0.115 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-
 \clearpage
-
 
 \begin{figure}[htbp!]
   \begin{center}
@@ -248,17 +294,18 @@ $\Nbjets \geq 1$ & ExpPoly2 & -2.85 & 1.03 & -1.94 & 88.4 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \dphijj}
 \label{tab:sp_signal_Dphi_j_j_30_signed}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-underflow & ExpPoly2 & -11.6 & -0.845 & -51.7 & 48.9 & PASS \\
-$-3.15 \leq \dphijj < -1.5708$ & ExpPoly2 & 18.8 & 5.32 & 21.7 & 75.5 & PASS \\
-$-1.5708 \leq \dphijj < 0$ & ExpPoly2 & 20.5 & 4.87 & 14.3 & 11.8 & PASS \\
-$0 \leq \dphijj < 1.5708$ & Exponential & -26.7 & -4.85 & -17 & 1.35 & PASS \\
-$1.5708 \leq \dphijj < 3.15$ & ExpPoly2 & 10.5 & 2.99 & 12.1 & 40.5 & PASS \\
+underflow & ExpPoly2 & -1.09 & -71.1 & -14.2 &  \\
+$-3.15 \leq \dphijj < -1.5708$ & ExpPoly2 & 5.88 & 24.3 & 18.5 &  \\
+$-1.5708 \leq \dphijj < 0$ & ExpPoly2 & 2.56 & 8.96 & 11.1 & $p(\chi^2)$ change \\
+$0 \leq \dphijj < 1.5708$ & ExpPoly2 & 2.28 & 8 & 9.93 & $p(\chi^2)$ change \\
+$1.5708 \leq \dphijj < 3.15$ & ExpPoly2 & -1.54 & -4.41 & -3.51 &  \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -277,17 +324,18 @@ $1.5708 \leq \dphijj < 3.15$ & ExpPoly2 & 10.5 & 2.99 & 12.1 & 40.5 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \mjj}
 \label{tab:sp_signal_m_jj_30}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-underflow & ExpPoly2 & -11.6 & -0.845 & -51.7 & 48.9 & PASS \\
-$0 \leq \mjj < 120$\GeV & ExpPoly2 & 20 & 4.22 & 21 & 27.3 & PASS \\
-$120 \leq \mjj < 450$\GeV & ExpPoly2 & 25.8 & 6.01 & 35.7 & 51.8 & PASS \\
-$450 \leq \mjj < 1500$\GeV & ExpPoly2 & -10.4 & -2.34 & -7.3 & 89.6 & PASS \\
-$1500 \leq \mjj < 13000$\GeV & Pow & 17.3 & 5.64 & 3.26 & 20.7 & PASS \\
+underflow & ExpPoly2 & -1.25 & -71.7 & -14.3 &  \\
+$0 \leq \mjj < 120$\GeV & ExpPoly2 & 1.59 & 6.56 & 5.19 &  \\
+$120 \leq \mjj < 450$\GeV & ExpPoly2 & 4.94 & 29.6 & 18.8 &  \\
+$450 \leq \mjj < 1500$\GeV & ExpPoly2 & 0.898 & 2.38 & 3.18 &  \\
+$1500 \leq \mjj < 13000$\GeV & ExpPoly2 & 0.363 & 0.135 & 0.65 & manual F-test \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -307,18 +355,19 @@ $1500 \leq \mjj < 13000$\GeV & Pow & 17.3 & 5.64 & 3.26 & 20.7 & PASS \\
 \end{figure}
 
 \begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \ptj[1]}
 \label{tab:sp_signal_pT_j1_30}
-\begin{tabular}{lrrrrrr}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-underflow & ExpPoly2 & -26.1 & -2.71 & -96.8 & 71.8 & PASS \\
-$30 \leq \ptj < 60$\GeV & ExpPoly2 & 25.9 & 3.72 & 66 & 1.24 & PASS \\
-$60 \leq \ptj < 90$\GeV & ExpPoly3 & 12.8 & 2.74 & 21.5 & 7.51 & PASS \\
-$90 \leq \ptj < 120$\GeV & Exponential & -25.7 & -5.76 & -22.3 & 10.1 & PASS \\
-$120 \leq \ptj < 350$\GeV & ExpPoly2 & 9.99 & 1.76 & 8.84 & 54.4 & PASS \\
-$350 \leq \ptj < 13000$\GeV & ExpPoly2 & -18.3 & 13.5 & 3.2 & 85.3 & PASS \\
+underflow & ExpPoly2 & -2.2 & -77.2 & -18.3 &  \\
+$30 \leq \ptj < 60$\GeV & ExpPoly2 & 3.37 & 62.1 & 20.9 &  \\
+$60 \leq \ptj < 90$\GeV & ExpPoly2 & 4.83 & 35.4 & 21.4 &  \\
+$90 \leq \ptj < 120$\GeV & ExpPoly2 & 2.31 & 8.94 & 8.82 & $p(\chi^2)$ change \\
+$120 \leq \ptj < 350$\GeV & ExpPoly2 & 0.651 & 2.62 & 2.82 &  \\
+$350 \leq \ptj < 13000$\GeV & Exponential & -4.77 & -0.996 & -6.56 &  \\
 \bottomrule
 \end{tabular}
 \end{table}

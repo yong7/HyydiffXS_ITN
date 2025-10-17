@@ -80,16 +80,32 @@ For the power law function, the first order (Pow) is defined as
 
 
 \FloatBarrier
-
-\subsubsection{Spurious signal} 
-\label{ssec:Spurious signal}
-
-The spurious signal method is used to measure the bias in the signal yield caused by the choice of background parameterisation.
-This is done by fitting a background only MC simulation with a signal + background parameterisation. 
+\subsubsection{Background template}
+\label{ssec:Background template}
 Due to computational limitations only the $\gamma\gamma$ sample is generated, the contribution of $\gamma j$ and $jj$ component are derived from data using a two-dimensional
-double-sideband method described in \ref{sec:backgroundestimation}.The fraction of contributed by the $\gamma\gamma$,$\gamma j$ and $jj$ background source after inclusive diphoton selection are 67\%,29\% and 4\% respectively. In ~\cite{ATLAS_prevNote},it was studied that using only $\gamma\gamma$ and $\gamma j$ components for modelling the shape, a good description of the background in the data sideband can be achieved and the $jj$ contribution can be neglected.For each bin,
-A background-only template is build as the sum of $\gamma\gamma$ and $\gamma j$ components according to the relative fractions measured with data.The total template is then normalised to match the data sideband. 
+double-sideband method as described in section \ref{sec:backgroundestimation}.The fraction of contributed by the $\gamma\gamma$,$\gamma j$ and $jj$ background source after inclusive diphoton selection are 67\%,29\% and 4\% respectively. In previous note ~\cite{ATLAS_prevNote}, it was studied that using only $\gamma\gamma$ and $\gamma j$ components for modelling the shape, a good description of the background in the data sideband can be achieved and the $jj$ contribution can be neglected.The $\gamma j$ shape is derived from data control region. In the control region. The events should pass the LoosePrime4 working point and the tight identification for one of the two photon candidates is inverted.Then the shape is smoothed by fitting its ratio to the $\gamma\gamma$ MC shape with a smooth function and apply the reweighting to $\gamma\gamma$ MC shape.An illustration for this procedure is shown in Figure~\ref{fig:yj_CR_inclusive} for the di-photon inclusive region. 
 
+\begin{figure}[!htbp]
+	\begin{center}
+\includegraphics[width=0.45\textwidth]
+      {figures/BackgroundTemplates/yjbkg_Diphoton_fid_bin0.png}
+	\end{center}
+	\caption{Control region plot for the inclusive selection. The $\gamma$--jet data from the control region are reweighing using $\gamma\gamma$ MC according to its ratio to $\gamma\gamma$ MC. The ratio is fitted with a smooth function.}
+	\label{fig:yj_CR_inclusive}
+\end{figure}
+
+The total background shape is the addition of $\gamma\gamma$ and $\gamma j$ according to the relative fractions.The total background template is build by normalized the shape to match the data entries in the sideband range(i.e. excluding 121 \GeV <\mgg< 129 \GeV).The uncertainties are derived from $\gamma\gamma$ MC statistical uncertainties.The templates show a good agreement when comparing with the events in data sidebands.As shown in Figure ~\ref{fig:data_sideband_inclusive}
+\begin{figure}[!htbp]
+	\begin{center}
+\includegraphics[width=0.45\textwidth]
+      {figures/BackgroundTemplates/MC_Data_Diphoton_fid_bin0.png}
+	\end{center}
+	\caption{comparison plot between template and data sideband}
+	\label{fig:data_sideband_inclusive}
+\end{figure}
+
+\subsubsection{Background smoothing}
+\label{ssec:background smoothing}
 Due to the finite size of the simulation samples used to build the background templates,
 large statistical fluctuations are often observed. These fluctuations can adversely affect
 the estimation of the spurious signal, particularly when they occur in the Higgs signal
@@ -97,8 +113,43 @@ window between 123\GeV and 127 \GeV. These fluctuations would nominally be inter
 as a spurious signal, hence resulting in an overestimation of the background model’s
 systematic uncertainty. Given the computational limitations in generating larger data
 sets, an alternative approach is employed. The background templates are smoothed using
-Gaussian process regression (GPR) ~\cite{frate2017modelingsmoothbackgroundsgeneric},using the Gibbs Kernel. The GPR approach
-suppresses statistical fluctuations in the background templates, without biasing the shape of wider features in the template.
+Gaussian process regression (GPR) ~\cite{frate2017modelingsmoothbackgroundsgeneric}. The GPR smoothing is performed using the Scikit-Learn machine learning package.In the GPR smoothing, the Gibbs kernel is used, which is based on the commonly used Radial Basis Function (RBF) kernel\cite{Berger:2764716}.
+The RBF kernel has one hyperparameter, the constant length scale $l$, and it is defined as
+
+\begin{equation}
+K_\text{RBF}(x,x') = exp\left(\frac{-(x-x')^2}{2l^2}\right)
+\end{equation}
+
+The RBF kernel is useful for mostly-flat functions. However, for smoothly-falling functions, it is likely that nearby points will be more correlated in some regions than in others, so a constant length scale is a suboptimal model. The Gibbs kernel allows the length scale $l(x)$ to vary linearly as a function of $x$, and thus has two hyperparameters: the initial length scale and the length scale slope. The Gibbs kernel function is: 
+
+\begin{equation}
+K_\text{Gibbs}(x, x') = \frac{\sqrt{2l(x)l(x')}}{l(x)^2 + l(x')^2 } \cdot exp\left( \frac{-(x-x')^2}{l(x)^2 + l(x')^2} \right)
+\end{equation}
+
+The background templates used in the spurious signal test for the analysis categories are all smooth,roughly exponentially falling distributions with statistical fluctuations.hence the Gibbs kernel and an additional custom error kernel is used.For the error kernel.the magnitude of the errors decrease linearly with x.The two hyperparameters -- $\epsilon$ and $\epsilon_{b}$ --are highly constrained to approximate the error bars from the original background template.
+
+Large data statistical fluctuation may cause problems with GPR fit convergence.The GPR prior is used to provide a very rough approximation of the background shape.The prior is usually defined by fitting the background template with  an exponential function. However, in cases where the input template has very few statistics.The GPR fit almost unchanged with the exponential prior.Although the exponential shape is technically an adequate descriptor of the template shape, the choice of the exponential mean does bias the functional choice of the spurious signal test in this case.Therefore, a check has been added to re-perform the GPR fit using a flat prior if the GPR fit and exponential prior disagree with $\frac{\chi^2}{ndf} <1$.
+
+The smoothed template shows good agreement with both the raw template and the data sidebands, as illustrated in the left plots of Fig.~\ref{fig:template_inclusive}. The right plots present a comparison of the templates before and after smoothing. A $\chi^2$ test is performed to evaluate the compatibility between the raw and smoothed templates. In the lower panel of the right plot, the pull distribution, defined as $\frac{MC - \text{GPR}}{\sigma_{MC}}$ is shown and varies mostly within $1\sigma$. For more template plots can be found in Appendix\ref{app:bkg_template}
+
+\begin{figure}[htbp!]
+  \begin{center}
+    \subfloat[]{\includegraphics[width=0.45\textwidth]{figures/BackgroundTemplates/DataSB_Diphoton_fid_bin0.png}}
+    \subfloat[]{\includegraphics[width=0.45\textwidth]
+    {figures/BackgroundTemplates/Smoothed_Diphoton_fid_bin0.png}}\\
+  \end{center}
+  \caption{(a) comparison plot for background templates and data sidebands for inclusive region. (b) compatibility check plot between raw template and smoothed template.}
+  \label{fig:template_inclusive}
+\end{figure}
+
+
+
+\subsubsection{Spurious signal Test} 
+\label{ssec:Spurious signal}
+
+The spurious signal method is used to measure the bias in the signal yield caused by the choice of background parameterisation.
+This is done by fitting a background only MC simulation with a signal + background parameterisation. 
+
 
 The signal yield extracted in the background-only template (S) and its statistical uncertainty ($\Delta_{\textrm{S}}$) are used to measure the bias introduced by the choice of the background parametrisation. The condition of a function to be accepted is that either:
 
@@ -113,47 +164,94 @@ The mass range of 123-127\,\GeV\ is split into  bins with a 0.5\,\GeV\ width and
 In case several functions satisfy the above criteria, the one with fewest degree of freedom is chosen. If two such functions are found , the one with the lower spurious signal uncertainty is taken. 
  
 Furthermore, an additional  $\chi^2$ probability ensures that the side-bands from the  MC templates are also described well requiring that the $p$-value is larger than 1\%.
+This $p$-value is evaluated on the un-smoothed template.For the functions that pass the spurious signal test on the smoothed template, if the $p$-value of the first-choice function on the un-smoothed template is lower than 1\%, the next function in the priority list is tested until a function with a $p$-value greater than 1\% is found.. For the function changed due to the $p$-value. the corresponding bins are labelled with "p($\chi^{2}$) change". 
+ If all pass functions with a lower $p$-value, dedicated toy studies are performed to verify that the selected background function is a good choice. The corresponding bins are labeled with "toy studies" and the detail explanation in \cite{HIGG-2019-13-INT1}.currently no corresponding bins for this case.
+
+ The function choice and the evaluation of the spurious signal is evaluated on the GPR smoothed template in order to reduce the effect of statistical fluctuations on this uncertainty.
+
+ Additional studies were performed for analysis bins, where the agreement between the data sideband and the un-smoothed background template did not look good. Overall, the studies showed that no extra treatment for those bins is needed as the effect on the spurious signal is negligible for bins where the  selected function has at least two degrees of freedom\cite{HIGG-2019-13-INT1}. There was only one bin (\mjj bin 5) with a bad data/MC agreement(p($\chi^{2})<1\%$) where a function with one degree of freedom was selected. In this case, it was found by a "manual F-test", that the function of two degrees of freedom is preferred.
+
+In the case of bins with low statistics, an Exponential function is used. A bin is considered as low statistics, if the background template has at least one bin with less than 20 effective events\footnote{GPR smoothing assumes that each bin follows Gaussian statistics, which is not true for low statistics bins which follow Poisson statistics.where the effective events $N_{eff}=(\frac{bin_{content}}{bin_{error}})^{2}$}.
+This corresponds to bins where less than 150 data events from the sideband region are expected.This choice of the Exponential function is validated based on a Wald test on the data-sidebands. Furthermore no GPR smoothing is applied. Those bins are labelled with "low stat". Only the last two bins of \ptgg have low statistical bins.However,For the lepton category, low statistics are also observed due to missing Monte Carlo background samples (e.g. $V\gamma\gamma$, $t\bar{t}\gamma\gamma$). No special treatment is applied to this category in the spurious signal procedure, instead, it is labeled as “MC sample missing.”
+ 
+For the bins which observed that background function choice was Pow, while in the F-tests, it was seen that Pow and Pow2 are both failing the test and at least a Pow3 function would be needed. In this case, the Pow family does not seem to be a reliable estimate. An Exponential function performed similar good and no further changes from the F-test are required, so it was decided to use Exponential instead. The bins are labelled with "F-test".
+currently no corresponding bins for this case.
 
 The functional form and spurious signal uncertainties for each fiducial volume and each analysis bin are estimated independently.Therefore the resulting spurious signal uncertainties are uncorrelated across bins.
 
-The $\gamma\gamma$-only MC template is currently used for the spurious signal test (\textcolor{red}{to be updated to the full template following background decomposition}). Figure~\ref{fig:ss_Diphoton_fid_main} presents the spurious signal uncertainties in the inclusive diphoton region for various test background functions.The red dashed line indicates the $\pm$10\% threshold range for the second criterion, which is the case for most of the background functions selected.
+The selected background functions are summarized for all analysis bins in \ptgg in Table~\ref{tab:sp_signal_pT_yy_main}. The detailed information for all other variables can be found in Appendix~\ref{app:spurious_signal}.
 
-\begin{figure}[htb!]
-  \begin{center}
-    \subfloat[Diphoton Fiducial]{\includegraphics[width=0.5\textwidth]{figures/spurious_signal/Diphoton_fid_bin1_all_Mu_legend.pdf}}
-  \end{center}
-  \caption{Spurious signal fit for Diphoton Fiducial bins}
-  \label{fig:ss_Diphoton_fid_main}
-\end{figure}
+For each analysis bin, the selected function is given. In the next column, the spurious signal uncertainty is given. This uncertainty is evaluated from the maximal spurious signal in the bin (and given in the next column) divided by the reference signal (based on MC). In the next column, the spurious signal is given, followed by the spurious signal relative to the expected statistical uncertainty on the signal. The last column indicates the selection criteria, 'toy studies', 'low stat' or 'manual F-test' in case of a special treatment of the bin . Furthermore, it is indicated if a change of function is required due to the F-test (see Section~\ref{ssec:wald-test}). In this case, the spurious signal and the corresponding uncertainty before the function change is given in parentheses.
 
-The Spurious results for all variable bins in \ptgg  are summarized in Table \ref{tab:sp_signal_pT_yy_main}.The detailed information for other variables can be found in Appendix \ref{app:spurious_signal} 
-\begin{table}
+\begin{table}[htbp!]
+\centering
 \caption{Spurious signal results for all analysis bins for \ptgg}
-\label{tab:sp_signal_pT_yy_main}
-\begin{tabular}{lrrrrrr}
+\label{tab:sp_signal_pT_yy}
+\begin{tabular}{lrrrrc}
 \toprule
-Variable bins & Sel.Func & max($S/\delta_{S}$)[\%] & max($S/S_{ref}$)[\%] & max(S) & Prob($\chi^2$)[\%] & Result \\
+Variable bins & Sel.Func & SS[\%] & max(S) & $S/S_{ref}$[\%] & criteria \\
 \midrule
-$0 \leq \ptgg < 5$\GeV & ExpPoly2 & -5.86 & -2.31 & -6.58 & 60.5 & PASS \\
-$5 \leq \ptgg < 10$\GeV & ExpPoly2 & -9.01 & -1.98 & -14.8 & 57.6 & PASS \\
-$10 \leq \ptgg < 15$\GeV & ExpPoly2 & -26.2 & -6.36 & -42.9 & 36.5 & PASS \\
-$15 \leq \ptgg < 20$\GeV & ExpPoly2 & -13.5 & -3.15 & -20.6 & 56.1 & PASS \\
-$20 \leq \ptgg < 25$\GeV & ExpPoly2 & -27.7 & -7.47 & -42.1 & 23.5 & PASS \\
-$25 \leq \ptgg < 30$\GeV & ExpPoly2 & 11 & 2.74 & 15.6 & 15.2 & PASS \\
-$30 \leq \ptgg < 35$\GeV & ExpPoly2 & 31.8 & 9.94 & 41.9 & 4.46 & PASS \\
-$35 \leq \ptgg < 45$\GeV & Bern3 & 20 & 4.46 & 35.1 & 35.2 & PASS \\
-$45 \leq \ptgg < 60$\GeV & ExpPoly2 & 2.42 & 0.585 & 3.9 & 10 & PASS \\
-$60 \leq \ptgg < 80$\GeV & Bern3 & 5.86 & 1.21 & 8.88 & 4.3 & PASS \\
-$80 \leq \ptgg < 100$\GeV & Bern3 & 18.3 & 4.49 & 19.1 & 1.69 & PASS \\
-$100 \leq \ptgg < 120$\GeV & Pow & 18.9 & 4.49 & 12.3 & 15.5 & PASS \\
-$120 \leq \ptgg < 140$\GeV & Exponential & -15.1 & -3.54 & -6.78 & 58.5 & PASS \\
-$140 \leq \ptgg < 170$\GeV & Exponential & -20.5 & -4.25 & -8.15 & 9.95 & PASS \\
-$170 \leq \ptgg < 200$\GeV & Exponential & -19.2 & -4.18 & -4.94 & 2.61 & PASS \\
-$200 \leq \ptgg < 250$\GeV & Exponential & 14.4 & 2.85 & 3.12 & 56.5 & PASS \\
-$250 \leq \ptgg < 300$\GeV & Exponential & 23.5 & 5.77 & 3 & 11.2 & PASS \\
-$300 \leq \ptgg < 450$\GeV & Exponential & 11.4 & 2.48 & 1.17 & 48.2 & PASS \\
-$450 \leq \ptgg < 650$\GeV & Exponential & 28.2 & 12.2 & 1.09 & 0.189 & FAIL \\
-$650 \leq \ptgg < 13000$\GeV & Pow & -2.04e+08 & 9.18e+04 & -257 & 91.1 & FAIL \\
+$0 \leq \ptgg < 5$\GeV & ExpPoly2 & -1.83 & -4.94 & -3.64 &  \\
+$5 \leq \ptgg < 10$\GeV & ExpPoly2 & -2.32 & -17.2 & -8.97 &  \\
+$10 \leq \ptgg < 15$\GeV & ExpPoly3 & -6.25 & -44.4 & -20 & F-test(-6.02,-44.9) \\
+$15 \leq \ptgg < 20$\GeV & ExpPoly2 & -5.61 & -35 & -18.9 &  \\
+$20 \leq \ptgg < 25$\GeV & ExpPoly2 & -9.15 & -49.7 & -27.7 &  \\
+$25 \leq \ptgg < 30$\GeV & ExpPoly2 & 2.26 & 12.9 & 7.64 &  \\
+$30 \leq \ptgg < 35$\GeV & ExpPoly3 & 5.6 & 27.2 & 14.6 &  \\
+$35 \leq \ptgg < 45$\GeV & ExpPoly2 & 4.54 & 35.4 & 18.9 &  \\
+$45 \leq \ptgg < 60$\GeV & ExpPoly2 & -2.42 & -20 & -11.5 &  \\
+$60 \leq \ptgg < 80$\GeV & ExpPoly3 & -1.44 & 0 & 0 & $p(\chi^2)$ change \\
+$80 \leq \ptgg < 100$\GeV & Bern3 & 6.62 & 28.4 & 25.3 &  \\
+$100 \leq \ptgg < 120$\GeV & Pow & 3.72 & 10.2 & 14.8 &  \\
+$120 \leq \ptgg < 140$\GeV & ExpPoly2 & 1.75 & 2.85 & 5.53 & F-test(-1.13,-1.98) \\
+$140 \leq \ptgg < 170$\GeV & Exponential & -3.33 & -6.38 & -15.9 &  \\
+$170 \leq \ptgg < 200$\GeV & Exponential & -0.207 & -0.222 & -0.829 &  \\
+$200 \leq \ptgg < 250$\GeV & Exponential & 1.26 & 1.23 & 5.43 &  \\
+$250 \leq \ptgg < 300$\GeV & Exponential & 1.12 & 0.547 & 4.11 &  \\
+$300 \leq \ptgg < 450$\GeV & Exponential & -0.817 & -0.341 & -3.23 &  \\
+$450 \leq \ptgg < 650$\GeV & Exponential & 14.2 & 1.27 & 30.2 & low stat \\
+$650 \leq \ptgg < 13000$\GeV & Exponential & -7.45 & -0.333 & -22.4 & low stat \\
 \bottomrule
 \end{tabular}
+\end{table}
+
+
+
+\subsubsection{Wald tests} 
+\label{ssec:wald-test}
+Because data might contain features not found in MC simulation, an additional test is done on the data-sidebands to check if a higher-order function is needed.
+The functional form of the background selected by the spurious signal method is confronted with a Wald test (also named as F-test).
+The data from 2022-2024 sidebands, excluding 120--130~\GeV, were used to test the hypothesis that additional degrees of freedom for the chosen fit function is not needed to accurately describe the data.
+
+The test statistic that is used for this test is defined as
+\begin{equation}
+	\lambda_{(1,2)} = -2\ln(L_1/L_2)
+\end{equation}
+where $L_1$ and $L_2$ are the likelihood values of the two fits,
+that with the nominal background model and that with a model with
+an additional degree of freedom. The test statistic has an asymptotic
+distribution of a $\chi^2$ variable with one degree of freedom.
+
+The additional parameter is deemed necessary if
+$P(\lambda_{(1,2)}' \geq \lambda_{(1,2)}) < 0.05 $, where $P$ is the probability
+of observing a $\lambda_{(1,2)}'$ value higher than the observed one.
+In this case the, nominal model becomes the one with an extra degree of freedom,
+which in turn is tested against a model with one more d.o.f. and so on
+until $P(\lambda_{(1,2)}' \geq \lambda_{(1,2)}) > 0.05$. The wald test plot results are shown in \ref{app:sideband_wald_test}.
+
+The results of this test are summarised in Table~\ref{tab:f_test_results} for all bins failing the test and where therefore the background function and corresponding spurious signal results used for the analysis are changed. This introduced in addition to the already tested functions, an Exponential with fourth degree of freedom and also an increase of degree of freedom for the Pow function (Pow2).
+\begin{table}[htbp!]
+    \centering
+    \begin{tabular}{ c |c c| c c}
+        \hline
+        Variable bins & Func. & SS [\%] & New Func. & new SS [\%] \\
+        \hline
+         VBF-enhanced                & ExpPoly2 &  1.4  & ExpPoly3 & -0.731 \\
+         $15 \leq \ptgg < 20$\GeV   & ExpPoly2 & -6.02 & ExpPoly3 & -6.25 \\
+         $120 \leq \ptgg < 140$\GeV  & Exponential & -1.31 & ExpPoly2 &  1.75 \\
+         $0.9 \leq \ygg < 1.2$       & ExpPoly2 & -5.35 & ExpPoly3 & -5.75 \\
+        \hline
+    \end{tabular}
+    \caption{F-Test results for all analysis bins.}
+    \label{tab:f_test_results}
 \end{table}
