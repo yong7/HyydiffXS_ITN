@@ -22,20 +22,20 @@ This section introduces the measurement, motivates its significance, and present
 During LHC Run 3, the ATLAS experiment has recorded its largest dataset so far and at an increased proton-proton centre-of-mass energy of $13.6\,\mathrm{TeV}$. 
 This dataset enables precision measurements of the Higgs boson properties including in the $H \to \gamma \gamma$ decay channel, where the signal appears as a narrow peak in the di-photon invariant mass spectrum.
 
-A substantial background arises from non-resonant production of two high-energy photons that are not produced in Higgs boson decays. 
+A substantial background to $H \to \gamma \gamma$  production arises from non-resonant production of two high-energy photons that are from Higgs boson decays. 
 The normalisation and shape of the background is difficult to predict reliably from simulation, although it is not expected to peak at the Higgs boson mass. 
 The analysis presented in this note therefore employs a data-driven technique to model the background.
 
 A fiducial cross section measures the production rate within a well-defined region of phase space, typically one that can be specified consistently at particle and detector level, and can therefore be used to compare observations and theoretical predictions. 
 In this note, we define the \textit{inclusive fiducial volume}, a volume of phase space similar to the acceptance of the ATLAS detector.
-The inclusive fiducial volume is defined as the region with two isolated photons with $|\eta|<1.37$ or $1.52<|\eta|<2.37$, and transverse momentum thresholds on the two photons of $p_{\text{T}}^{\gamma}/\myy> 0.35$ and $p_{\text{T}}^{\gamma}/\myy> 0.25$ where $\myy{}$ is the invariant mass of the two photons. 
+The inclusive fiducial volume is defined as the region with two isolated photons with $|\eta|<1.37$ or $1.52<|\eta|<2.37$, and transverse momentum thresholds on the two photons of $p_{\text{T}}^{\gamma}/\myy> 0.35$ and $p_{\text{T}}^{\gamma}/\myy> 0.25$ where $\myy{}$ is the invariant mass of the di-photon system. 
 
 Differential cross-section measurements examine how Higgs boson production varies across phase space, \textit{e.g.}~as a function of different kinematic variables and/or with additional particles in the final state.   
 These distributions are sensitive to the properties of the Higgs boson, including its mass and couplings.  
 %The Higgs boson is the most recently discovered fundamental particle, its properties, including couplings, are still not fully characterised.  
 If the Higgs boson couples to beyond-the-Standard-Model particles this could become apparent in the tails of fiducial cross section measurements.
 
-By comparing the rate and shape of the differential cross sections with theoretical predictions, we can look for any deviations; 
+By comparing the rate and shape of the differential cross sections with theoretical predictions, we can look for deviations.
 Any deviations may indicate new physics, or they could indicate a limitations, or poor choice of parameters, in models we are comparing to.
 In this note, we measure at the fiducial cross section for $pp \to H \to \gamma \gamma$ production using variables that are shown to be sensitive to different production mechanisms and couplings.
 
@@ -48,20 +48,13 @@ the choice of which variables to use for the differential cross section are moti
 The variables are described in detail in section~\ref{sec:differentialobservables}.  They include kinematic properties of the photon-pair, the numbers of jets and charged leptons produced in association, and kinematic properties of any jet pairs.  The binning of the variables is chosen to optimise significance, to minimisation corrections apply at unfolding and to facilitate combination with other analyses. 
 
 
-%%% TODO: A detailed motivation of the measurement should go here
-% - The Run 2 INT note should be a good template https://cds.cern.ch/record/2714980/files/ATL-COM-PHYS-2020-253.pdf 
-% - State the purpose of the measurement and provide some theoretical context 
-% - Give a very brief description of the measurement
-% - Describe fiducial sub-regions
-% - Give a description of the kinematic variables for which we have studied the differential XSections
-
 \subsection{Analysis Strategy}
 The strategy used in this analysis is similar to previous analyses~\cite{HIGG-2013-10, HIGG-2022-04, HIGG-2022-12} and is summarised briefly here:
 \begin{itemize}
 \item The data and simulated samples used are presented in Section~\ref{sec:samples};
 
 \item Events are selected for further analysis, the selection criteria follows closely the definition of the fiducial region; 
-the definition of the physics objects and event selection criteria is described in Sections~\ref{sec:EventSelections} and~\ref{sec:fiducial}.
+the definition of the physics objects and event selection criteria is described in Section~\ref{sec:EventSelections}.
 
 \item Differential cross sections are defined  by dividing the inclusive cross section volume into several exclusive bins.  The choice of variables and binning is presented in Section~\ref{sec:observablesbinning};
 
@@ -70,7 +63,8 @@ analytical fits are made to understand the background in each fiducial cross sec
 
 
 
-\item  The residual background, including potential spurious signal is estimated.  The main sources of background are non-resonant production of diphotons and events where hadronic jets are misreconstructed as photons.  To estimate the background  the  \twoxtwod\ method is used; double two-dimentional sidebands are defined using using $\mgg{}$ and changing the selection criteria used to select photons.  This is presented in Section~\ref{sec:backgroundestimation}.
+\item  The residual background, including potential spurious signal is estimated.  
+The main sources of background are non-resonant production of photon pairs and events where hadronic jets are misidentified as photons.  To estimate the background  the  \twoxtwod\ method is used; double two-dimentional sidebands are defined using using $\mgg{}$ and changing the selection criteria used to select photons.  This is presented in Section~\ref{sec:backgroundestimation}.
 
 \item  Uncertainties due to systematic effects and theoretical modelling are explored and quantified in Section~\ref{sec:uncertainties}.
 
