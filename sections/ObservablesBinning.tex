@@ -33,7 +33,7 @@ The starting point for the binning optimization is the binning used for the lega
 
 The number of sideband events in the data and expected number of events are also checked to discard anomalous bins. For each distribution, the signal yields are simultaneously extracted in each bin using the process described in Section~\ref{sec:signalbackgroundmodelling}. The background templates are obtained using the diphoton simulation normalized to the data sidebands, that is, excluding the region between 121 and 129 GeV. This allows to consider  the rates of additional sources of fake photons not present in the Monte Carlo sample. For simplicity, only the mc23a campaign of the MC samples have been used, while for the data sidebands the 2022, 2023 and 2024 have been considered. Since the total fit error is dominated by the background, this error is compared to the SM expected signal to determine an expected significance for each bin.
 
-The number of expected signal events, background events, events in the side bands and the significance (computed as recommended in Ref.~\cite{ATL-PHYS-PUB-2020-025}) for 168 $fb^{-1}$can be found in Tables~[\ref{tab:binning_ptgg}--\ref{tab:binning_nlep}]. While the purity ($\frac{N_{reco}\cap N_{truth}}{N_{truth}}$) and efficiency ($\frac{N_{reco}\cap N_{truth}}{N_{reco}}$) matrices can be found in Figures~[\ref{fig:purity_binning},\ref{fig:efficiency_binning}].
+The number of expected signal events, background events, events in the side bands and the significance (computed as recommended in Ref.~\cite{ATL-PHYS-PUB-2020-025}) for 168 $fb^{-1}$can be found in Tables~[\ref{tab:binning_ptgg}--\ref{tab:binning_nlep}]. While the purity ($\frac{N_{reco}\cap N_{truth}}{N_{reco}}$) and efficiency ($\frac{N_{reco}\cap N_{truth}}{N_{truth}}$) matrices can be found in Figures~[\ref{fig:purity_binning},\ref{fig:efficiency_binning}].
 
 \begin{table}
   \begin{tabular}{l|c|c|c|c}
@@ -151,7 +151,7 @@ The number of expected signal events, background events, events in the side band
   \begin{tabular}{l|c|c|c|c}
     Bin  & Expected Events & Background Events & Sideband Events & Significance \\
     \hline
-    $\Njets = 0$ or $\Nlept >0$ 5147.11 & 180992.69 & 759611.21 & 12.04 \\
+    $\Njets = 0$ or $\Nlept >0$ & 5147.11 & 180992.69 & 759611.21 & 12.04 \\
     $\Nbjets = 0$ & 2662.63 & 78044.92 & 360780.45 & 9.48 \\
     $\Nbjets = 1$ & 197.14 & 4865.03 & 23040.21 & 2.81 \\
     $\Nbjets >= 2$ & 35.02 & 298.01 & 1367.60 & 1.99 \\
