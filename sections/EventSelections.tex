@@ -538,8 +538,33 @@ These photons are selected after the kinematic photon cuts have been applied.
 
 \vspace{0.4cm}
 \textbf{Isolated photons} ~\hspace{0.2cm}~ As in previous Higgs to diphoton cross section measurements, a particle level photon isolation is applied in order to reduce the model dependence of the isolation requirements.
-The motivation for using particle level isolation and the method for choosing the cut is discussed further in Appendix~\textcolor{blue}{placeholder for Pablo's studies on truth level isolation}. 
+The motivation for using particle level isolation and the method for choosing the cut is discussed further in Appendix~\ref{sec:truthiso}. 
 The isolation energy, $E^\text{iso}_\text{T}$ of a particle-level photon is calculated as the transverse energy, \ET of the four-vector sum of all charged particles which have $\pt>~\SI{1}{GeV}$ within a cone of $\Delta R = 0.2$ around the photon. The event is discarded if at least one of the two selected photons fails the requirement $E^\text{iso}_\text{T} <  0.05\pt$.
 %\colorbox{yellow}{To be re-checked for Run 3.}
 
+The `diphoton` fiducial region is defined by the presence of two isolated photons in the final state with transverse momenta greater than 35\% and 25\% of the diphoton invariant mass, respectively. 
 
+The definion of additional categories need additional objects that follow the below particle-level selections:
+
+\begin{itemize}
+\item  Leptons are defined from all electrons and muons that are not produced during hadronisation. The
+prompt leptons are dressed by adding the four-momenta of stable photons within $\Delta R < 0.1 $. Selected
+electrons (muons) are required to pass the kinematic selection of $p_{T}>15$~GeV and $|\eta|<2.47$
+($|\eta|< 2.7$ for muons). Electrons are rejected if they pass through the barrel–endcap transition region
+$1.37 < |\eta| < 1.52$, or if their distance from a selected photon is $\Delta R<0.4$. No isolation requirement
+is applied.
+
+\item Jets are defined by clustering all stable particles using the anti-$k_t$ algorithm with a radius parameter
+$R=0.4$. The clustering algorithm excludes prompt leptons and Higgs boson decay products.
+Selected jets are required to have transverse momentum $p_{T}>30$~GeV and rapidity $|y| <4.4$.
+Selected jets are required to be well separated from photons with $p_{T} > 15$~GeV ($\Delta R > 0.4$) and
+electrons ($\Delta R > 0.2$ ). Leading and sub-leading jets are defined as the ones with the largest and
+second-largest transverse momenta.
+
+\item $b$-jets are defined from selected central jets ($|\eta|<2.5$) if there is a $b$-hadron with $p_{T} >  5$~GeV within
+  $\Delta R = 0.4$ of the jet axis.
+
+\item Missing transverse momentum  is defined as the vector sum of the transverse momenta of
+  all neutrinos that do not originate from the decay of a hadron.
+
+\end{itemize}
