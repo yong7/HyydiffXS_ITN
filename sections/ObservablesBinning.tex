@@ -1,8 +1,31 @@
 \section{Observables and Binning Optimisation}
 \label{sec:observablesbinning}
 
-\subsection{Differential Observables}
-\label{sec:differentialobservables}
+The fiducial cross section measurements of the Higgs boson production in the diphoton decay channel is provided inclusively, in different analysis categories and as a function of different observables. Inclusive cross-sections are measured in various fiducial regions. The $H\to\gamma\gamma$ signal is extracted in each fiducial region or bin of a differential distribution using a signal-plus-background fit to the corresponding diphoton invariant mass spectrum. The cross-sections are then computed from the signal yields, by correcting the signal yields for the effects of detector inefficiency and resolution, and accounting for the integrated luminosity of the data set.
+
+Most of the measurements are performed in a baseline ‘diphoton’ fiducial region which closely matches the selection requirements of the reconstructed photons, described in Section~\ref{sec:EventSelections}. In addition, subsets of the diphoton baseline fiducial region are defined, providing a variety of phase-space regions sensitive to particular Higgs boson production modes. 
+
+
+\subsection{Inclusive cross-sections}
+In addition to the inclusive di-photon fiducial cross-section, the inclusive cross-sections are measured in regions with enhanced fraction of VBF, VH (MET and lepton regions) and ttH production. The selection criteria for these regions are defined as:
+
+\begin{itemize}
+\item \textbf{VBF-enhanced}: a region composed of events with at least two jets, where the two leading jets have a large invariant mass, $m_{jj}\geq 600$~GV, and a large rapidity separation, $|\Delta y_{jj}|$
+
+\item \textbf{$N_{lepton}\geq 1$}: a region composed of events containting at least one additional charged lepton (electron or muon) with transverse momentum $p_{T}^{l} > 15 $~GeV. This region is sensitive to the $VH$, $t\bar{t}H$ and $tH$ production modes.
+
+\item \textbf{High $E_{T}^{miss}$}: a region composed of events with large missing transverse momentum ($E_{T}^{miss}>80$~GeV) and a diphoton transverse momentum ($p_{T}^{\gamma\gamma} > 80$ GeV). This region is sensitive to the $VH$ and $t\bar{t}H$ production mechanisms and to BSM effects such as weakly interacting dark matter particle
+
+
+\item \textbf{$t\bar{t}H$-enhanced}: a region composed of events with at least onb $b$-jet and either no leptons and at least four jets, or at leas on lepton and at least three jets. This region is mostly sensitive to $t\bar{t}H$, but also $tH$ production.  
+
+\end{itemize}  
+
+
+
+
+
+\subsection{Differential cross-sections}
 Several observables have been chosen in order to characterize the Higgs production in its diphoton decay channel.
 \begin{itemize}
 \item $\ptgg$: This observable represents the transverse momentum of the Higgs boson. This observable is sensitive to QCD radiation and, thus, allows to test higher-order QCD predictions and resummation techniques. The latter are particularly relevant in the low regime of this observable, this region of the phase-space is also interesting for its sensitivity to the c- and b-quark Yukawa couplings. The high-$\ptgg$ region is sensitive to quark-mass effects in the calculations, as well as to the effects of possible extensions of the Standard Model.\\
@@ -20,7 +43,7 @@ Several observables have been chosen in order to characterize the Higgs producti
 
   
   
-\subsection{Binning Optimisation}
+\subsubsection{Binning Optimisation}
 \label{sec:binningoptimisation}
 The starting point for the binning optimization is the binning used for the legacy Run-2 anlysis~\cite{HIGG-2019-13}, except in the case of $\Nbjets$ in which an additional splitting for $\Nbjets=1$ is introduced. The guiding principles for selecting the bin boundaries are:
 
@@ -205,7 +228,7 @@ The number of expected signal events, background events, events in the side band
 \end{figure}
 
 
-While most of the bins satisfy the guiding principles defined above, some anomalous cases are found. In $\ptgg$, the last two bins have a low expected significance. This is more clear in the last bin. However, as this region is relevant to constrain possible BSM effects, both are retained to provide cross sections limit of Higgs production in the high transverse momentum region. The last bin of $\mjj$ also has an expected significance that does not reach 1$\sigma$, it has been then decided to move the lower boundary of this bin to $1.5$~\TeV. The $\Nbjets$ variable suffers of large bin migrations, especially in its central bin of $\Nbjets==1$. For this reason, only three bins will be explored. A summary of the binning choice is shown below:
+While most of the bins satisfy the guiding principles defined above, some anomalous cases are found. In $\ptgg$, the last two bins have a low expected significance. This is more clear in the last bin. However, as this region is relevant to constrain possible BSM effects, both are retained to provide cross sections limit of Higgs production in the high transverse momentum region. The last bin of $\mjj$ also has an expected significance that does not reach 1$\sigma$, it has been then decided to move the lower boundary of this bin to $1.5$~\TeV. The $\Nbjets$ variable suffers of large bin migrations, especially in its central bin of $\Nbjets==1$. For this reason, only three bins will be explored. A summary of the final  binning choice is shown below:
 
 
 $\ptgg$\texttt{[GeV]:\{0 5 10 15 20 25 30 35 45 60 80 100 120 140 170 200 250 300 450 650 13000\}}\\
