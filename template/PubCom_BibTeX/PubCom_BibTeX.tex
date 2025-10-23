@@ -1,0 +1,1109 @@
+%-------------------------------------------------------------------------------
+% This file provides template EXOT group object descriptions and cuts.
+\pdfinclusioncopyfonts=1
+% This command may be needed in order to get \ell in PDF plots to appear. Found in
+% https://tex.stackexchange.com/questions/322010/pdflatex-glyph-undefined-symbols-disappear-from-included-pdf
+%-------------------------------------------------------------------------------
+% Specify where ATLAS LaTeX style files can be found.
+\makeatletter
+\def\input@path{{../../latex/}}
+\makeatother
+
+%-------------------------------------------------------------------------------
+\documentclass[NOTE, atlasdraft=true, UKenglish]{atlasdoc}
+% The language of the document must be set: usually UKenglish or USenglish.
+% british and american also work!
+% Commonly used options:
+%  atlasdraft=true|false This document is an ATLAS draft.
+%  paper=a4|letter       Set paper size to A4 (default) or letter.
+
+%-------------------------------------------------------------------------------
+% Extra packages:
+\usepackage[cleveref, refsection=chapter]{atlaspackage}
+% Commonly used options:
+%  subfigure|subfig|subcaption  to use one of these packages for figures in figures.
+%-------------------------------------------------------------------------------
+\usepackage{multirow}
+% \crefformat{chapter}{Appendix~#2#1#3}
+
+%-------------------------------------------------------------------------------
+% Style file with biblatex options for ATLAS documents.
+\usepackage[backref=false]{atlasbiblatex}
+
+% Useful macros
+\usepackage[jetetmiss, hepparticle]{atlasphysics}
+% See doc/atlas_physics.pdf for a list of the defined symbols.
+% Default options are:
+%   true:  journal, misc, particle, unit, xref
+%   false: BSM, heppparticle, hepprocess, hion, jetetmiss, math, process,
+%          other, snippets
+% See the package for details on the options.
+
+% Add your own definitions here (file atlas-document-defs.sty).
+\usepackage{PubCom_BibTeX-defs}
+
+% Files with references in BibTeX format
+\addbibresource{../../bib/ATLAS.bib}
+\addbibresource{../../bib/CMS.bib}
+\addbibresource{../../bib/ConfNotes.bib}
+\addbibresource{../../bib/PubNotes.bib}
+\addbibresource{../../bib/ATLAS-useful.bib}
+
+% Paths for figures - do not forget the / at the end of the directory name.
+\graphicspath{{../../logos/}{figures/}}
+
+% Collect dates of last updates
+\NewDocumentCommand{\exptDate}{}{2025-06-30}
+\NewDocumentCommand{\IDDate}{}{2025-06-31}
+\NewDocumentCommand{\egammaDate}{}{2025-07}
+\NewDocumentCommand{\muonDate}{}{2025-07-26}
+\NewDocumentCommand{\fakeDate}{}{no information}
+\NewDocumentCommand{\jetDate}{}{2025-05-13}
+\NewDocumentCommand{\metDate}{}{2025-05-13}
+\NewDocumentCommand{\tauDate}{}{2025-07-23}
+\NewDocumentCommand{\flavourDate}{}{no information}
+\NewDocumentCommand{\trigDate}{}{no information}
+\NewDocumentCommand{\PDFDate}{}{no information}
+\NewDocumentCommand{\MCDate}{}{no information}
+\NewDocumentCommand{\statDate}{}{no information}
+\NewDocumentCommand{\physicsDate}{}{no information}
+
+%-------------------------------------------------------------------------------
+% Generic document information
+%-------------------------------------------------------------------------------
+
+\AtlasTitle{PubCom standard references}
+
+\author{ATLAS Publication Committee Chairs}
+
+\AtlasRefCode{Version \ATPackageVersion}
+
+\AtlasAbstract{%
+  This note contains standard references that should be used in ATLAS documents.
+  The references can all be found in the standard ATLAS \BibTeX\ files
+  provided by the \texttt{atlaslatex} package.
+  This document supersedes the TWiki page: \ATLASTWikiProtect{PubComUsefulBibTex}.
+
+  Editors of the document should follow the conventions described in \cref{sec:editor}.
+}
+% Author and title for the PDF file
+\hypersetup{pdftitle={ATLAS standard references},pdfauthor={ATLAS PubCom chairs}}
+
+%-------------------------------------------------------------------------------
+% Main document
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% Add line numbers temporarily.
+% \linenumbers
+
+%===============================================================================
+\chapter{Introduction}%
+\label{sec:intro}
+%===============================================================================
+
+This page contains a number of \BibTeX\ entries for papers which are commonly referenced in ATLAS CONF notes and papers,
+and recommended by the performance and physics groups.
+For ATLAS publications the \BibTeX\ key is provided, simply type \verb|\cite{key}|, where \Option{key} is, for example, \Option{EXOT-2016-19}.
+The \BibTeX\ files can be found within the \Package{atlaslatex} package or on the page
+\url{https://atlas-po.docs.cern.ch/atlaslatex/references/}.
+It is recommended to use the standard bibliography files instead of extracting the individual \BibTeX\ entries into your paper \File{bib} file,
+since there may be updates, errata, etc.\ made to the standard \File{bib} files.
+Using the latest version of the standard \File{bib} files before the final sign-off stage will avoid a number of late fixes to the references.
+
+The references mentioned here can mostly be found in the \File{ATLAS.bib} and \File{ATLAS-useful.bib} files from the \Package{atlaslatex} package. 
+
+%===============================================================================
+\chapter[HEP experiments and accelerators]{HEP experiments and accelerators\\ \Large{Last update: \exptDate}}
+\label{sec:experiment}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section{Experiments}%
+\label{sec:experiment:experiment}
+
+\subsection{ATLAS}
+
+\begin{itemize}
+  \item \Bibkey{PERF-2007-01} in \File{ATLAS.bib}.
+    % On Inspire \url{https://inspirehep.net/literature/796888}.
+  \item For IBL in \Run{2}: \Bibkey{ATLAS-TDR-19} (which calls \Bibkey{ATLAS-TDR-19-addm} internally) and \Bibkey{PIX-2018-001} in \File{ATLAS.bib}.
+    % On CDS \url{https://cds.cern.ch/literature/1291633} and Inspire \url{https://inspirehep.net/literature/1658490}.
+  \item For \Run{3} configuration: \Bibkey{GENR-2019-02} in \File{ATLAS.bib}.
+    % On Inspire \url{https://inspirehep.net/literature/2663519}.
+\end{itemize}
+
+\subsection{CMS}
+
+\begin{itemize}
+  \item \Bibkey{CMS-TDR-08-001} in \File{CMS.bib}.
+    % On Inspire: \url{https://inspirehep.net/literature/796887}.
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\section{Accelerators}%
+\label{sec:experiment:accelerator}
+
+\subsection{LHC}
+
+\begin{itemize}
+  \item \Bibkey{Evans:2008zzb} in \File{ATLAS-useful.bib}.
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\section{Beam energy}%
+\label{sec:experiment:beamenergy}
+
+Papers that need to refer to the \qty{0.1}{\%} beam energy uncertainty, 
+should refer to the following paper:
+\begin{itemize}
+  \item \Bibkey{PhysRevAccelBeams.20.081003} from \File{ATLAS-useful.bib}.
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\section{Luminosity}%
+\label{sec:experiment:luminosity}
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+\begin{itemize}
+  \item First publication including methods (2010 data)\\
+    \Bibkey{DAPR-2010-01} in \File{ATLAS.bib}.
+    % On Inspire: \url{https://inspirebeta.net/literature/884120}.
+
+  \item Updated publication (2010 and 2011 data)\\
+    \Bibkey{DAPR-2011-01} in \File{ATLAS.bib}.
+    % On Inspire: \url{https://inspirehep.net/literature/1219960}.
+
+  \item Most recent \Run{1} publication (2012 data)\\
+    \Bibkey{DAPR-2013-01} in \File{ATLAS.bib}.
+    % On Inspire: \url{https://inspirehep.net/literature/1481187}.
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2} and/or \texorpdfstring{\Run{3}}{Run 3}}
+
+Please follow the recommendations from \ATLASTWiki{LuminosityForPhysics}.
+For \pp data, the current recommendation is to quote the \Run{2} luminosity paper and the LUCID2 paper 
+
+%-------------------------------------------------------------------------------
+\section{Data Quality}%
+\label{sec:experiment:dq}
+
+\subsection{\texorpdfstring{\Run{2}}{Run 2} and/or \texorpdfstring{\Run{3}}{Run 3}}
+
+Quote the \Run{2} data quality paper (\Bibkey{DAPR-2018-01} in \File{ATLAS.bib}) when mentioning data quality requirements.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+
+%===============================================================================
+\chapter[Inner Tracking]{Inner Tracking\\ \Large{Last update: \IDDate}}%
+\label{sec:ID}
+%===============================================================================
+
+Public results from the ATLAS Tracking Performance Group are reported on this page: \ATLASTWikiPublic{InDetTrackingPerformanceApprovedPlots}.
+
+The most relevant publications for every LHC run are reported below.
+
+%-------------------------------------------------------------------------------
+\section{Track reconstruction}%
+\label{sec:ID:reconstruction}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+Performance of the ATLAS Inner Detector Track and Vertex Reconstruction in the High Pile-Up LHC Environment:\\
+\Bibkey{ATLAS-CONF-2012-042} in \File{ConfNotes.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2}}
+
+Performance of the ATLAS Track Reconstruction Algorithms in Dense Environments in LHC \Run{2}
+(track selections, performance, and efficiency uncertainties inside dense environments (jets, taus, etc)):\\
+\Bibkey{PERF-2015-08} in \File{ATLAS.bib}.
+
+Early Inner Detector Tracking Performance in the 2015 data at \(\sqrt{s} = \qty{13}{\TeV}\)
+(track selections and inclusive tracking uncertainties including efficiency, fake rate, alignment, and impact parameters):\\
+\Bibkey{ATL-PHYS-PUB-2015-051} in \File{PubNotes.bib}. 
+
+Plots showing the impact of IBL distortions on the tracking can be found
+\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PLOTS/IDTR-2015-009/}{here} and 
+\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PLOTS/IDTR-2015-011/}{here}.
+
+Comparison between 2012 \Run{1} and 2015 \Run{2} detector configuration for the transverse and longitudinal impact parameters,
+mainly showing the impact of the IBL:\\
+\Bibkey{GENR-2019-02} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{3}}{Run 3}}
+Performance of ATLAS Pixel Detector and Track Reconstruction at the start of \Run{3} in LHC Collisions at \(\sqrt{s} = \qty{900}{\GeV}\):\\
+\Bibkey{ATL-PHYS-PUB-2022-033} in \File{PubNotes.bib}.
+
+Track reconstruction software performance in \Run{3}:\\
+\Bibkey{IDTR-2022-04} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2689672}.
+
+Performance of the reconstruction of large impact parameter tracks in the inner detector of ATLAS:
+\Bibkey{IDTR-2021-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2654056}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{4}}{Run 4}}
+
+Expected Tracking Performance of the ATLAS Inner Tracker at the High-Luminosity LHC:\\
+\Bibkey{IDTR-2023-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2861687}.
+
+%-------------------------------------------------------------------------------
+\section{Vertex reconstruction}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+Reconstruction of primary vertices at the ATLAS experiment in \Run{1} proton--proton collisions at the LHC\\
+\Bibkey{PERF-2015-01} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2}}
+
+Vertex Reconstruction Performance:\\
+\Bibkey{ATL-PHYS-PUB-2015-026} in \File{PubNotes.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{3}}{Run 3}}
+
+Development of ATLAS Primary Vertex Reconstruction for LHC \Run{3}:\\
+\Bibkey{ATL-PHYS-PUB-2019-015} in \File{PubNotes.bib}.
+
+Performance plots for the ATLAS Track and Vertex Reconstruction in early LHC \Run{3}:
+\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PLOTS/IDTR-2022-08/}{plots}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{4}}{Run 4}}
+
+Expected Tracking Performance of the ATLAS Inner Tracker at the High-Luminosity LHC:\\
+\Bibkey{IDTR-2023-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2861687}.
+
+%-------------------------------------------------------------------------------
+\section{Alignment}%
+\label{sec:ID:alignment}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+Alignment of the ATLAS Inner Detector and its Performance in 2012:\\
+\Bibkey{ATLAS-CONF-2014-047} in \File{ConfNotes.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2}}
+
+Alignment of the ATLAS Inner Detector with the initial LHC data at 13 TeV:\\
+\Bibkey{ATL-PHYS-PUB-2015-031} in \File{PubNotes.bib}. 
+
+Plots showing the impact of IBL distortions on the alignment can be found
+\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PLOTS/IDTR-2015-011/}{here}. 
+
+Alignment of the ATLAS Inner Detector in \Run{2}:\\
+\Bibkey{IDTR-2019-05} in \File{ATLAS.bib}.
+% On Inspire: https://inspirehep.net/literature/1806928 
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{3}}{Run 3}}
+
+Inner Detector alignment development and performance in preparation for \Run{3}:\\
+\Bibkey{ATL-PHYS-PUB-2022-028} in \File{PubNotes.bib}.
+
+%-------------------------------------------------------------------------------
+\section{Material}%
+\label{sec:ID:material}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+A measurement of material in the ATLAS tracker using secondary hadronic interactions in \qty{7}{\TeV} \pp collisions:\\
+\Bibkey{PERF-2015-06} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2}}
+
+Study of the material of the ATLAS inner detector for \Run{2} of the LHC:\\
+\Bibkey{PERF-2015-07} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{4}}{Run 4}}
+
+Expected Tracking Performance of the ATLAS Inner Tracker at the High-Luminosity LHC:\\
+\Bibkey{IDTR-2023-01} in \File{ATLAS.bib}.
+% On Inspire: https://inspirehep.net/literature/2861687 
+
+%-------------------------------------------------------------------------------
+\section{NN Clustering}%
+\label{sec:ID:clustering}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+A neural network clustering algorithm for the ATLAS silicon pixel detector:\\
+\Bibkey{PERF-2012-05} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2}}
+
+Training and validation of the ATLAS pixel clustering neural networks:\\
+\Bibkey{ATL-PHYS-PUB-2018-002} in \File{PubNotes.bib}.
+
+Performance of the ATLAS track reconstruction algorithms in dense environments in LHC \Run{2}:\\
+\Bibkey{PERF-2015-08} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{3}}{Run 3}}
+
+Performance of charged-particle reconstruction in energetic jets for \Run{3} data taking with the ATLAS detector:
+\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PLOTS/IDTR-2022-05/}{plots}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Electrons and photons]{Electrons and photons\\ \Large{Last update: \egammaDate}}%
+\label{sec:egamma}
+%===============================================================================
+
+The main standard references for electrons and photons reconstruction and identification, and the calibration, 
+in ATLAS are cited below sorted by year/run period.
+
+For \Run{3}, there are no new measurements or references that can be used,
+and we suggest to write something along the following line(s) with the citations explained in more detail below:
+
+\begin{quotation}
+Electrons and photons are reconstructed as described in~\cite{EGAM-2018-01}.
+They are calibrated based on the procedure and results described in~\cite{EGAM-2018-01,EGAM-2021-02}
+with an additional correction on the in-situ scale and resolution corrections
+that accounts for small differences in the ATLAS reconstruction software
+and with increased uncertainties to reflect the \Run{3} pile-up conditions
+and a change in optimal filtering coefficients for the LAr calorimeter readout.
+Electrons are selected using the loose/medium/tight working points with loose/medium/xyz isolation
+described in~\cite{EGAM-2021-01}.
+Using the \PZ boson resonance and the methods described in~\cite{EGAM-2021-01}
+preliminary data-to-MC correction factors were obtained 
+with uncertainties slightly increased with respect to what is published in~\cite{EGAM-2021-01} for the full \Run{2}.
+Photons are selected using the tight working point with loose/medium/xyz isolation
+described in~\cite{EGAM-2021-01,EGAM-2018-01}.
+Using radiative \PZ boson events as well as inclusive photons samples
+a preliminary data-to-MC correction was obtained using the procedures described in~\cite{EGAM-2018-01}
+with uncertainties slightly increased with respect to what is published in~\cite{EGAM-2021-01} for the full \Run{2}.
+\end{quotation}
+
+%-------------------------------------------------------------------------------
+\section{Electron reconstruction}%
+\label{sec:egamma:electron}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+Electron reconstruction+identification (Run1 data sliding window + GSF, 2012 data):\\
+\Bibkey{PERF-2016-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1501691}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{{}\Run{2}}{Run 2} (rel.\ 20.7)}
+
+Electron reconstruction (2015-2016 data, rel.\ 20.7 (sliding window)):\\
+\Bibkey{PERF-2017-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1720078 }.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2} (rel.\ 21)}
+
+Electron reconstruction (\Run{2} and \Run{3}, rel.\ \(\ge 21\) (super cluster)):\\
+\Bibkey{EGAM-2018-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1747555}.
+
+Electron efficiency (final \Run{2} rel.\ 21, ambient energy correction for isolation):\\
+\Bibkey{EGAM-2021-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2691149}.
+
+%-------------------------------------------------------------------------------
+\section{Photon reconstruction}%
+\label{sec:egamma:photon}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+Photon reconstruction and efficiency (\Run{1} data):\\
+\Bibkey{PERF-2013-04} in \File{ATLAS.bib}.
+
+Ambient Energy Correction to isolation energy:\\
+\Bibkey{STDM-2010-08} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1091481}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2} (rel.\ 20.7)}
+
+Photon reconstruction and efficiency (2015+2016 data, rel.\ 20.7 (sliding window cluster)):\\
+\Bibkey{PERF-2017-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1698025}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{{\Run{2}}}{Run 2} (rel.\ 21)}
+
+Photon reconstruction (\Run{2} and \Run{3}, rel.\ \(\ge 21\);
+super cluster and includes conversions and electron/photon ambiguity resolver descriptions):\\
+\Bibkey{EGAM-2018-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1747555}.
+
+Photon efficiency (Final \Run{2} rel.\ 21):\\
+\Bibkey{EGAM-2021-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2691149}.
+
+%-------------------------------------------------------------------------------
+\section{Electron and photon energy calibration}%
+\label{sec:egamma:calib}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1}}
+
+Old calibration scheme and detector geometry (2010 data):\\
+\Bibkey{PERF-2010-04} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/940010}
+
+New calibration scheme and detector geometry (Run 1 data):\\
+\Bibkey{PERF-2013-05} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1306905}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2} (rel.\ 20.7)}
+
+\Run{2} calibration for rel.\ 20.7 (\Run{2} sliding window cluster):\\
+\Bibkey{PERF-2017-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1707967}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2} (rel.\ 21)}
+
+\Run{2} calibration for rel. 21 (\Bibkey{PERF-2017-03} is still relevant, and is quoted in this paper):\\
+\Bibkey{EGAM-2018-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1747555}.
+
+Final calibration for \Run{2} rel.\ 21:\\
+\Bibkey{EGAM-2021-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2696998}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Muons]{Muons\\ \Large{Last update: \muonDate}}%
+\label{sec:muon}
+%===============================================================================
+
+A list of references can be found here:
+\url{https://atlas-mcp.docs.cern.ch/publications/index.html}.
+
+%-------------------------------------------------------------------------------
+\section{Muon identification}%
+\label{sec:muon:identifcation}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run~2}{Run 2}}
+
+\Bibkey{MUON-2018-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1834360}.
+
+%-------------------------------------------------------------------------------
+\section{Muon reconstruction}
+\label{sec:muon:reconstruction}
+%-------------------------------------------------------------------------------
+
+\subsection{2015 data}
+
+\Bibkey{PERF-2015-10} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1429662}.
+
+\subsection{2011 and 2012 data}
+
+\Bibkey{PERF-2014-05} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1306491}.
+
+\subsection{2010 data}
+
+\Bibkey{PERF-2011-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1291133}.
+
+%-------------------------------------------------------------------------------
+\section{Muon calibration}%
+\label{sec:muon:calibration}
+%-------------------------------------------------------------------------------
+
+\subsection{\texorpdfstring{\Run~2}{Run 2}}
+
+\Bibkey{MUON-2022-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2614209}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Isolation and fake leptons]{Isolation and fake leptons\\ \Large{Last update: \fakeDate}}%
+\label{sec:fake}
+%===============================================================================
+
+\Bibkey{EGAM-2019-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2605175}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Jets]{Jets\\ \Large{Last update: \jetDate}}%
+\label{sec:jet}
+%===============================================================================
+
+ All Jet/Etmiss publications can be found here: \url{https://twiki.cern.ch/twiki/bin/view/AtlasPublic/JetEtmissPublicResults}.
+ Only recent, \Run{2} or \Run{3} related recommendations are listed below.
+ Some techniques were documented in \Run{1} publications, which we leave here for reference.
+
+%-------------------------------------------------------------------------------
+\section{Jet reconstruction}%
+\label{sec:jet:reconstruction}
+%-------------------------------------------------------------------------------
+
+\emph{Note: see below for references to jet algorithms and theory references.}
+
+%-------------------------------------------------------------------------------
+\subsection{Topological clusters}
+
+\Bibkey{PERF-2014-07} in \File{ATLAS.bib}.
+% On Inspire: https://inspirehep.net/record/1426830
+
+%-------------------------------------------------------------------------------
+\subsection{Particle flow}
+
+\Bibkey{PERF-2015-09} in \File{ATLAS.bib}.
+% On Inspire: https://inspirehep.net/literature/1520722
+
+%-------------------------------------------------------------------------------
+\subsection{UFO jets}
+
+\Bibkey{JETM-2018-06} in \File{ATLAS.bib}.
+% On Inspire: https://inspirehep.net/literature/1816107
+
+%-------------------------------------------------------------------------------
+\subsection{Cell timing cut in \topo reconstruction}
+
+Run 3 analyses only:\\
+\Bibkey{JETM-2023-01} in \File{ATLAS.bib}.
+% On Inspire: https://inspirehep.net/literature/2713959
+
+%-------------------------------------------------------------------------------
+\section{Jet energy scale and resolution}%
+\label{sec:jet:jesjer}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{1}}{Run 1} pile-up mitigation techniques}
+
+\Bibkey{PERF-2014-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1397638}.
+
+%-------------------------------------------------------------------------------
+\subsection[Consolidated Run 2 JES/JER]{Consolidated \Run{2} JES/JER (2015-2017 data)}
+
+Current reference for \Run{2} papers:\\
+\Bibkey{JETM-2018-05} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1805279}.
+
+%-------------------------------------------------------------------------------
+\subsection[Run 2 large-radius in situ calibration]{\Run{2} large-radius in situ calibration}
+
+Current reference for large-R JES/JMS calibration:\\
+\Bibkey{JETM-2018-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1683827}.
+
+%-------------------------------------------------------------------------------
+\subsection{\texorpdfstring{\Run{2}}{Run 2} Large-radius JMS/JMR in situ calibration}
+
+Current reference for large-R JMS/JMR calibration:\\
+\Bibkey{ATLAS-CONF-2020-022} in \File{ConfNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2020-022/}.
+
+%-------------------------------------------------------------------------------
+\section{Jet pile-up suppression (JVT, fJVT)}%
+\label{sec:jet:pileup}
+%-------------------------------------------------------------------------------
+
+\subsection{JVT / NNJVT}
+
+This is \Run{1} JVT paper to be cited for both, \Run{2} NNJVT paper is planned for early 2026:\\
+\Bibkey{PERF-2014-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1397638}.
+
+\subsection{fJVT for EMTopo jets}
+
+\Bibkey{PERF-2016-06} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1598265}.
+
+\subsection{fJVT for PFlow jets}
+
+\Bibkey{ATL-PHYS-PUB-2019-026} in \File{PubNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2019-026/}.
+
+%-------------------------------------------------------------------------------
+\section{Jet substructure and tagging performance}%
+\label{sec:jet:substructure}
+%-------------------------------------------------------------------------------
+
+\subsection[Run 2 W/top tagging performance]{\Run{2} \PW/top tagging performance}
+
+Default reference for tagging in \Run{2}:\\
+\Bibkey{JETM-2018-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1690929}.
+
+\subsection[Run 2 W/top tagging scale factors]{\Run{2} \PW/top tagging scale factors}
+
+Default reference for uncertainties + latest taggers in \Run{2}, use together with \Bibkey{JETM-2018-03}:
+\Bibkey{ATL-PHYS-PUB-2020-017} in \File{PubNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2020-017/}.
+
+\subsection[Run 2 W/Z tagging scale factors for TCC jets]{\Run{2} \PW/\PZ tagging scale factors for TCC jets}
+
+\Bibkey{ATL-PHYS-PUB-2020-008} in \File{PubNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2020-008/}.
+
+\subsection{\texorpdfstring{\Run{2}}{Run 2} Higgs tagging}
+
+Please see FTAG recommendations for updates/calibration.\\
+\Bibkey{PERF-2017-04} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/1741421}.
+
+\subsection{Top tagging with UFO jets}
+
+\Bibkey{ATL-PHYS-PUB-2021-028} in \File{PubNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2021-028/}.
+
+\subsection[W/Z tagging with UFO jets]{\PW/\PZ tagging with UFO jets}
+
+\Bibkey{ATL-PHYS-PUB-2021-029} in \File{PubNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2021-029/}.
+
+\subsection{Performance of quark/gluon tagging in rel.\ 21}
+
+\Bibkey{JETM-2020-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2684714}.
+
+%-------------------------------------------------------------------------------
+\section{Jet algorithms}%
+\label{sec:jet:algorithm}
+%-------------------------------------------------------------------------------
+
+Make sure to cite FastJet in addition to the jet clustering algorithm to abide by the licensing agreement.
+
+\Antikt algorithm\\
+\Bibkey{Cacciari:2008gp} in \File{ATLAS-useful.bib}.
+
+Fastjet\\
+\Bibkey{Fastjet} in \File{ATLAS-useful.bib}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Missing transverse momentum]{Missing transverse momentum\\ \Large{Last update: \metDate}}%
+\label{sec:met}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section[ETmiss performance in Run 2]{\MET performance in \Run{2}}
+%-------------------------------------------------------------------------------
+
+Reference for Run2 papers:\\
+\Bibkey{JETM-2020-03} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/literature/2756722}.
+
+%-------------------------------------------------------------------------------
+\section[ETmiss significance in Run 2]{\MET significance in \Run{2}}
+%-------------------------------------------------------------------------------
+
+\Bibkey{ATLAS-CONF-2018-038} in \File{ConfNotes.bib}.
+% On the web: \url{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2018-038/}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Flavour tagging]{Flavour tagging\\ \Large{Last update: \flavourDate}}%
+\label{sec:flavour}
+%===============================================================================
+
+Release 25: \href{https://atlas-talk.web.cern.ch/t/how-to-cite-gn2-in-a-paper/47314/2}{atlas-talk}\\
+Legacy: \ATLASTWikiProtect{BTaggingPaperRecommendations}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Taus]{Taus\\ \Large{Last update: \tauDate}}%
+\label{sec:tau}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section{Fake tau background estimation}
+%-------------------------------------------------------------------------------
+
+\Bibkey{TAUP-2023-01} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\section{Tau reconstruction and identification}
+%-------------------------------------------------------------------------------
+
+muonRM taus, both in \Run{2} and \Run{3}:\\
+\Bibkey{TAUP-2023-02} in \File{ATLAS.bib}.
+
+Boosted-ditau, both \Run{2} and \Run{3}:\\
+\Bibkey{TAUP-2020-03} in \File{ATLAS.bib}.
+\Bibkey{HDBS-2019-22} in \File{ATLAS.bib}.
+
+%-------------------------------------------------------------------------------
+\section{Tau identification algorithms (tauID)}
+%-------------------------------------------------------------------------------
+
+For \Run{2}, rel.\ 22 (reprocessed data) and \Run{3} analyses using tau-leptons:\\
+\Bibkey{ATL-PHYS-PUB-2022-044} in \File{PubNotes.bib}.
+
+For \Run{2} analyses (rel.\ 21) using the RNN TauID algorithm:\\
+\Bibkey{ATL-PHYS-PUB-2019-033} in \File{PubNotes.bib}.
+
+For \Run{2} analyses (rel.\ 21), the performance of the tauID algorithms and recommendations are described
+on the TWiki page: \ATLASTWikiProtect{TauWG}.
+
+The \Run{1} paper (listed below) can still be referenced in addition for a more detailed description of the algorithms
+and of performance of the tau energy calibration.
+\Bibkey{ATLAS-CONF-2017-029} in \File{ConfNotes.bib}.
+
+A public document is available, summarising the tauID algorithms, and pre-recommendations.
+It should be used for any result using the \Run{2} pre-recommendations:\\
+\Bibkey{ATL-PHYS-PUB-2015-045} in \File{PubNotes.bib}.
+
+%-------------------------------------------------------------------------------
+\section[Run 1 tau performance]{\Run{1} tau performance}
+%-------------------------------------------------------------------------------
+
+The \Run{1} tau performance paper is the sole reference required for offline and online tau performance in \Run{1}.
+The article covers reconstruction, energy calibration and identification plus the associated performance measurements.\\
+\Bibkey{PERF-2013-06} in \File{ATLAS.bib}. 
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Trigger]{Trigger\\ \Large{Last update: \trigDate}}%
+\label{sec:trigger}
+%===============================================================================
+
+A list of all references can be found here:
+\ATLASTWikiPublic{TriggerPublicResults}.
+
+Key publications are listed below.
+
+%-------------------------------------------------------------------------------
+\section{Trigger system publications}%
+\label{sec:trigger:system}
+%-------------------------------------------------------------------------------
+
+If the paper uses any combination of \Run{1}, \Run{2} and \Run{3} data, please cite all applicable papers below.
+
+%-------------------------------------------------------------------------------
+\subsection[Run 1 data only]{\Run{1} data only}
+
+Performance of the ATLAS Trigger System in 2010\\
+\Bibkey{TRIG-2011-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/930968}.
+
+%-------------------------------------------------------------------------------
+\subsection[Run 2 data only]{\Run{2} data only}
+
+Performance of the ATLAS Trigger system in 2015:\\
+\Bibkey{TRIG-2016-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1500696}.
+
+%-------------------------------------------------------------------------------
+\subsection[Run 3 data only]{\Run{3} data only}
+
+The ATLAS Trigger System for LHC Run 3 and Trigger performance in 2022:\\
+\Bibkey{TRIG-2022-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/2746398}.
+
+
+%-------------------------------------------------------------------------------
+\section{Trigger signature publications}%
+\label{sec:trigger:signature}
+%-------------------------------------------------------------------------------
+
+In addition, please cite all of the relevant signature publications for the specific triggers you've used:
+
+%-------------------------------------------------------------------------------
+\subsection[Run 3 data]{\Run{3} data}
+
+\Pqb-jet triggers: Optimization and Commissioning of the \(b\)-jet triggers for LHC Run 3:\\
+\Bibkey{TRIG-2022-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/2870995}.
+
+Multi-b-jet triggers: Fast b-tagging at the high-level trigger of the ATLAS experiment in LHC Run 3:\\
+\Bibkey{TRIG-2022-03} in \File{ATLAS.bib}. 
+% On Inspire: \url{https://inspirehep.net/record/2669599}.
+
+%-------------------------------------------------------------------------------
+\subsection[Run 2 data]{\Run{2} data}
+
+Electron / Photon triggers: Performance of the electron and photon triggers of the ATLAS experiment during LHC \Run{2}\\
+\Bibkey{TRIG-2018-05} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1752312}.
+
+Muon triggers: Performance of the ATLAS muon triggers in \Run{2}\\
+\Bibkey{TRIG-2018-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1793218}.
+
+Missing ET triggers: Performance of the missing transverse momentum triggers for the ATLAS detector during \Run{2} data taking
+\Bibkey{TRIG-2019-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1796953}.
+
+b-jet triggers: Performance of the ATLAS \Pqb-jet trigger in \pp collisions at \(\sqrt{s} = \qty{13}{\TeV}\)\\
+\Bibkey{TRIG-2018-08} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1867276}.
+
+L1Topo triggers: Performance of the ATLAS Level-1 topological trigger in \Run{2}\\
+\Bibkey{TRIG-2019-02} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirehep.net/record/1861846}.
+
+For any other signatures, please refer to the previous publications,
+e.g.\ for jets you can use the 2011 paper for the description of the FS jet finding. 
+
+Unless all your triggers are pure calorimeter triggers, please also cite\\
+Inner Detector based triggers: The ATLAS Inner Detector Trigger performance in \pp collisions at \qty{13}{\TeV} during LHC Run 2:\\
+\Bibkey{TRIG-2019-03} in \File{ATLAS.bib}. 
+% On Inspire: \url{https://inspirehep.net/record/1877469}.
+
+In case you discuss operational matters of the \Run{2} trigger system, please cite this paper:
+
+Operation of the ATLAS trigger system in Run 2:\\
+\Bibkey{TRIG-2019-02} in \File{ATLAS.bib}. 
+% On Inspire: \url{https://inspirehep.net/record/1808700}.
+    
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[PDFs]{PDFS\\ \Large{Last update: \PDFDate}}%
+\label{sec:pdf}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section{PDF4LHC recommendations}
+%-------------------------------------------------------------------------------
+
+\Bibkey{Butterworth:2015oua} in \File{ATLAS-useful.bib}.
+
+%-------------------------------------------------------------------------------
+\section{CTEQ5}
+%-------------------------------------------------------------------------------
+
+\Bibkey{Lai:1999wy} in \File{ATLAS-useful.bib}.
+
+%-------------------------------------------------------------------------------
+\section{CTEQ6}
+%-------------------------------------------------------------------------------
+
+\Bibkey{Pumplin:2002vw} in \File{ATLAS-useful.bib}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Simulation]{Simulation\\ \Large{Last update: \MCDate}}%
+\label{sec:mc}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section{Monte Carlo generators}
+%-------------------------------------------------------------------------------
+
+Check the following document by PMG (shipped with the \Package{atlaslatex} package)
+that contains references for many samples:\\
+\url{https://gitlab.cern.ch/atlas-physics-office/atlaslatex/-/tree/master/template/MC_snippets}.
+
+%-------------------------------------------------------------------------------
+\section{Simulation tools}
+%-------------------------------------------------------------------------------
+
+\subsection{GEANT4}
+
+\Bibkey{Agostinelli:2002hh} in \File{ATLAS-useful.bib}.
+
+Note that the following paper describes the full and all the flavoUrs of fast simulation;
+it can be used as a reference for both the ATLAS detector simulation and for Atlfast-II, for example:\\
+\Bibkey{SOFT-2010-01} in \File{ATLAS.bib}.
+% On Inspire: \url{https://inspirebeta.net/record/856179}.
+
+If you wish to discuss the details of hadronic physics lists in Geant4,
+please cite:\\
+\Bibkey{Geant4PhysicsLists} in \File{ATLAS-useful.bib}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Statistical analysis]{Statistical analysis\\ \Large{Last update: \statDate}}%
+\label{sec:stat}
+%===============================================================================
+
+\section{Neyman-Pearson lemma}
+
+\Bibkey{Neyman:1933wgr} in \File{ATLAS-useful.bib}.
+
+\section[CLs method]{\(CL_s\) method}
+
+\Bibkey{Junk:1999kv}  in \File{ATLAS-useful.bib}.
+
+\Bibkey{Read:2002hq} in \File{ATLAS-useful.bib}.
+
+\section{Profile likelihood method}
+
+\Bibkey{Rolke:2004mj} in \File{ATLAS-useful.bib}.
+
+\section{Asymptotic formulae and profile likelihood}
+
+\Bibkey{Cowan:2010js} from \File{ATLAS-useful.bib}.
+
+\section{RooFit}
+
+\Bibkey{RooFit} from \File{ATLAS-useful.bib}.
+
+\section{RooUnfold}
+
+\Bibkey{Adye:2011gm} from \File{ATLAS-useful.bib}.
+
+\section{TMVA}
+
+\Bibkey{TMVA} from \File{ATLAS-useful.bib}.
+
+\section{Keras}
+
+\Bibkey{chollet2015keras} from \File{ATLAS-useful.bib}.
+
+\section{HistFitter}
+
+\Bibkey{Baak:2014wma} in \File{ATLAS-useful.bib}.
+
+\section{BLUE}
+
+When using the BLUE method, please cite at least\\
+\Bibkey{Lyons:1988rp} in \File{ATLAS-useful.bib}.
+
+If the method involves multiple observables, please cite in addition\\
+\Bibkey{2003NIMPA.500..391V} in \File{ATLAS-useful.bib}.
+
+The following two citations can also be added, especially if the iterative version of BLUE is used:
+\Bibkey{DAGOSTINI1994306} in \File{ATLAS-useful.bib}
+
+and
+
+\Bibkey{Blobel:2003wa} in \File{ATLAS-useful.bib}.
+
+Finally, if the blue.hepforge.org implementation is used, please cite:\\
+\Bibkey{Nisius:2020jmf} and \Bibkey{Nisius:2014wua} in \File{ATLAS-useful.bib}.
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\chapter[Physics processes and cross sections]{Physics processes and cross sections\\ \Large{Last update: \physicsDate}}%
+\label{sec:physics}
+%===============================================================================
+
+%-------------------------------------------------------------------------------
+\section{Higgs}
+%-------------------------------------------------------------------------------
+
+The recommended list of Higgs theory papers to be used for ATLAS Higgs papers can be found at:\\
+\ATLASTWikiProtect{HiggsCrossSection}.
+
+%-------------------------------------------------------------------------------
+\section{SUSY}
+%-------------------------------------------------------------------------------
+
+A set of standard SUSY references can be found at:\\
+\ATLASTWikiProtect{StandardSUSYRefs}.
+
+%-------------------------------------------------------------------------------
+\section{Top-quark pairs}
+%-------------------------------------------------------------------------------
+
+A list of references for top-quark pair production can be be found at:\\
+\url{https://twiki.cern.ch/twiki/bin/view/LHCPhysics/TtbarNNLO#Proposed_citation_and_list_of_re}.
+
+The page includes useful numbers and parameterisations of the cross section.
+The content of the page was agreed on by ATLAS and CMS.
+
+%-------------------------------------------------------------------------------
+\section{Physics modelling group}
+%-------------------------------------------------------------------------------
+
+A list of references and text snippets for MC generators are provided by the physics modelling group and can be found
+in the atlaslatex MC snippets 
+
+%-------------------------------------------------------------------------------
+% Print the bibliography for this chapter.
+\printbibliography[heading=subbibliography]
+
+%===============================================================================
+\appendix
+\crefalias{chapter}{appendix}
+\chapter{Notes for editors}%
+\label{sec:editor}
+%===============================================================================
+
+Editors of this document should follow the following conventions:
+\begin{itemize}
+  \item Update the relevant chapter date at the top of the document when changes are made.
+  \item Use the \Macro{Bibkey} command to refer to the \BibTeX\ keys in the text.
+  \item Use the \Macro{File} command to refer to the \File{bib} files.
+  \item Use the \Macro{Run} command to refer to the LHC runs.
+    Note that if you use the command in a section title, you should either provide an alternative title
+    in square brackets or use the \Macro{texorpdfstring} command to avoid warnings when making the PDF file.
+  \item Use one of the commands \Macro{ATLASTWiki}, \Macro{ATLASTWikiPublic}, or \Macro{ATLASTWikiProtect} 
+    to refer to the ATLAS TWiki pages.
+\end{itemize}
+
+% \cref{sec:editor} is the last chapter of this document.
+
+\end{document}
