@@ -1,2 +1,14 @@
-\subsection{Modelling Uncertainties}
+\subsection{Theory Model Uncertainties}
 \label{sec:modellinguncertainties}
+Uncertainties due to the theoretical modelling of particle physics processes are evaluated using Monte Carlo predictions. The main sources of theoretical systematic uncertainty are described in this section. Details of the alternative Monte Carlo samples and configurations have been provided in Section \ref{sec:samples}.
+
+\paragraph{QCD scale} The QCD scale uncertainties are obtained using nine-point scale variations of the NLO renormalisation and factorisation scales and applying the NNLO reweighting to those variations, including up and down variations of $\mu_\text{R} = \mu_\text{F}$ around the central value for the NNLO part, yielding a total of 27 scale variations.
+%Uncertainties related to the choice of the QCD scale are estimated by varying the renormalisation and factorisation scales independently by factors of 0.5 and 2.  
+
+\paragraph{PS+Hadronisation} Uncertainty due to the modelling of parton showers and hadronisation is estimated using alternative MC predictions using Herwig 7.2.3 \cite{Bellm:2015jjp,Bellm:2020epjc}. These alternative samples use the same matrix element generators as the nominal samples. Herwig 7.2 uses an angular-ordered parton shower and a cluster-based hadronisation model, as opposed to the \pT-ordered shower and Lund-string hadronisation used in Pythia 8.  
+
+\paragraph{PDF} Uncertainties due to the choice of parton distribution functions (PDFs) and \alphas are estimated using the \PDFforLHC[15nlo] set of eigenvectors\cite{Butterworth:2015oua}. The uncertainty is computed as the envelope of all eigenvector variations in the PDF set.
+
+\textcolor{red}{TODO: Add descriptions of more uncertainties as samples become available.} 
+
+\textcolor{red}{TODO: Add summary of impact of theoretical uncertainties on the final results.} 
