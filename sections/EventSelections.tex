@@ -8,28 +8,25 @@ In this section, we provide a summary of the different object definitions and ev
 
 \subsubsection{Photon Reconstruction and pre-selections}
 \label{sssec:photon_preselection}
-Photons are reconstructed using dynamic, variable-size energy clusters in the EM calorimeter~\cite{ATL-PHYS-PUB-2017-022}. Converted photons are reconstructed from clusters associated to inner detector track(s) matched with a conversion vertex.  Photon candidates with associated super-clusters affected by dead front-end boards in the first or second sampling or by the presence high-voltage trips affecting the three samplings or that includes a masked cell in the core are considered as bad-quality photons and not considered in the analysis. Additionally, if any of the eight central strips is masked the photon candidate is not considered.
-Loose photons are defined from the list of photon candidates if they satisfy the Loose identification criteria, based on shower shapes variables defined with cells of the middle and back portions of the LAr accordion calorimeter. We pre-select loose photons requiring $\pT>\SI{25}{\GeV}$ and $|\eta_{S2}|<2.37$\footnote{$\eta_{S2}$ is the $\eta$ position of the calorimetric cluster in the second sampling of the EM calorimeter.}, vetoing the transition region between $1.37 < |\eta_{S2}| < 1.52$. The \pT used for the kinematic cuts and the invariant mass computation takes into account the correction of the $\eta$ from the diphoton primary vertex position.
+Photons are reconstructed using dynamic, variable-size, topological energy clusters in the electromagnetic calorimeter~\cite{ATL-PHYS-PUB-2017-022}. Converted photons are reconstructed from clusters associated to inner detector track(s) matched to a conversion vertex. Photon candidates with associated super-clusters are deemed to be of bad quality and excluded from the analysis if: 1. they are affected by dead front-end boards in the first or second sampling layer, 2. there are high-voltage trips present in any of the three sampling layers, or 3. they include masked cells in the core. In addition, a photon candidate is not considered if any of the eight central strips is masked.
+Loose photons are defined from the Loose identification criteria, which are based on shower-shape-variables, defined using cells in the middle and final layer of the LAr accordion calorimeter. We pre-select loose photons requiring $\pT>\SI{25}{\GeV}$ and $|\eta_{S2}|<2.37$\footnote{$\eta_{S2}$ is the $\eta$ position of the calorimetric cluster in the second sampling of the EM calorimeter.} and vetoing the transition region between the barrel and endcap sections at $1.37 < |\eta_{S2}| < 1.52$. %The \pT used for the kinematic cuts and the invariant mass computation takes into account the correction of the $\eta$ from the diphoton primary vertex position.
+The four-momenta used for the computation of the invariant mass, as well as kinematic cuts, are corrected for the position of the diphoton primary vertex.
 
-Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\cite{EGAM-2021-02}. These corrections are tagged with the model~\texttt{es2024\_Run3\_v0} and correspond to \texttt{TUNE23}. Unless otherwise specified, the results reported in this document are obtained with this model. \footnote{\textcolor{blue}{The latest calibration scheme is used, the one employed in h033 which is likely the tag to be used for Moriond.}} 
+Photons are calibrated using the latest Run-3 calibration corrections for the energy scale and resolution detailed in~\cite{EGAM-2021-02}. These corrections are tagged with the model~\texttt{es2024\_Run3\_v0} and correspond to \texttt{TUNE23}. Unless otherwise specified, the results reported in this document are obtained with this model. \footnote{\textcolor{blue}{The latest calibration scheme is used, the one employed in h033, which is likely the tag to be used for Moriond.}} 
 The~\texttt{1NP\_v1} systematics scheme is used which contains two energy scale related uncertainties and one resolution uncertainty.
 %which contains 70 variations for the scale and 9 for the resolution is used in this analysis.
 
-In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pile-up, an isolation requirement is applied based on both calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{sec:eventselections}}.
+In order to reduce the background coming from neutral mesons decaying to photon pairs and charged particles from pileup, an isolation requirement is applied using separate calorimeter-based and track-based requirements. The \texttt{FixedCutLoose} working point is used. The requirements of this working point are specified in \Sect{\ref{sec:eventselections}}.
 
 During the event selection, events are required to have at least two loose photons, and the two loose photons with the highest \pT define the Higgs candidate.
 
 \paragraph{Diphoton vertex}
-
-A Neural Network (NN) is used in order to identify the correct diphoton vertex among the primary vertices reconstructed in ATLAS. The vertex with the highest score for this NN is chosen to be the primary vertex in this analysis. The NN combines information from the longitudinal segmentation of the calorimeter (``pointing'') for these two photons, the $\Delta\phi$ between the tracks of the vertices under consideration and the diphoton system, the scalar sums of tracks \pT and \pTsq. Two NN are trained, one for unconverted photons pairs and one for pairs with at least one converted photon. The neural network performs better than the usual hardest vertex requirement in identifying the truth vertex within \SI{0.3}{\milli\meter}, in particular for processes with a small number of tracks in the final state, like \ggH. 
+A Neural Network (NN) is used to identify the correct diphoton vertex among the primary vertices reconstructed in ATLAS. The vertex with the highest score for this NN is chosen to be the primary vertex in this analysis. The NN combines information from the longitudinal segmentation of the calorimeter (`pointing') for the two photons, the $\Delta\phi$ between the tracks at the vertices under consideration and the diphoton system, as well as the scalar sums of track-\pT and \pTsq. Two NNs are trained, one for unconverted photon pairs and one for pairs with at least one converted photon. The NNs perform better than the usual hardest vertex requirement at identifying the truth vertex within \SI{0.3}{\milli\meter}. They are particularly performant for processes with few tracks in the final state, such as \ggH production. 
 %A comparison study of the vertex selection efficiencies for various production modes was performed in the context of the \Hyy STXS/couplings analysis~\cite{Berger:2764716}: it has been shown that the efficiency of the \ggH production modes increases from 54\% to 65\% when the NN vertex is used in place of the usual hardest one as shown in \Fig{\ref{fig:myy_vertex_resolution}}.
 
-Once the diphoton vertex has been chosen, all the objects kinematic is
-recomputed and all the cuts reported in below sections are related to this
-diphoton vertex. The more correct choice of the primary vertex improves the \myy
-diphoton mass resolution by 8\% inclusively.
+Once the diphoton vertex has been identified, all the object kinematics are recomputed and all the selections reported in the following sections are relative to this diphoton vertex. The identification of the primary vertex pointed to by the two photons improves the inclusive \myy resolution by 8\%.
 % , as can be observed in \Fig{\ref{fig:myy_vertex_resolution}}.
-The improvement is driven by the ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
+The improvement is driven by the dominant \ggH production mode, where the difference in selection efficiency between the standard hardest vertex requirement and the NN classification is the largest.
 %\begin{figure}[tbp]
 %	\centering
 %    \includegraphics[width=0.49\linewidth]{selection/PV_mode}    
@@ -40,13 +37,13 @@ The improvement is driven by the ggH production mode, where the difference in se
 
 
 \subsubsection{Electron, muon, jet and \MET selections}
-The reconstruction and selection of these objects is common to other SM \Hyy analyses and it is described in great details in the STXS/coupling note \cite{Berger:2764716} from Run 2. Updated calibration and identification/tagging maps are specified below, as well as a reminder of the baseline object selection cuts.  
+The reconstruction and selection of these objects is common to other SM \Hyy analyses and is described in great detail in the STXS/coupling note \cite{Berger:2764716} from Run 2. Updated calibration and identification/tagging maps are specified below, as well as a reminder of the baseline object selection cuts.  
 
 \subsubsection{Overlap removal between objects}
-In order to avoid any possible double counting between objects an overlap removal is applied following HGam strategy, starting from the selected photons. This strategy follows the recommendations on analysis harmonization detailed in~\cite{Adams:1700874}. In this approach, the two leading photons are always kept. Electrons and muons in a cone of $\Delta R=0.4$ around any of the photons are discarded. Jets which are closer than $\Delta R=0.2$ ($\Delta R=0.4$) of an electron (photon) are not considered. Also electrons at a distance $\Delta R<0.4$ from the remaining jets are removed . Additionally, muons with a distance smaller than $\Delta R=0.4$ to a jet are rejected. 
+In order to avoid any possible double counting between objects, overlap removal is applied following a common \Hyy strategy, starting with the selected photons. The specific recommendations for analysis harmonization are detailed in~\cite{Adams:1700874}. Following this approach, the two leading photons are always kept. Electrons and muons within a $\Delta R=0.4$ cone around any of the photons are discarded. Jets with $\Delta R<0.2$ ($\Delta R<0.4$) to an electron (photon) are excluded, as are electrons with $\Delta R<0.4$ to the remaining jets. Lastly, muons with $\Delta R<0.4$ to a jet are removed. 
 
 \subsubsection{Summary of Combined Performance recommendations used by the analysis}
-In this section a summary of the recommendations from Combined Performance groups used in the analysis is provided. 
+In this section a summary of the recommendations from the Combined Performance groups relevant to the analysis is provided. 
 %These exactly match the recommendation used in the recent STXS/coupling analysis \cite{Berger:2764716} a part for the photons which have the updated final EGamma scale calibrations. \\
 
 
@@ -73,7 +70,7 @@ In this section a summary of the recommendations from Combined Performance group
 
 \textbf{Muons}
 \begin{itemize}
-	\item Selection: $p_{T} > 5 \GeV, |\eta|<2.7, |d_{0}/\sigma(d_{0})|<3, |z_{0}sin\theta|<0.5$ mm, Medium
+	\item Selection: $p_{T} > 5 \GeV, |\eta|<2.7, |d_{0}/\sigma(d_{0})|<3, |z_{0}sin\theta|<0.5$ mm, Medium ID
   \item Calibration release: \path{Recs2025_03_26_Run2Run3}
 	\item Efficiency release: \path{250418_Preliminary_r24run3}
 	\item Isolation working point: \path{PflowLoose_VarRad}
@@ -105,15 +102,15 @@ In this section a summary of the recommendations from Combined Performance group
 \subsubsection{Corrections to MC samples}
 \label{sssec:corrections_MC}
 
-In order to improve the data/MC agreement some corrections are applied to the MC samples:
+Corrections are applied to the MC samples in order to improve agreement with the data:
 
 \begin{itemize}
 
-\item Shifts are applied to the photon shower shape variables and to the photon calorimeter isolation~\cite{PERF-2017-02,EGAM-2018-01}.
-  Such shifts are determined by the EGamma group as the average data-MC difference in photon-enriched control samples.
-\item Shifts are applied to the isolation energy of photons (called ``data-driven shifts'') in order to correct a consistent discrepancy between data and MC on the peak position of the isolation energy distribution. This is applied before computing the scale factors.
-\item Identification  and isolation efficiency scale factors for photons~\cite{PERF-2017-02,EGAM-2018-01}. Energy resolution corrections for all
-  simulated photons are also taken into account~\cite{EGAM-2018-01,PERF-2017-03}, while energy scale correction are applied to data.
+\item Shifts are applied to the photon shower shape variables and to the photon calorimeter isolation~\cite{PERF-2017-02,EGAM-2018-01}. Such shifts are determined by the EGamma group as the average data-MC difference in photon-enriched control samples.
+
+\item Shifts are applied to the isolation energy of photons (called `data-driven shifts') in order to correct a consistent discrepancy between data and MC on the peak position of the isolation energy distribution. This is applied before computing the scale factors.
+
+\item Identification and isolation efficiency scale factors for photons~\cite{PERF-2017-02,EGAM-2018-01}. Energy resolution corrections for all simulated photons are also taken into account~\cite{EGAM-2018-01,PERF-2017-03}, while energy scale corrections are applied to data.
 \end{itemize}
 
 
@@ -130,49 +127,32 @@ In order to improve the data/MC agreement some corrections are applied to the MC
 
 The full event selection consists of a few extra requirements on the
 two leading-\pT\ photons after the preselection applied during the MxAOD
-production is performed.
-The final selection resembles closely, at detector level, the fiducial
-selection applied at particle level, with the exception of the
-photon identification requirements.
+production is performed. With the exception of the photon identification requirements, the final selection at the detector level resembles closely the fiducial selection applied at the particle level.
 
-We summarise here the full event selection, after the criteria applied
-at preselection level and described also in Section~\ref{sec:samples}.
-We just remind the reader that all particles' (photons, leptons, jets) energy or momentum scales are calibrated.
-In the simulation, energy or momentum resolutions are smeared to match the data.
-Scale factors applied to the simulation account for data/MC differences in efficiencies
-of the selection algorithms for the various particle hypotheses.
+We summarise here the full event selection, applied following the preselection described in Section~\ref{sec:samples}. We remind the reader that the energy and  momentum scales of all particles (photons, leptons, jets) have been calibrated. In  simulation, smearing is applied to match the energy and momentum resolution in the data Scale factors, determined from auxiliary measurements, are applied in simulation to account for data-MC differences in ID/tagging efficiency for the various particle hypotheses.
 
 The event selection is the following:
 \begin{itemize}
-\item The two photon candidates with highest transverse momentum have
-  to be matched to the photon trigger objects of the trigger used for this analysis
-  ({\em i.e.} the unprescaled diphoton trigger is a 2-part trigger, it had a minimum L1 level energy threshold of 20 GeV, and with HLT level asymmetric \pT\ thresholds
-  of 35 and 25~GeV).
-  These two photon candidates are the ones selected to reconstruct the Higgs boson candidate
-\item The two selected photons should pass tight identification requirements.
-  Photons with absolute pseudorapidity above 2.37 or in the transition region between
-  the barrel and endcap sections of the LAr calorimeter ($1.37<|\eta|<1.52$), where
-  the transverse segmentation of the first layer of the accordion calorimeter is
-  coarse and does not allow prompt photon/$\pi^0$ discrimination, are discarded by this selection.
-\item The two selected photons are required to pass the ``FixedCutLoose'' isolation requirements:
-  the total transverse isolation energy in the calorimeter $\ET^\mathrm{iso}$ in a cone of radius 0.2 around
-  the photon direction must be less than 6.5\% of the photon \pT, and the
-  scalar sum of the \pT\ of the tracks from the diphoton primary vertex in a cone of radius 0.2
-  around the photon candidate must be less than 5\% of the photon \pT.
-\item The leading and subleading photons are required to have $\pT/m_{\gamma\gamma}$ larger than
-  0.35 and 0.25, respectively. This long-standing selection is revisted in order to provide a more theory-friendly approach in Appendix~\ref{app:productcut}.
+\item The two photon candidates with the highest transverse momentum are matched to the photon trigger objects of the trigger used in the event (the unprescaled diphoton trigger is a 2-part trigger; it has a minimum L1 level energy threshold of 20 GeV, and HLT-level asymmetric \pT\ thresholds of 35 and 25~GeV). These two photon candidates are used to reconstruct the Higgs boson candidate
+
+\item The two selected photons should pass tight identification requirements. Photons that are located at an absolute pseudorapidity greater than 2.37 or in the transition region between the barrel and endcap sections of the LAr calorimeter are discarded. In the former region ($1.37<|\eta|<1.52$), the transverse segmentation of the first layer of the accordion calorimeter is too coarse to allow prompt photons to be distinguished from neutral pions.
+
+\item The two selected photons are required to pass the `FixedCutLoose' isolation requirements: the total transverse isolation energy in the calorimeter $\ET^\mathrm{iso}$ in a cone of radius 0.2 around the photon direction must be less than 6.5\% of the photon \pT, likewise the scalar sum of \pT\ of the tracks from the diphoton primary vertex in a cone of radius 0.2 around the photon candidate must be less than 5\% of the photon \pT.
+
+\item The leading and sub-leading photons are required to have $\pT/m_{\gamma\gamma}$ larger than 0.35 and 0.25, respectively. This long-standing selection is revised in order to provide a more theory-friendly approach in Appendix~\ref{app:productcut}.
+
 \item The diphoton invariant mass must be in the range $105 < m_{\gamma\gamma} < 160$~GeV.
 \end{itemize}
 
 The selection is based on Run 3 pre-recommendations.
 In particular, pre-recommendations for photons (including efficiency, isolation and trigger scale factors, as well as calibrations) are considered.
 
-The number of events selected in the full Run3 data is~1532642.
-The cutflow for events in data is given in Table ~\ref{tab:cutflow_data}.
+The number of events selected in the full Run3 data is~1532642. The cutflow for events in data is given in Table ~\ref{tab:cutflow_data}.
 
+\FloatBarrier
 
-
-\begin{table}[!htbp]
+\begin{table}[!b]
+\centering
 \caption{Selection cutflow in data}
 \label{tab:cutflow_data}
 \begin{tabular}{lrr  rr  rr}
@@ -188,13 +168,13 @@ GRL & 134189883 & 82.26 & 81895650 & 92.31 & 249864992 & 96.98 \\
 Pass trigger & 124604672 & 92.86 & 61747845 & 75.40 & 214472114 & 85.84 \\
 Detector DQ & 124597123 & 99.99 & 61743925 & 99.99 & 214418731 & 99.98 \\
 Has PV & 124597110 & 100.00 & 61743925 & 100.00 & 214418729 & 100.00 \\
-2 loose photons & 13994099 & 11.23 & 14966482 & 24.24 & 56619654 & 26.41 \\
-$e-\gamma$ ambiguity & 13994099 & 100.00 & 14966482 & 100.00 & 56617705 & 100.00 \\
+2 loose $\gamma$s & 13994099 & 11.23 & 14966482 & 24.24 & 56619654 & 26.41 \\
+$e$-$\gamma$ ambiguity & 13994099 & 100.00 & 14966482 & 100.00 & 56617705 & 100.00 \\
 Trigger match & 9214126 & 65.84 & 8386969 & 56.04 & 32246113 & 56.95 \\
 tight ID & 3087071 & 33.50 & 2903849 & 34.62 & 11102057 & 34.43 \\
 isolation & 1382065 & 44.77 & 1293714 & 44.55 & 5001065 & 45.05 \\
 rel. $p_{T}$ cuts & 1195649 & 86.51 & 1115754 & 86.24 & 4316498 & 86.31 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 280376 & 23.45 & 256835 & 23.02 & 995431 & 23.06 \\
+$m_{\gamma\gamma}$ cuts & 280376 & 23.45 & 256835 & 23.02 & 995431 & 23.06 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{0.0085} & \multicolumn{2}{c}{0.0097} & \multicolumn{2}{c}{0.0074} \\
 \bottomrule
@@ -204,6 +184,7 @@ Efficiency(\%) & \multicolumn{2}{c}{0.0085} & \multicolumn{2}{c}{0.0097} & \mult
 
 The cutflows for the various signal are shown in Table ~\ref{tab:cutflow_ggH}--\ref{tab:cutflow_bbH}. . The cutflow for the diphoton background is given in Table~\ref{tab:cutflow_yyjets}.
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in ggH Signal MC. Events are weighted}
 \label{tab:cutflow_ggH}
 \begin{tabular}{lrr  rr  rr}
@@ -219,13 +200,13 @@ GRL & 3718.40 & 100.00 & 3225.91 & 100.00 & 12952.95 & 100.00 \\
 Pass trigger & 2490.24 & 66.97 & 2151.67 & 66.70 & 8497.69 & 65.60 \\
 Detector DQ & 2490.24 & 100.00 & 2151.67 & 100.00 & 8497.69 & 100.00 \\
 Has PV & 2490.24 & 100.00 & 2151.67 & 100.00 & 8497.69 & 100.00 \\
-2 loose photons & 2052.09 & 82.41 & 1765.29 & 82.04 & 7019.73 & 82.61 \\
-$e-\gamma$ ambiguity & 2052.09 & 100.00 & 1765.29 & 100.00 & 7000.15 & 99.72 \\
+2 loose $\gamma$s & 2052.09 & 82.41 & 1765.29 & 82.04 & 7019.73 & 82.61 \\
+$e$-$\gamma$ ambiguity & 2052.09 & 100.00 & 1765.29 & 100.00 & 7000.15 & 99.72 \\
 Trigger match & 1837.31 & 89.53 & 1586.34 & 89.86 & 6297.08 & 89.96 \\
 tight ID & 1604.09 & 87.31 & 1367.16 & 86.18 & 5414.44 & 85.98 \\
 isolation & 1465.35 & 91.35 & 1235.69 & 90.38 & 4863.20 & 89.82 \\
 rel. $p_{T}$ cuts & 1366.22 & 93.23 & 1152.22 & 93.25 & 4536.81 & 93.29 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 1365.82 & 99.97 & 1151.90 & 99.97 & 4535.32 & 99.97 \\
+$m_{\gamma\gamma}$ cuts & 1365.82 & 99.97 & 1151.90 & 99.97 & 4535.32 & 99.97 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{60.45} & \multicolumn{2}{c}{58.76} & \multicolumn{2}{c}{57.63} \\
 \bottomrule
@@ -234,6 +215,7 @@ Efficiency(\%) & \multicolumn{2}{c}{60.45} & \multicolumn{2}{c}{58.76} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in VBF Signal MC. Events are weighted}
 \label{tab:cutflow_VBF}
 \begin{tabular}{lrr  rr  rr}
@@ -249,13 +231,13 @@ GRL & 290.44 & 100.00 & 251.98 & 100.00 & 1011.76 & 100.00 \\
 Pass trigger & 208.15 & 71.67 & 180.00 & 71.43 & 714.18 & 70.59 \\
 Detector DQ & 208.15 & 100.00 & 180.00 & 100.00 & 714.18 & 100.00 \\
 Has PV & 208.15 & 100.00 & 180.00 & 100.00 & 714.18 & 100.00 \\
-2 loose photons & 162.67 & 78.15 & 140.09 & 77.83 & 558.98 & 78.27 \\
-$e-\gamma$ ambiguity & 162.67 & 100.00 & 140.09 & 100.00 & 557.57 & 99.75 \\
+2 loose $\gamma$s & 162.67 & 78.15 & 140.09 & 77.83 & 558.98 & 78.27 \\
+$e$-$\gamma$ ambiguity & 162.67 & 100.00 & 140.09 & 100.00 & 557.57 & 99.75 \\
 Trigger match & 146.16 & 89.85 & 126.40 & 90.22 & 503.47 & 90.30 \\
 tight ID & 127.31 & 87.10 & 108.86 & 86.12 & 432.58 & 85.92 \\
 isolation & 117.51 & 92.30 & 99.66 & 91.55 & 394.26 & 91.14 \\
 rel. $p_{T}$ cuts & 106.37 & 90.52 & 90.23 & 90.54 & 356.86 & 90.52 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 106.23 & 99.87 & 90.11 & 99.87 & 356.39 & 99.87 \\
+$m_{\gamma\gamma}$ cuts & 106.23 & 99.87 & 90.11 & 99.87 & 356.39 & 99.87 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{36.54} & \multicolumn{2}{c}{35.71} & \multicolumn{2}{c}{35.20} \\
 \bottomrule
@@ -264,6 +246,7 @@ Efficiency(\%) & \multicolumn{2}{c}{36.54} & \multicolumn{2}{c}{35.71} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $W^+H$ Signal MC. Events are weighted}
 \label{tab:cutflow_WpH}
 \begin{tabular}{lrr  rr  rr}
@@ -279,13 +262,13 @@ GRL & 63.22 & 100.00 & 54.85 & 100.00 & 220.23 & 100.00 \\
 Pass trigger & 40.58 & 64.19 & 35.21 & 64.20 & 139.57 & 63.38 \\
 Detector DQ & 40.58 & 100.00 & 35.21 & 100.00 & 139.57 & 100.00 \\
 Has PV & 40.58 & 100.00 & 35.21 & 100.00 & 139.57 & 100.00 \\
-2 loose photons & 29.82 & 73.48 & 25.77 & 73.17 & 102.86 & 73.70 \\
-$e-\gamma$ ambiguity & 29.82 & 100.00 & 25.77 & 100.00 & 102.53 & 99.68 \\
+2 loose $\gamma$s & 29.82 & 73.48 & 25.77 & 73.17 & 102.86 & 73.70 \\
+$e$-$\gamma$ ambiguity & 29.82 & 100.00 & 25.77 & 100.00 & 102.53 & 99.68 \\
 Trigger match & 26.80 & 89.86 & 23.28 & 90.36 & 92.74 & 90.45 \\
 tight ID & 23.17 & 86.45 & 19.88 & 85.39 & 79.16 & 85.36 \\
 isolation & 20.82 & 89.89 & 17.71 & 89.07 & 70.37 & 88.89 \\
 rel. $p_{T}$ cuts & 18.99 & 91.17 & 16.15 & 91.21 & 64.18 & 91.20 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 18.86 & 99.34 & 16.04 & 99.31 & 63.77 & 99.37 \\
+$m_{\gamma\gamma}$ cuts & 18.86 & 99.34 & 16.04 & 99.31 & 63.77 & 99.37 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{29.68} & \multicolumn{2}{c}{29.21} & \multicolumn{2}{c}{28.91}\\
 \bottomrule
@@ -294,6 +277,7 @@ Efficiency(\%) & \multicolumn{2}{c}{29.68} & \multicolumn{2}{c}{29.21} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $W^-H$ Signal MC. Events are weighted}
 \label{tab:cutflow_WmH}
 \begin{tabular}{lrr  rr  rr}
@@ -309,13 +293,13 @@ GRL & 40.37 & 100.00 & 35.02 & 100.00 & 140.63 & 100.00 \\
 Pass trigger & 28.09 & 69.59 & 24.34 & 69.50 & 96.20 & 68.41 \\
 Detector DQ & 28.09 & 100.00 & 24.34 & 100.00 & 96.20 & 100.00 \\
 Has PV & 28.09 & 100.00 & 24.34 & 100.00 & 96.20 & 100.00 \\
-2 loose photons & 21.36 & 76.04 & 18.42 & 75.67 & 73.25 & 76.14 \\
-$e-\gamma$ ambiguity & 21.36 & 100.00 & 18.42 & 100.00 & 73.03 & 99.71 \\
+2 loose $\gamma$s & 21.36 & 76.04 & 18.42 & 75.67 & 73.25 & 76.14 \\
+$e$-$\gamma$ ambiguity & 21.36 & 100.00 & 18.42 & 100.00 & 73.03 & 99.71 \\
 Trigger match & 19.16 & 89.68 & 16.59 & 90.05 & 65.86 & 90.18 \\
 tight ID & 16.60 & 86.63 & 14.19 & 85.52 & 56.27 & 85.43 \\
 isolation & 14.92 & 89.89 & 12.66 & 89.24 & 50.04 & 88.93 \\
 rel. $p_{T}$ cuts & 13.61 & 91.25 & 11.53 & 91.09 & 45.68 & 91.29 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 13.54 & 99.44 & 11.47 & 99.42 & 45.40 & 99.39 \\
+$m_{\gamma\gamma}$ cuts & 13.54 & 99.44 & 11.47 & 99.42 & 45.40 & 99.39 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{33.49} & \multicolumn{2}{c}{32.66} & \multicolumn{2}{c}{32.26} \\
 \bottomrule
@@ -324,6 +308,7 @@ Efficiency(\%) & \multicolumn{2}{c}{33.49} & \multicolumn{2}{c}{32.66} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $q\bar{q}\to ZH$ Signal MC. Events are weighted}
 \label{tab:cutflow_ZH}
 \begin{tabular}{lrr  rr  rr}
@@ -339,13 +324,13 @@ GRL & 57.47 & 100.00 & 49.86 & 100.00 & 200.19 & 100.00 \\
 Pass trigger & 38.41 & 66.84 & 33.14 & 66.46 & 131.26 & 65.57 \\
 Detector DQ & 38.41 & 100.00 & 33.14 & 100.00 & 131.26 & 100.00 \\
 Has PV & 38.41 & 100.00 & 33.14 & 100.00 & 131.26 & 100.00 \\
-2 loose photons & 29.06 & 75.67 & 25.01 & 75.48 & 99.75 & 75.99 \\
-$e-\gamma$ ambiguity & 29.06 & 100.00 & 25.01 & 100.00 & 99.45 & 99.70 \\
+2 loose $\gamma$s & 29.06 & 75.67 & 25.01 & 75.48 & 99.75 & 75.99 \\
+$e$-$\gamma$ ambiguity & 29.06 & 100.00 & 25.01 & 100.00 & 99.45 & 99.70 \\
 Trigger match & 26.08 & 89.74 & 22.56 & 90.22 & 89.83 & 90.33 \\
 tight ID & 22.58 & 86.57 & 19.30 & 85.52 & 76.67 & 85.35 \\
 isolation & 20.32 & 89.98 & 17.21 & 89.17 & 68.21 & 88.96 \\
 rel. $p_{T}$ cuts & 18.51 & 91.10 & 15.67 & 91.06 & 62.17 & 91.14 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 18.42 & 99.53 & 15.59 & 99.51 & 61.87 & 99.52 \\
+$m_{\gamma\gamma}$ cuts & 18.42 & 99.53 & 15.59 & 99.51 & 61.87 & 99.52 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{32.01} & \multicolumn{2}{c}{31.16} & \multicolumn{2}{c}{30.84}\\
 \bottomrule
@@ -353,6 +338,7 @@ Efficiency(\%) & \multicolumn{2}{c}{32.01} & \multicolumn{2}{c}{31.16} & \multic
 \end{table}
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $gg\to ZH$ Signal MC. Events are weighted}
 \label{tab:cutflow_ggZH}
 \begin{tabular}{lrr  rr  rr}
@@ -368,13 +354,13 @@ GRL & 9.69 & 100.00 & 8.40 & 100.00 & 33.74 & 100.00 \\
 Pass trigger & 8.13 & 83.98 & 7.03 & 83.62 & 28.06 & 83.15 \\
 Detector DQ & 8.13 & 100.00 & 7.03 & 100.00 & 28.06 & 100.00 \\
 Has PV & 8.13 & 100.00 & 7.03 & 100.00 & 28.06 & 100.00 \\
-2 loose photons & 6.08 & 74.69 & 5.22 & 74.24 & 20.83 & 74.25 \\
-$e-\gamma$ ambiguity & 6.08 & 100.00 & 5.22 & 100.00 & 20.78 & 99.78 \\
+2 loose $\gamma$s & 6.08 & 74.69 & 5.22 & 74.24 & 20.83 & 74.25 \\
+$e$-$\gamma$ ambiguity & 6.08 & 100.00 & 5.22 & 100.00 & 20.78 & 99.78 \\
 Trigger match & 5.57 & 91.60 & 4.80 & 91.94 & 19.09 & 91.85 \\
 tight ID & 4.83 & 86.71 & 4.12 & 85.88 & 16.30 & 85.38 \\
 isolation & 4.41 & 91.45 & 3.75 & 90.95 & 14.81 & 90.88 \\
 rel. $p_{T}$ cuts & 3.96 & 89.65 & 3.35 & 89.44 & 13.32 & 89.90 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 3.94 & 99.47 & 3.33 & 99.44 & 13.24 & 99.44 \\
+$m_{\gamma\gamma}$ cuts & 3.94 & 99.47 & 3.33 & 99.44 & 13.24 & 99.44 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{40.63} & \multicolumn{2}{c}{39.65} & \multicolumn{2}{c}{39.26} \\
 \bottomrule
@@ -383,6 +369,7 @@ Efficiency(\%) & \multicolumn{2}{c}{40.63} & \multicolumn{2}{c}{39.65} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $t\bar{t}H$ Signal MC. Events are weighted}
 \label{tab:cutflow_ttH}
 \begin{tabular}{lrr  rr  rr}
@@ -398,13 +385,13 @@ GRL & 40.54 & 100.00 & 35.17 & 100.00 & 141.22 & 100.00 \\
 Pass trigger & 34.88 & 86.05 & 30.12 & 85.65 & 119.55 & 84.65 \\
 Detector DQ & 34.88 & 100.00 & 30.12 & 100.00 & 119.55 & 100.00 \\
 Has PV & 34.88 & 100.00 & 30.12 & 100.00 & 119.55 & 100.00 \\
-2 loose photons & 26.41 & 75.70 & 22.68 & 75.31 & 90.78 & 75.94 \\
-$e-\gamma$ ambiguity & 26.41 & 100.00 & 22.68 & 100.00 & 90.61 & 99.82 \\
+2 loose $\gamma$s & 26.41 & 75.70 & 22.68 & 75.31 & 90.78 & 75.94 \\
+$e$-$\gamma$ ambiguity & 26.41 & 100.00 & 22.68 & 100.00 & 90.61 & 99.82 \\
 Trigger match & 23.64 & 89.52 & 20.45 & 90.17 & 81.55 & 90.00 \\
 tight ID & 20.04 & 84.76 & 17.13 & 83.77 & 68.20 & 83.63 \\
 isolation & 16.95 & 84.61 & 14.36 & 83.80 & 57.08 & 83.69 \\
 rel. $p_{T}$ cuts & 15.34 & 90.47 & 12.99 & 90.50 & 51.69 & 90.55 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 15.16 & 98.87 & 12.84 & 98.83 & 51.07 & 98.81 \\
+$m_{\gamma\gamma}$ cuts & 15.16 & 98.87 & 12.84 & 98.83 & 51.07 & 98.81 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{37.32} & \multicolumn{2}{c}{36.53} & \multicolumn{2}{c}{36.16} \\
 \bottomrule
@@ -413,6 +400,7 @@ Efficiency(\%) & \multicolumn{2}{c}{37.32} & \multicolumn{2}{c}{36.53} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $b\bar{b}H$ Signal MC. Events are weighted}
 \label{tab:cutflow_bbH}
 \begin{tabular}{lrr  rr  rr}
@@ -428,13 +416,13 @@ GRL & 37.47 & 100.00 & 32.51 & 100.00 & 130.52 & 100.00 \\
 Pass trigger & 26.56 & 70.90 & 22.49 & 69.20 & 89.62 & 68.66 \\
 Detector DQ & 26.56 & 100.00 & 22.49 & 100.00 & 89.62 & 100.00 \\
 Has PV & 26.56 & 100.00 & 22.49 & 100.00 & 89.62 & 100.00 \\
-2 loose photons & 22.45 & 84.53 & 18.67 & 83.02 & 75.32 & 84.05 \\
-$e-\gamma$ ambiguity & 22.45 & 100.00 & 18.67 & 100.00 & 75.12 & 99.74 \\
+2 loose $\gamma$s & 22.45 & 84.53 & 18.67 & 83.02 & 75.32 & 84.05 \\
+$e$-$\gamma$ ambiguity & 22.45 & 100.00 & 18.67 & 100.00 & 75.12 & 99.74 \\
 Trigger match & 20.07 & 89.38 & 16.68 & 89.32 & 67.55 & 89.91 \\
 tight ID & 17.73 & 88.35 & 14.31 & 85.79 & 58.10 & 86.01 \\
 isolation & 16.26 & 91.69 & 12.96 & 90.58 & 52.39 & 90.18 \\
 rel. $p_{T}$ cuts & 15.30 & 94.13 & 12.14 & 93.68 & 49.25 & 94.02 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 15.30 & 99.97 & 12.14 & 99.97 & 49.24 & 99.97 \\
+$m_{\gamma\gamma}$ cuts & 15.30 & 99.97 & 12.14 & 99.97 & 49.24 & 99.97 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{40.83} & \multicolumn{2}{c}{37.35} & \multicolumn{2}{c}{37.70} \\
 \bottomrule
@@ -443,6 +431,7 @@ Efficiency(\%) & \multicolumn{2}{c}{40.83} & \multicolumn{2}{c}{37.35} & \multic
 
 
 \begin{table}[!htbp]
+\centering
 \caption{Selection cutflow in $\gamma\gamma$+jets Background MC. Events are weighted}
 \label{tab:cutflow_yyjets}
 \begin{tabular}{lrr  rr  rr}
@@ -458,13 +447,13 @@ GRL & 1096616.73 & 100.00 & 941148.91 & 100.00 & 3497177.85 & 100.00 \\
 Pass trigger & 1047880.91 & 95.56 & 895758.15 & 95.18 & 3482339.05 & 99.58 \\
 Detector DQ & 1047880.91 & 100.00 & 895758.15 & 100.00 & 3482339.05 & 100.00 \\
 Has PV & 1047880.91 & 100.00 & 895758.15 & 100.00 & 3482339.05 & 100.00 \\
-2 loose photons & 807943.92 & 77.10 & 688376.01 & 76.85 & 2706833.26 & 77.73 \\
-$e-\gamma$ ambiguity & 807943.92 & 100.00 & 688376.01 & 100.00 & 2697451.67 & 99.65 \\
+2 loose $\gamma$s & 807943.92 & 77.10 & 688376.01 & 76.85 & 2706833.26 & 77.73 \\
+$e$-$\gamma$ ambiguity & 807943.92 & 100.00 & 688376.01 & 100.00 & 2697451.67 & 99.65 \\
 Trigger match & 628563.10 & 77.80 & 534270.66 & 77.61 & 2105108.34 & 78.04 \\
 tight ID & 551271.59 & 87.70 & 464333.38 & 86.91 & 1830583.38 & 86.96 \\
 isolation & 452763.60 & 82.13 & 379321.00 & 81.69 & 1489304.13 & 81.36 \\
 rel. $p_{T}$ cuts & 393607.37 & 86.93 & 330259.17 & 87.07 & 1297703.68 & 87.13 \\
-$m_{\gamma\gamma} \in [105,160]$~GeV & 222795.22 & 56.60 & 187632.87 & 56.81 & 741243.50 & 57.12 \\
+$m_{\gamma\gamma}$ cuts & 222795.22 & 56.60 & 187632.87 & 56.81 & 741243.50 & 57.12 \\
 \midrule
 Efficiency(\%) & \multicolumn{2}{c}{14.76} & \multicolumn{2}{c}{14.35} & \multicolumn{2}{c}{14.06} \\
 \bottomrule
@@ -472,7 +461,7 @@ Efficiency(\%) & \multicolumn{2}{c}{14.76} & \multicolumn{2}{c}{14.35} & \multic
 \end{table}
 
 
-The Number of Data and MC Events in 168 \ifb after the full selection are summarized in Table ~\ref{tab:yield_compare}
+The Number of Data and MC Events in 168 \ifb after the full selection is summarised in Table ~\ref{tab:yield_compare}.
 
 \begin{table}[!htbp]
 \centering
@@ -497,17 +486,17 @@ data & 280376 & 256835 & 995431 & 1532642 \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 
 \subsection{Object selection and fiducial region definition at particle level}
 \label{sec:fiducial}
 In order to minimise the model dependence introduced by the extrapolation
 from the phase space region selected by the kinematic and isolation criteria of
-the selection as well as by the detector acceptance to the phase space region
-in which the cross sections are measured, fiducial measurements are performed
+the selection, as well as by the detector acceptance to the phase space region
+in which the cross-sections are measured, fiducial measurements are performed
 in a phase space volume which is as close as possible to that selected by the
-detector-level criteria. The following particle-level selection criteria are
+detector level criteria. The following particle level selection criteria are
 applied.
-
 
 Only stable final state particles are considered at particle level.
 These are identified by requiring ${\texttt{status}=1}$ and
@@ -537,34 +526,22 @@ The type of each particle is represented by its PdgId.
 These photons are selected after the kinematic photon cuts have been applied.
 
 \vspace{0.4cm}
-\textbf{Isolated photons} ~\hspace{0.2cm}~ As in previous Higgs to diphoton cross section measurements, a particle level photon isolation is applied in order to reduce the model dependence of the isolation requirements.
-The motivation for using particle level isolation and the method for choosing the cut is discussed further in Appendix~\ref{sec:truthiso}. 
-The isolation energy, $E^\text{iso}_\text{T}$ of a particle-level photon is calculated as the transverse energy, \ET of the four-vector sum of all charged particles which have $\pt>~\SI{1}{GeV}$ within a cone of $\Delta R = 0.2$ around the photon. The event is discarded if at least one of the two selected photons fails the requirement $E^\text{iso}_\text{T} <  0.05\pt$.
+\textbf{Isolated photons} ~\hspace{0.2cm}~ As in previous Higgs to diphoton cross-section measurements, a photon isolation requirement is applied at particle level to reduce model dependence in the measurement. The motivation for using particle level isolation and the method for choosing the cut is further discussed in Appendix~\ref{sec:truthiso}. The isolation energy, $E^\text{iso}_\text{T}$ of a particle-level photon is calculated as the transverse energy, \ET of the four-vector sum of all charged particles with $\pt>~\SI{1}{GeV}$ and $\Delta R < 0.2$ to the photon. The event is discarded if at least one of the two photons fails the requirement $E^\text{iso}_\text{T} <  0.05\pt$.
 %\colorbox{yellow}{To be re-checked for Run 3.}
 
-The `diphoton` fiducial region is defined by the presence of two isolated photons in the final state with transverse momenta greater than 35\% and 25\% of the diphoton invariant mass, respectively. 
+The `diphoton` fiducial region is defined by the presence of two isolated photons in the final state with transverse momenta greater than 35\% of the diphoton invariant mass for the leading photon and 25\% for the subleading photon.
 
-The definion of additional categories need additional objects that follow the below particle-level selections:
+The definitions of the additional event categories require additional objects passing the below particle level selections:
 
 \begin{itemize}
-\item  Leptons are defined from all electrons and muons that are not produced during hadronisation. The
-prompt leptons are dressed by adding the four-momenta of stable photons within $\Delta R < 0.1 $. Selected
-electrons (muons) are required to pass the kinematic selection of $p_{T}>15$~GeV and $|\eta|<2.47$
-($|\eta|< 2.7$ for muons). Electrons are rejected if they pass through the barrel–endcap transition region
-$1.37 < |\eta| < 1.52$, or if their distance from a selected photon is $\Delta R<0.4$. No isolation requirement
-is applied.
+\item  Leptons are defined from all electrons and muons that are not produced during hadronisation. The prompt leptons are dressed by adding the four-momenta of stable photons within $\Delta R < 0.1 $. Selected electrons (muons) are required to pass the kinematic selection of $p_{T}>15$~GeV and $|\eta|<2.47$ ($|\eta|< 2.7$ for muons). Electrons are rejected if they pass through the barrel-endcap transition region ($1.37 < |\eta| < 1.52$), or if their distance from a selected photon is less than $0.4$. No isolation requirement is applied.
 
-\item Jets are defined by clustering all stable particles using the anti-$k_t$ algorithm with a radius parameter
-$R=0.4$. The clustering algorithm excludes prompt leptons and Higgs boson decay products.
-Selected jets are required to have transverse momentum $p_{T}>30$~GeV and rapidity $|y| <4.4$.
-Selected jets are required to be well separated from photons with $p_{T} > 15$~GeV ($\Delta R > 0.4$) and
-electrons ($\Delta R > 0.2$ ). Leading and sub-leading jets are defined as the ones with the largest and
-second-largest transverse momenta.
+\item Jets are defined by clustering all stable particles using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. The clustering algorithm excludes prompt leptons and Higgs boson decay products. Selected jets are required to have $p_{T}>30$~GeV and $|y| <4.4$. Selected jets are required to be well separated from photons with $p_{T} > 15$~GeV ($\Delta R > 0.4$) and electrons ($\Delta R > 0.2$). Leading and subleading jets are defined as the ones with the largest and second-largest transverse momenta.
 
-\item $b$-jets are defined from selected central jets ($|\eta|<2.5$) if there is a $b$-hadron with $p_{T} >  5$~GeV within
-  $\Delta R = 0.4$ of the jet axis.
+\item Jets are defined by clustering all stable particles using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. The clustering algorithm excludes prompt leptons and Higgs boson decay products. Selected jets are required to have $p_{T}>30$~GeV and $|y| <4.4$. Selected jets are required to be well separated from photons with $p_{T} > 15$~GeV ($\Delta R > 0.4$) and electrons ($\Delta R > 0.2$).
 
-\item Missing transverse momentum  is defined as the vector sum of the transverse momenta of
-  all neutrinos that do not originate from the decay of a hadron.
+\item $b$-jets are defined from selected central jets ($|\eta|<2.5$) if there is a $b$-hadron with $p_{T} >  5$~GeV within $\Delta R = 0.4$ of the jet axis.
+
+\item Missing transverse momentum  is defined as the vector sum of the transverse momenta of all neutrinos that do not originate from the decays of hadrons.
 
 \end{itemize}
