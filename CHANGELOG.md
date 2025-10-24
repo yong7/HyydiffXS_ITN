@@ -14,6 +14,20 @@ Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ---
 
+## [15.16.0] - 2025-10-24
+
+### Added
+
+- October update of publications.
+- Some additions to MC23 snippets.
+
+### Removed
+
+- Clean up text referring to old versions of ATLAS LaTeX to make documentation clearer.
+- Remove references to when a change was introduced in many places to make documentation easier to read.
+
+---
+
 ## [15.15.0] - 2025-10-01
 
 ### Added
