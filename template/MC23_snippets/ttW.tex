@@ -1,10 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%              ttV                    %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section[\ttV production]{\ttV production}
-\label{subsec:ttV}
+\section[\ttW production]{\ttW production}
+\label{subsec:ttW}
 
-This section describes the MC samples used for the modelling of \ttV (\(V=W/Z\)) production.
+\textbf{NOT UPDATED}
+
+This section describes the MC samples used for the modelling of \ttW (\(V=W/Z\)) production.
 \Cref{subsubsec:ttV_aMCP8} describes the \MGNLOPY[8] samples,
 and \cref{subsubsec:ttV_sherpa} describes the \SHERPA samples.
 (NOTE: this section is not frozen as the \SHERPA samples are likely to be updated and become the nominal samples in the near future.)
@@ -18,7 +20,7 @@ and \cref{subsubsec:ttV_sherpa} describes the \SHERPA samples.
 The descriptions below correspond to the samples in \cref{tab:ttV_aMCP8,tab:ttV_aMCP8_addRad}.
 
 \begin{table}[htbp]
-  \caption{Nominal \ttV samples produced with \MGNLOPY[8].}%
+  \caption{Nominal \ttW samples produced with \MGNLOPY[8].}%
   \label{tab:ttV_aMCP8}
   \centering
   \begin{tabular}{l l}
@@ -39,7 +41,7 @@ The descriptions below correspond to the samples in \cref{tab:ttV_aMCP8,tab:ttV_
 \end{table}
 
 \begin{table}[htbp]
-  \caption{\ttV samples produced with \MGNLOPY[8] used to estimate initial-state radiation systematic uncertainties.}%
+  \caption{\ttW samples produced with \MGNLOPY[8] used to estimate initial-state radiation systematic uncertainties.}%
   \label{tab:ttV_aMCP8_addRad}
   \centering
   \begin{tabular}{l l}
@@ -64,7 +66,7 @@ The descriptions below correspond to the samples in \cref{tab:ttV_aMCP8,tab:ttV_
 
 \paragraph{Short description:}
 
-The production of \ttV\ events was modelled using the
+The production of \ttW\ events was modelled using the
 \MGNLO[2.3.3]~\cite{Alwall:2014hca} generator at NLO with the
 \NNPDF[3.0nlo]~\cite{Ball:2014uwa} parton distribution function~(PDF).
 The events were interfaced to \PYTHIA[8.210]~\cite{Sjostrand:2014zea}
@@ -79,7 +81,7 @@ up/down variations of the A14 tune were employed.
 
 \paragraph{Long description:}
 
-The production of \ttV events was modelled using the \MGNLO[2.3.3]
+The production of \ttW events was modelled using the \MGNLO[2.3.3]
 \cite{Alwall:2014hca} generator, which provided matrix elements at
 next-to-leading order~(NLO) in the strong coupling constant \alphas
 with the \NNPDF[3.0nlo]~\cite{Ball:2014uwa} parton distribution
@@ -108,7 +110,7 @@ uncertainties were estimated from variations of \alphas and the renormalisation 
 factorisation scales.
 
 The uncertainty due to initial-state radiation (ISR) was estimated by
-comparing the nominal \ttV sample with two additional samples, which
+comparing the nominal \ttW sample with two additional samples, which
 have the same settings as the nominal one, but employed the Var3c up or down
 variation of the A14 tune, which corresponds
 to the variation of \alphas for initial-state radiation
@@ -129,7 +131,7 @@ were evaluated using the 100 replicas of the \NNPDF[3.0nlo] set.
 The descriptions below correspond to the samples in \cref{tab:ttV_sherpa}.
 
 \begin{table}[htbp]
-  \caption{\ttV samples produced with \SHERPA.}%
+  \caption{\ttW samples produced with \SHERPA.}%
   \label{tab:ttV_sherpa}
   \centering
   \begin{tabular}{l l}
@@ -145,12 +147,12 @@ The descriptions below correspond to the samples in \cref{tab:ttV_sherpa}.
 
 \paragraph{Description:}
 
-Additional \ttV samples were produced with the
+Additional \ttW samples were produced with the
 \SHERPA[2.2.0]~\cite{Bothmann:2019yzt} generator at LO accuracy, using
 the \MEPSatLO set-up~\cite{Catani:2001cc,Hoeche:2009rj} with up to one
 additional parton for the \ttll sample and two additional partons for the
 others. A dynamic renormalisation scale was used and is defined
-similarly to that of the nominal \ttV samples. The CKKW matching
+similarly to that of the nominal \ttW samples. The CKKW matching
 scale of the additional emissions was set to \qty{30}{\GeV}. The default
 \SHERPA[2.2.0] parton shower was used along with the
 \NNPDF[3.0nnlo]~\cite{Ball:2014uwa} PDF set.

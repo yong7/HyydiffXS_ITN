@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%              ttZ                    %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[\ttZ production]{\ttZ production}
+\label{subsec:ttZ}
+
+This section describes the two possible sets of nominal and systematic MC samples used for the modelling of \ttZ production.
+\Cref{subsubsec:ttZ_aMCP8} describes the samples used if \MGNLO is taken as nominal,
+while \cref{subsubsec:ttZ_sherpa} describes the set of samples needed with \SHERPA nominal.
+
+\subsection[aMC@NLO]{\MGNLO}
+\label{subsubsec:ttZ_aMCP8}
+
+\paragraph{Samples}
+
+The descriptions below correspond to the samples in \cref{tab:ttZ_aMCP8_nominal,tab:ttZ_aMCP8_systematic}.
+
+\begin{table}[htbp]
+  \tiny
+  \caption{The nominal \ttZ samples produced with \MGNLOPY[8] along with their cross sections, generator filter efficiencies and k-factors.}
+  \label{tab:ttZ_aMCP8_nominal}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    DSID.physicsShort.e-tag                                       & crossSection [pb]    &   genFiltEff & kFactor \\
+    \midrule
+    522024.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttee\_run3.e8558       & 0.041465999999999996 & 1.000000E+00 &     1.0 \\
+    522028.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttmumu\_run3.e8558     & 0.041465999999999996 & 1.000000E+00 &     1.0 \\
+    522032.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_tttautau\_run3.e8558   & 0.041129             & 1.000000E+00 &     1.0 \\
+    522036.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttZqq\_run3.e8558      & 0.59299              & 1.000000E+00 &     1.0 \\
+    522040.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttZnunu\_run3.e8558    & 0.17403000000000002  & 1.000000E+00 &     1.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \tiny
+  \caption{The systematic \MGNLO \ttZ samples along with their cross sections, generator filter efficiencies and k-factors.}
+  \label{tab:ttZ_aMCP8_systematic}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+                                                    DSID.physicsShort.e-tag &         crossSection [pb] &   genFiltEff & kFactor \\
+    \midrule
+
+                522023.aMCH7EG\_NNPDF30NLO\_H723UE\_ttee\_run3.e8558 &             0.041427 & 1.000000E+00 &     1.0 \\
+ 522025.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttee\_A14Var3cDown\_r3.e8558 & 0.041465999999999996 & 1.000000E+00 &     1.0 \\
+ 522026.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttee\_A14Var3cUp\_run3.e8558 & 0.041467000000000004 & 1.000000E+00 &     1.0 \\
+              522027.aMCH7EG\_NNPDF30NLO\_H723UE\_ttmumu\_run3.e8558 & 0.041433000000000005 & 1.000000E+00 &     1.0 \\
+ 522029.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttmumu\_A14Var3cDownr3.e8558 & 0.041467000000000004 & 1.000000E+00 &     1.0 \\
+ 522030.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttmumu\_A14Var3cUp\_r3.e8558 & 0.041467000000000004 & 1.000000E+00 &     1.0 \\
+            522031.aMCH7EG\_NNPDF30NLO\_H723UE\_tttautau\_run3.e8558 &             0.041156 & 1.000000E+00 &     1.0 \\
+ 522033.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_tttautau\_A14Var3cDor3.e8558 &             0.041129 & 1.000000E+00 &     1.0 \\
+ 522034.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_tttautau\_A14Var3cUpr3.e8558 &             0.041129 & 1.000000E+00 &     1.0 \\
+               522035.aMCH7EG\_NNPDF30NLO\_H723UE\_ttZqq\_run3.e8558 &              0.59514 & 1.000000E+00 &     1.0 \\
+522037.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttZqq\_A14Var3cDown\_r3.e8558 &              0.59298 & 1.000000E+00 &     1.0 \\
+522038.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttZqq\_A14Var3cUp\_run3.e8558 &              0.59298 & 1.000000E+00 &     1.0 \\
+             522039.aMCH7EG\_NNPDF30NLO\_H723UE\_ttZnunu\_run3.e8558 &              0.17466 & 1.000000E+00 &     1.0 \\
+  522041.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttZnunu\_A14Var3cDor3.e8558 &  0.17403000000000002 & 1.000000E+00 &     1.0 \\
+  522042.aMCPy8EG\_NNPDF30NLO\_A14N23LO\_ttZnunu\_A14Var3cUpr3.e8558 &  0.17403000000000002 & 1.000000E+00 &     1.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Description:}
+
+The associated production of a top-quark-antiquark pair with a $Z$ boson is modelled using the \MGNLO[3.5.1]~\cite{Alwall:2014hca} generator which provides matrix elements at next-to-leading order~(NLO) in the strong coupling constant \alphas with the \NNPDF[3.0nlo]~\cite{Ball:2014uwa} set of parton distribution functions~(PDF).
+The functional form of the renormalization and factorization scales (\muR, \muF) is set to the default dynamical scale of $0.5 \times \sum_i \sqrt{m^2_i+p^2_{T,i}}$, where the sum runs over all the particles generated from the matrix element calculation.
+Five-flavour scheme is used and the top-quark mass is set to 172.5~\GeV.
+Top quarks are decayed at LO using \MADSPIN~\cite{Frixione:2007zp,Artoisenet:2012st} to preserve all spin correlations.
+The events are interfaced with \PYTHIA[8.309]~\cite{Sjostrand:2014zea} to model the parton shower, hadronization and underlying event, with parameters set according to the \texttt{A14} tune~\cite{ATL-PHYS-PUB-2014-021} and using the \NNPDF[2.3lo]~\cite{Ball:2014uwa}  PDF set.
+Matrix element corrections~\cite{Frixione:2023hwz} are applied in the decay.
+The decays of bottom and charm hadrons are simulated using the \EVTGEN[2.1.1]~\cite{Lange:2001uf} program.
+Five \ttZ samples are generated, each targeting different $Z$-boson decay: $t\bar{t}Z, Z\rightarrow q\bar{q}; \, t\bar{t}Z, Z\rightarrow \nu\bar{\nu}; \, t\bar{t}e^+e^-; \, t\bar{t}\mu^+\mu^-$ and $t\bar{t}\tau^+\tau^-$.
+In the \ttll samples, the contributions from $\gamma^* \rightarrow \ell^+\ell^-$ and $Z/\gamma^*$ interference are considered and the dilepton invariant mass has to be larger than \qty{5}{GeV}.
+In the \tttautau sample, the contributions from diagrams with the Higgs boson are removed.
+
+Three other sets of \MGNLO \ttZ samples are used for evaluation of theoretical systematic uncertainties.
+First set uses \HERWIG[7.2.3]~\cite{Bahr:2008pv,Bellm:2015jjp} with the \texttt{H7.2-Default} tune for parton shower and hadronization instead of \PYTHIA[8.309] used in the nominal \ttZ samples.
+Two additional samples are generated for each of the nominal \ttZ samples using the same generators but with up and down variation of the \texttt{Var3c} parameter in the \texttt{A14} tune.
+The \texttt{Var3c} variations represent variations of the strong coupling constant $\alpha_S$ applied to the modelling of initial-state radiation.
+Thus, \texttt{Var3c} samples provide alternative description of initial-state radiation.
+
+The uncertainty associated to the \MGNLO modelling of the matrix elements is assessed from the comparison to the \ttll samples simulated with \SHERPA[2.2.14]~\cite{Bothmann:2019yzt} generator which include matrix elements with up to one additional jet at NLO accuracy in QCD (\ttll+0,1j@NLO).
+
+\subsection[Sherpa]{\SHERPA}
+\label{subsubsec:ttZ_sherpa}
+
+\paragraph{Samples}
+
+The descriptions below correspond to the samples in \cref{tab:ttZ_sherpa_nominal,tab:ttZ_sherpa_systematic}.
+
+\begin{table}[htbp]
+  \tiny
+  \caption{Nominal \SHERPA \ttZ samples along with their cross sections, generator filter efficiencies and k-factors.}
+  \label{tab:ttZ_sherpa_nominal}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    DSID.physicsShort.e-tag &         crossSection [pb] &   genFiltEff & kFactor \\
+    \midrule
+    701274.Sh\_22\_ttll\_2LFilter.e8532 &      0.13985 & 3.029878E-01 &     1.0 \\
+    701275.Sh\_22\_ttll\_3LFilter.e8532 &      0.13985 & 3.387935E-01 &     1.0 \\
+    701276.Sh\_22\_ttll\_4LFilter.e8532 &      0.13985 & 2.335237E-01 &     1.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+  \tiny
+  \caption{Systematic \SHERPA \ttZ samples along with their cross sections, generator filter efficiencies and k-factors.}
+  \label{tab:ttZ_sherpa_systematic}
+  \centering
+  \begin{tabular}{llll}
+    \toprule
+    DSID.physicsShort.e-tag &         crossSection [pb] &   genFiltEff & kFactor \\
+    \midrule
+  701265.Sh\_22\_ttll\_Lund\_2LFilter.e8532 &      0.13116 & 3.085533E-01 &     1.0 \\
+  701266.Sh\_22\_ttll\_Lund\_3LFilter.e8532 &      0.13117 & 3.391188E-01 &     1.0 \\
+  701267.Sh\_22\_ttll\_Lund\_4LFilter.e8532 &      0.13116 & 2.249852E-01 &     1.0 \\
+  701268.Sh\_22\_ttll\_muQ4\_2LFilter.e8532 &      0.12254 & 3.024066E-01 &     1.0 \\
+  701269.Sh\_22\_ttll\_muQ4\_3LFilter.e8532 &      0.12254 & 3.391488E-01 &     1.0 \\
+  701270.Sh\_22\_ttll\_muQ4\_4LFilter.e8532 &      0.12254 & 2.344624E-01 &     1.0 \\
+701271.Sh\_22\_ttll\_muQ025\_2LFilter.e8532 &      0.13922 & 3.032485E-01 &     1.0 \\
+701272.Sh\_22\_ttll\_muQ025\_3LFilter.e8532 &      0.13922 & 3.392351E-01 &     1.0 \\
+701273.Sh\_22\_ttll\_muQ025\_4LFilter.e8532 &      0.13922 & 2.334579E-01 &     1.0 \\
+701277.Sh\_22\_ttll\_Qcut20\_2LFilter.e8532 &      0.14204 & 3.028943E-01 &     1.0 \\
+701278.Sh\_22\_ttll\_Qcut20\_3LFilter.e8532 &       0.1419 & 3.389068E-01 &     1.0 \\
+701279.Sh\_22\_ttll\_Qcut20\_4LFilter.e8532 &      0.14192 & 2.334064E-01 &     1.0 \\
+701280.Sh\_22\_ttll\_Qcut40\_2LFilter.e8532 &      0.13017 & 3.029746E-01 &     1.0 \\
+701281.Sh\_22\_ttll\_Qcut40\_3LFilter.e8532 &      0.13017 & 3.391668E-01 &     1.0 \\
+701282.Sh\_22\_ttll\_Qcut40\_4LFilter.e8532 &      0.13017 & 2.337607E-01 &     1.0 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Description:}
+
+The associated production of a top-quark-antiquark pair with a $Z$ boson decaying into a charged lepton pair is simulated with \SHERPA[2.2.14]~\cite{Bothmann:2019yzt} generator.
+\SHERPA \ttll samples cover matrix elements with up to one additional jet at next-to-leading order~(NLO) accuracy in QCD (\ttll+0,1j@NLO).
+Electroweak corrections can be included via dedicated weights.
+The \NNPDF[3.0nnlo]~\cite{Ball:2014uwa} PDF set is used. 
+The renormalization and factorization scales (\muR, \muF) are set to $0.5 \times \sum_i \sqrt{m^2_i+p^2_{T,i}}$, where the sum runs over all the particles generated from the matrix element calculation.
+Off-shell contributions down to \qty{5}{GeV} in the invariant mass of the lepton pair are included.
+Matrix elements are merged with the \SHERPA parton shower~\cite{Schumann:2007mg} using the \MEPSatNLO prescription~\cite{Hoeche:2012yf} with a merging scale of 30~\GeV.
+\SHERPA[2.2.14] \ttll samples are filtered based on lepton multiciplity.
+
+Additional samples with varied \SHERPA settings are used to assess systematic uncertainties related to \ttll modelling with \SHERPA.
+The merging scale is varied to 20~\GeV and 40~\GeV.
+The uncertainty due to the choice of the resummation scale $\mu_{Q}$ is assessed using samples with $\mu_{Q}=0.25$ and $\mu_{Q}=4$ instead of $\mu_{Q}=1$ used nominally.
+Dedicated samples which use the Lund string model~\cite{Andersson:1983ia,Sjostrand:1984ic} instead of the nominal cluster model~\cite{Winter:2003tt} are used to evaluate the uncertainty due to the choice of hadronization model.
+
+The uncertainty associated to the modelling of the parton shower is assesed from the comparison of \MGNLO[3.5.1]~\cite{Alwall:2014hca} \ttZ samples showered with \PYTHIA[8.309]~\cite{Sjostrand:2014zea} and \HERWIG[7.2.3]~\cite{Bahr:2008pv,Bellm:2015jjp}.
+
