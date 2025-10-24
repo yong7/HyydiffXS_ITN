@@ -60,10 +60,11 @@ Events are selected if thet pass either a diphoton trigger or single photon trig
 \begin{table}[!htbp]
   \centering
   \scriptsize
+  \caption{The corresponding GRL and luminosity for each year}
   \begin{tabular}{clc}
     %\hline\hline
     \toprule
-    Year & GRL & Luminosity (\ifb) \\
+    Year & GRL & $\mathcal{L}_\text{int}$ (\ifb) \\
     \hline
     2022 & \texttt{\tiny data22\_13p6TeV.periodAllYear\_DetStatus-v109-pro28-04\_MERGED\_PHYS\_StandardGRL\_All\_Good\_25ns\_ignore\_TRIGLAR.xml} & 29.05 \\
    %\hline
@@ -74,24 +75,21 @@ Events are selected if thet pass either a diphoton trigger or single photon trig
     Total  & -  & 165.69\\    
     \bottomrule
   \end{tabular}
-  \caption{The corresponding GRL and luminosity for each year}
   \label{tab:lumi_grl}
 \end{table} 
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{c|c}
+    \caption{The di-photon trigger used by this analysis for each year.}
+    \begin{tabular}{c c}
       \toprule
-        Year & trigger \\
+        Year & Trigger \\
         \hline
         2022 & \texttt{HLT\_g35\_medium\_g25\_medium\_L12EM20VH} \\
-        \hline
         2023 & \texttt{HLT\_g35\_medium\_g25\_medium\_L12eEM24L} \\
-        \hline
         2024 & \texttt{HLT\_g35\_medium\_g25\_medium\_L12eEM24L} \\
         \bottomrule
     \end{tabular}
-    \caption{The di-photon trigger used by this analysis for each year.}
     \label{tab:trig}
 \end{table}
 
@@ -133,6 +131,7 @@ criterion~\cite{Frixione:1998jh}. Samples were generated using the
 \NNPDF[3.0nnlo] PDF set~\cite{Ball:2014uwa}, along with the dedicated set of tuned
 parton-shower parameters developed by the \SHERPA authors.
 
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
 \begin{table}[!htbp]
   \centering
@@ -145,8 +144,8 @@ parton-shower parameters developed by the \SHERPA authors.
     \toprule
     Process & DSID & Generator (ME+PS) & PDF (ME) & PDF+Tune & \multicolumn{3}{c}{Events} \\
             &      &                   &          &          & MC23a & MC23d & MC23e \\
-    %\hline
-    \midrule
+    \hline
+    % \midrule
     ggF              & 602421 & Powheg NNLOPS + Pythia & PDF4LHC21 & A14NNPDF23LO & 4.46M  & 4.46M  & 11.45M  \\
     VBF              & 601482 & Powheg+Pythia          & PDF4LHC21 & A14NNPDF23LO & 2.19M  & 2.19M  & 5.45M  \\
     $W^+H$           & 601484 & Powheg MINLO+Pythia    & PDF4LHC21 & A14NNPDF23LO & 0.30M & 0.30M & 0.61M \\
@@ -203,7 +202,7 @@ of tuned parameters~\cite{Bellm:2015jjp,Bellm:2020epjc} and the \MMHT[lo] PDF se
     \toprule
     Process & DSID & Generator (ME+PS) & PDF (ME) & PDF+Tune & \multicolumn{3}{c}{Events} \\
             &      &                   &          &          & MC23a & MC23d & MC23e \\
-    \midrule
+    \hline
     ggF              & 604315 & Powheg NNLOPS + Herwig & PDF4LHC21 & H7UE & 4.46M  & 4.45M  & 11.45M  \\
     VBF              & 604318 & Powheg+Herwig          & PDF4LHC21 & H7UE & 2.2M  & 2.19M  & 5.45M  \\
     $W^+H$           & 604312 & Powheg MINLO+Herwig    & PDF4LHC21 & H7UE & 0.29M & 0.30M & 0.61M \\
@@ -246,23 +245,19 @@ the luminosity of the data to be matched and the Higgs production
 cross sections and branching ratio to diphotons are used to determine
 the normalization factor for each simulated signal sample.
 
-
-
-
 \begin{table}[!htbp]
   \centering
   \caption{SM predictions for the Higgs boson production cross section times diphoton branching ratio.}
   \label{tab:samples:signal_xsecbr}
-  \scriptsize
-  \begin{tabular}{lrll}
+  % \scriptsize
+  \begin{tabular}{l R{3cm} c R{3cm}}
     %\hline
     %\hline
     \toprule
-    Production mode & $\sigma\times BR$ [fb] at $\sqrt{13.6} \TeV$  & accuracy (of $\sigma$) & total events produced in 166~\ifb \\
-    %\hline
-    \midrule
+    Production mode & $\sigma\times BR$ at $\sqrt{13.6}$~\TeV [fb] & Accuracy (of $\sigma$) & Total events in 166~\ifb \\
+    \hline
     ggF              & 118.4259 & N3LO(QCD), NLO(EW)         & 19896 \\
-    VBF              & 9.25025  & approx NNLO(QCD), NLO (EW) &  1554 \\
+    VBF              & 9.25025  & approx. NNLO(QCD), NLO (EW) &  1554 \\
     $W^+H$           & 2.01349  & NNLO(QCD), NLO(EW)         &   338 \\
     $W^-H$           & 1.285728  & NNLO(QCD), NLO(EW)        &   216 \\
     $q\bar{q}\to ZH$ & 1.830301 & NNLO(QCD), NLO(EW)         &   307 \\
