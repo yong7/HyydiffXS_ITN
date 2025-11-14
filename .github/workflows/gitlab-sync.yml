@@ -12,8 +12,6 @@ jobs:
       # 1️⃣ Checkout GitHub main (保留 workflow)
       - name: Checkout GitHub Repo
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # 获取完整历史
 
       # 2️⃣ 设置 GitLab SSH Key
       - name: Setup GitLab SSH Key
@@ -31,10 +29,9 @@ jobs:
       # 4️⃣ 覆盖 GitHub 工作目录，但保留 .github
       - name: Sync files (keep workflow)
         run: |
-          cd $GITHUB_WORKSPACE
-          shopt -s extglob
-          cp -r ../gitlab-src/!(.github) ./
-
+          cd $GITHUB_WORKSPACE  # GitHub 仓库目录
+          # 将 GitLab master 内容覆盖到 GitHub main，排除 .github
+          rsync -av --exclude='.github' ../gitlab-src/ ./
           git add .
           git commit -m "Sync from GitLab master" || echo "No changes"
           git push origin main
