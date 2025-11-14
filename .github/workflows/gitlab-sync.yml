@@ -31,8 +31,8 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE  # GitHub 仓库目录
           git remote set-url origin git@github.com:yong7/HyydiffXS_ITN.git
-          # git config --global user.name "yong7"
-          # git config --global user.email "yong.z@cern.ch"
+          git config --global user.name "yong7"
+          git config --global user.email "yong.z@cern.ch"
           # 将 GitLab master 内容覆盖到 GitHub main，排除 .github
           cp -r gitlab-src/* ./
           git add .
