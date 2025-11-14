@@ -31,7 +31,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE  # GitHub 仓库目录
           # 将 GitLab master 内容覆盖到 GitHub main，排除 .github
-          rsync -av --exclude='.github' ./gitlab-src/ ./
+          rsync -av --exclude='gitlab-src/.git' gitlab-src/ ./
           git add .
           git commit -m "Sync from GitLab master" || echo "No changes"
           git push origin main
