@@ -2,7 +2,7 @@ name: Sync GitLab master to GitHub main
 
 on:
   schedule:
-    - cron: "0 */2 * * *"  # 每 2 小时同步一次
+    - cron: "0 6 * * *"  # 每 天 6点同步一次
   workflow_dispatch:        # 支持手动触发
 
 jobs:
