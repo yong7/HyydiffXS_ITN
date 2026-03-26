@@ -24,4 +24,4 @@ jobs:
           # git config user.name "yong7"
           # git config user.email "yong.z@cern.ch"
           git remote add github git@github.com:yong7/ANA-HIGP-2024-02-INT1.git
-          git push github master:main 
+          git push github master:main --force
