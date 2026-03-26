@@ -19,13 +19,9 @@ jobs:
       # 2️⃣ Clone GitLab
       - name: Clone GitLab
         run: |
-          git clone ssh://git@gitlab.cern.ch:7999/atlas-physics-office/HIGP/ANA-HIGP-2024-02/ANA-HIGP-2024-02-INT1.git repo
+          git clone -b master ssh://git@gitlab.cern.ch:7999/atlas-physics-office/HIGP/ANA-HIGP-2024-02/ANA-HIGP-2024-02-INT1.git repo
           cd repo
-          git checkout master
-
-      # 3️⃣ 推送到 GitHub main
-      - name: Push to GitHub
-        run: |
-          cd repo
+          # git config user.name "yong7"
+          # git config user.email "yong.z@cern.ch"
           git remote add github git@github.com:yong7/ANA-HIGP-2024-02-INT1.git
           git push github master:main 
